@@ -102,6 +102,86 @@
             color: var(--accent);
         }
         
+        /* Modern Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown.active .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 10px 0;
+            margin-top: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+        
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu:before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 20px;
+            width: 12px;
+            height: 12px;
+            background: rgba(30, 30, 30, 0.95);
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(253, 187, 45, 0.1);
+            color: var(--accent);
+            padding-left: 25px;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 8px 0;
+        }
+        
         .menu-btn {
             display: none;
             font-size: 24px;
@@ -322,52 +402,51 @@
             background: var(--accent);
             color: var(--dark);
         }
-            /* 👇 Place the CSS I gave you here */
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-    .project-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-    .project-item img {
-        width: 100%;
-        height: 250px; /* same height for all previews */
-        object-fit: center; /* makes the image crop nicely */
-        display: block;
-        border-radius: 12px;
-        transition: transform 0.3s ease;
-    }
+        .project-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
 
-    .project-item:hover img {
-        transform: scale(1.05);
-    }
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
 
-    .project-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,0.6);
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        text-align: center;
-        padding: 15px;
-    }
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 15px;
+        }
 
-    .project-item:hover .project-overlay {
-        opacity: 1;
-    }
-       
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
         
         /* Contact Section */
         .contact {
@@ -542,11 +621,69 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                width: 100%;
+                margin-top: 10px;
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-menu:before {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown {
+                width: 100%;
+            }
+            
+            .dropdown-toggle {
+                justify-content: space-between;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                width: 100%;
+                margin-top: 10px;
+                background: rgba(30, 30, 30, 0.7);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
             }
             
             .menu-btn {
@@ -576,7 +713,29 @@
                 <div class="nav-links">
                     <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
-                    <a href="#services">Services</a>
+                    
+                    <!-- Modern Dropdown for Services -->
+                    <div class="dropdown">
+                        <a href="#services" class="dropdown-toggle">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#graphic-design" class="dropdown-item">
+                                <i class="fas fa-paint-brush"></i> Graphic Design
+                            </a>
+                            <a href="#web-dev" class="dropdown-item">
+                                <i class="fas fa-code"></i> Web Development
+                            </a>
+                            <a href="#blockchain" class="dropdown-item">
+                                <i class="fas fa-link"></i> Blockchain
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#consulting" class="dropdown-item">
+                                <i class="fas fa-chart-line"></i> Consulting
+                            </a>
+                        </div>
+                    </div>
+                    
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -593,7 +752,7 @@
             <div class="hero-content">
                 <h1>Hello, It's Me</h1>
                 <h2>Artist LEWIS</h2>
-                <h3>I'm a  <span class="typed-text highlight"></span></h3>
+                <h3>I'm a   <span class="typed-text highlight"></span></h3>
                 <p>Please hold your breath as we dive into a world full of creativity with designer Lewis.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
@@ -612,7 +771,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text animate">
-                <h3>Artist, Designer & Web Developer</h3>
+                <h3>Artist, wed developer,graphic designer, blockchain developer,sign langauge interpreter,computer listrace ,Ai developer</h3>
                 <p>Hello, I am Lewis Wanjohi, also known as Lewis. I am a graphics designer, web developer, and blockchain developer based in Nairobi. I am ambitious and have many goals.</p>
                 <p>I have a talent for designing and am a skilled artist. I have worked with Kenyan companies and also as a freelancer.</p>
                 <p>I have collaborated with many clients and hold certificates in graphic design, web development, and blockchain development.</p>
@@ -684,7 +843,7 @@
 </div>
 
 
-              <!-- Project 1: Strawberry Ice Cream -->
+              <!-- Project 2: Strawberry Ice Cream -->
 <div class="project-item animate" data-category="branding">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank">
@@ -698,7 +857,7 @@
     </div>
 </div>
 
-<!-- Project 1: Strawberry Ice Cream -->
+<!-- Project 3: Strawberry Ice Cream -->
 <div class="project-item animate" data-category="branding">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
@@ -714,7 +873,7 @@
 </div>
 
 
-            <!-- Project 2: School Admission -->
+            <!-- Project 4: School Admission -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
@@ -729,7 +888,7 @@
 </div>
 
 
-            <!-- Project 2: School Admission -->
+            <!-- Project 5: School Admission -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
@@ -744,7 +903,7 @@
 </div>
 
 
-         <!-- Project 3: Church Event -->
+         <!-- Project 6: Church Event -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
@@ -759,7 +918,7 @@
 </div>
 
 
-                <!-- Project 3: Church Event -->
+                <!-- Project 7: Church Event -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
@@ -774,7 +933,7 @@
 </div>
 
 
-            <!-- Project 4: Headphones -->
+            <!-- Project 8: Headphones -->
 <div class="project-item animate" data-category="branding">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
@@ -789,7 +948,7 @@
 </div>
 
 
-        <!-- Project 5: Construction -->
+        <!-- Project 9: Construction -->
 <div class="project-item animate" data-category="branding">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank">
@@ -804,7 +963,7 @@
     </div>
 </div>
 
-<!-- Project 6: Health Company -->
+<!-- Project 10: Health Company -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
@@ -818,34 +977,35 @@
     </div>
 </div>
 
-              <!-- Project 7: Restaurant -->
-            <div class="project-item animate" data-category="branding">
-                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank">
-                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" alt="Restaurant">
-                </a>
-                <div class="project-overlay">
-                    <h3>R logo cool</h3>
-                    <p>Brand modern logo</p>
-                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank" class="btn view-project">View Project</a>
-                </div>
-            </div>
+         <!-- Project 11: Restaurant -->
+<div class="project-item animate" data-category="branding">
+    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank">
+        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="Restaurant">
+    </a>
+    <div class="project-overlay">
+        <h3>R Logo Cool</h3>
+        <p>Brand modern logo</p>
+        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank" class="btn view-project">View Project</a>
+    </div>
+</div>
 
+          <!-- Project 12: food menu -->
             <div class="project-item animate" data-category="print">
-                <a href="" target="_blank">
-                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\9808f986b4be468086c89da1f73f923c.jpg" alt="Health Company">
-                </a>
-                <div class="project-overlay">
-                    <h3>Job Vacancy Poster</h3>
-                    <p>Job well arraged poster.</p>
-                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\9808f986b4be468086c89da1f73f923c.jpg" target="_blank" class="btn view-project">View Project</a>
-                </div>
-            </div>
+    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
+        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Food display">
+    </a>
+    <div class="project-overlay">
+        <h3>Menu Display Front</h3>
+        <p>Front display of food.</p>
+        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" class="btn view-project">View Project</a>
+    </div>
+</div>
 
-            
+            <!-- Project 12: Beauty poster -->
     <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Health Company">
+        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty poster">
     </a>
 
     <div class="project-overlay">
@@ -855,11 +1015,11 @@
     </div>
 </div>
 
-
+               <!-- Project 13: Truck Services Poster -->
            <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Health Company">
+        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Poster">
     </a>
 
     <div class="project-overlay">
@@ -869,11 +1029,11 @@
     </div>
 </div>
 
-
+    <!-- Project 14: Food Poster -->
       <div class="project-item animate" data-category="print">
 
     <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank">
-        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Health Company">
+        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Food Poster">
     </a>
 
     <div class="project-overlay">
@@ -885,7 +1045,7 @@
 
 
 
-      <!-- Project 7: Restaurant -->
+      <!-- Project 15 : Restaurant -->
 <div class="project-item animate" data-category="branding">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank">
@@ -900,7 +1060,7 @@
 </div>
 
 
-           <!-- Project 8: Job Hiring -->
+           <!-- Project 16: Job Hiring -->
 <div class="project-item animate" data-category="print">
 
     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
@@ -915,46 +1075,50 @@
 </div>
 
 
-            <!-- Project 8: Job Hiring -->
-            <div class="project-item animate" data-category="print">
-                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
-                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" alt="Job Hiring">
-                </a>
-                <div class="project-overlay">
-                    <h3>Church poster</h3>
-                    <p>church display </p>
-                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
-                </div>
+           <!-- Project 17: Job Hiring -->
+<div class="project-item animate" data-category="print">
+    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank">
+        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" alt="Job Hiring">
+    </a>
 
-        </div>
+    <div class="project-overlay">
+        <h3>CFSK</h3>
+        <p>An institute poster</p>
+        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
+    </div>
+</div>
+
 
         
-            <!-- Project 8: Job Hiring -->
-            <div class="project-item animate" data-category="print">
-                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\IMG-20250824-WA0005.jpg" target="_blank">
-                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\IMG-20250824-WA0005.jpg" alt="Job Hiring">
-                </a>
-                <div class="project-overlay">
-                    <h3>website</h3>
-                    <p>front display website  </p>
-                    <a href="file:///C:/Users/ADMIN/OneDrive/Pictures/Desktop/my%20profile%20website/images/index.html" target="_blank" class="btn view-project">View Project</a>
-                </div>
+           <!-- Project 18: Smoothie Poster -->
+<div class="project-item animate" data-category="print">
 
-                </div>
+    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank">
+        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" alt="Job Hiring">
+    </a>
 
-                 <!-- Project 8: Job Hiring -->
-            <div class="project-item animate" data-category="print">
-                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\WhatsApp Image 2025-09-27 at 18.33.51_af91a97f.jpg" target="_blank">
-                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\WhatsApp Image 2025-09-27 at 18.33.51_af91a97f.jpg" alt="Job Hiring">
-                </a>
-                <div class="project-overlay">
-                    <h3>website</h3>
-                    <p>front display website  </p>
-                    <a href="file:///C:/Users/ADMIN/OneDrive/Pictures/Desktop/my%20profile%20website/images/index.html" class="btn view-project">View Project</a>
-                </div>
+    <div class="project-overlay">
+        <h3>Smoothie</h3>
+        <p>A smoothie is a thick, blended beverage typically made from puréed fruits and vegetables along with a liquid base like milk, juice, or water. They are a convenient and customizable way to pack nutrients, fiber, and flavor into one drink.</p>
 
-        </div>
+        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
     </div>
+
+</div>
+
+
+       <!-- Project 19: Job Hiring -->
+<div class="project-item animate" data-category="print">
+    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank">
+        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="Job Hiring">
+    </a>
+    <div class="project-overlay">
+        <h3>Website</h3>
+        <p>Front display website</p>
+        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" class="btn view-project">View Project</a>
+    </div>
+</div>
+
 </section>
 
 
@@ -1009,7 +1173,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Artist Lewis. All Rights Reserved.</p>
+            <p>&copy; 2025 Artist Lewis. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -1022,15 +1186,63 @@
     </div>
 
     <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Toggle dropdowns
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            });
+            
+            // Mobile menu toggle
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+
         // Project data
         const projects = {
-       1: {
-    title: "Strawberry Ice Cream",
-    category: "Branding",
-    description: "Brand identity design for an ice cream company called 'Strawberry Ice Cream'. The project included logo design, packaging, and promotional materials.",
-    content: "<img src='images/16.jpg/c:\Users\ADMIN\OneDrive\Documents\16.jpg' class='modal-image'><h3>Strawberry Ice Cream</h3><p>Le Team</p><p>ICEELEAM</p><p>This project involved creating a vibrant and appealing brand identity for an ice cream company. The design focuses on freshness and fun, targeting families and young adults.</p><a href='#contact' class='btn'>Order Now</a>"
-},
-
+            1: {
+                title: "Strawberry Ice Cream",
+                category: "Branding",
+                description: "Brand identity design for an ice cream company called 'Strawberry Ice Cream'. The project included logo design, packaging, and promotional materials.",
+                content: "<img src='https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg' class='modal-image'><h3>Strawberry Ice Cream</h3><p>Le Team</p><p>ICEELEAM</p><p>This project involved creating a vibrant and appealing brand identity for an ice cream company. The design focuses on freshness and fun, targeting families and young adults.</p><a href='#contact' class='btn'>Order Now</a>"
+            },
             2: {
                 title: "School Admission",
                 category: "Print",
@@ -1077,7 +1289,7 @@
 
         // Typewriter effect for "I'm a Artist"
         const typedText = document.querySelector('.typed-text');
-        const textArray = ['Artist', 'Designer', 'Illustrator', 'Creative Mind'];
+        const textArray = ['Artist', 'web developer', 'graphic designer', 'blockchain developer', 'sign language interpreter', 'computer literate', 'AI developer'];
         let arrayIndex = 0;
         let charIndex = 0;
 
