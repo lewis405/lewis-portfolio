@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Lewis | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --dark: #121212;
+            --light: #f8f8f8;
+            --gray: #2a2a2a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background-attachment: fixed;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+            animation: fadeIn 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            z-index: 0;
+            opacity: 0.9;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #ccc;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+            /* 👇 Place the CSS I gave you here */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .project-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .project-item img {
+        width: 100%;
+        height: 250px; /* same height for all previews */
+        object-fit: center; /* makes the image crop nicely */
+        display: block;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .project-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .project-item:hover .project-overlay {
+        opacity: 1;
+    }
+       
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            background: var(--dark);
+            margin-top: 60px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 50px 20px;
+        }
+        
+        .modal-content {
+            background: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: var(--light);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                padding: 0 20px;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Portfolio </div>
+                <div class="nav-links">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hello, It's Me</h1>
+                <h2>Artist LEWIS</h2>
+                <h3>I'm a  <span class="typed-text highlight"></span></h3>
+                <p>Please hold your breath as we dive into a world full of creativity with designer Lewis.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Artist Lewis">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text animate">
+                    <h3>Artist & Designer & web developer</h3>
+                    <p>Hello, I am Lewis wanjohi and my nickname is (lewis), I am a  graphics designer,web developer , blockchain developer etc  . I live in Nairobi. I am an ambitious person and I have many goals.</p>
+                    <p> I have a talent for  Designing. I am a skilled artist. I worked in kenyan companies in addition to working as a freelancer.</p>
+                    <p>We are the architects of many clients. In addition, I have certificates in graphic design,web developer , blockchain developer .</p>
+                    <a href="#contact" class="btn">Hire Me</a>
+                </div>
+                <div class="about-image animate">
+                    <img src="c:\Users\ADMIN\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\BA5558F4DC6CA08E242176924887026B\WhatsApp Image 2025-09-27 at 11.02.00_23c8f9fe.jpg" alt="About Nemo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Artist</h3>
+                    <p>Art is an attempt to simulate what is happening on the ground in a way that encourages people to do what is good and terrifies them from doing what is bad.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Get a graphic design that makes you stand out and attract attention in your target market. We work on social media designs, brands, logos, and many other designs.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <p>We give you marketing advice and how to attract customers through trends and attractive designs with reels compatible with your identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Projects Section -->
+<section class="projects" id="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="branding">Posters</button>
+            <button class="filter-btn" data-filter="print">Design</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- Project 1: Strawberry Ice Cream -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Strawberry Ice Cream">
+                </a>
+                <div class="project-overlay">
+                    <h3>Strawberry Ice Cream</h3>
+                    <p>Brand identity for an ice cream company</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+               <!-- Project 1: Strawberry Ice Cream -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\d69b437622b84439a61f061d02b41353.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\d69b437622b84439a61f061d02b41353.jpg" alt="Strawberry Ice Cream">
+                </a>
+                <div class="project-overlay">
+                    <h3>Strawberry Ice Cream</h3>
+                    <p>Brand identity for an ice cream company</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\d69b437622b84439a61f061d02b41353.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            
+               <!-- Project 1: Strawberry Ice Cream -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream">
+                </a>
+                <div class="project-overlay">
+                    <h3>Strawberry Ice Cream</h3>
+                    <p>Brand identity for an ice cream company</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 2: School Admission -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission">
+                </a>
+                <div class="project-overlay">
+                    <h3>School Admission</h3>
+                    <p>Marketing materials for school registration</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+               <!-- Project 2: School Admission -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\126722573e5046e898c9082b7e8304ea.jpg" alt="School Admission">
+                </a>
+                <div class="project-overlay">
+                    <h3>Tour Poster</h3>
+                    <p>Make your company know.</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\126722573e5046e898c9082b7e8304ea.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 3: Church Event -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Event">
+                </a>
+                <div class="project-overlay">
+                    <h3>Church Youth Service</h3>
+                    <p>Promotional design for church event</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+                <!-- Project 3: Church Event -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Church Event">
+                </a>
+                <div class="project-overlay">
+                    <h3>Church Teen Service</h3>
+                    <p>Promotional design for church event</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Headphones -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="Headphones">
+                </a>
+                <div class="project-overlay">
+                    <h3>JBL Headphones</h3>
+                    <p>Product advertisement design</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 5: Construction -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\49f09191b72b401cbf2436b2fcc19bf1.jpg">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction">
+                </a>
+                <div class="project-overlay">
+                    <h3>Building with Trust</h3>
+                    <p>Branding for construction company</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 6: Health Company -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company">
+                </a>
+                <div class="project-overlay">
+                    <h3>Kenya Health Company</h3>
+                    <p>Event promotion for health week</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+              <!-- Project 7: Restaurant -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" alt="Restaurant">
+                </a>
+                <div class="project-overlay">
+                    <h3>R logo cool</h3>
+                    <p>Brand modern logo</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-item animate" data-category="print">
+                <a href="" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\9808f986b4be468086c89da1f73f923c.jpg" alt="Health Company">
+                </a>
+                <div class="project-overlay">
+                    <h3>Job Vacancy Poster</h3>
+                    <p>Job well arraged poster.</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\9808f986b4be468086c89da1f73f923c.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Health Company">
+                </a>
+                <div class="project-overlay">
+                    <h3>Beauty Poster</h3>
+                    <p>Glow with Beauty.</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\b404f440ed124bee98476360a61caff4.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\b404f440ed124bee98476360a61caff4.jpg" alt="Health Company">
+                </a>
+                <div class="project-overlay">
+                    <h3>Truck services Poster</h3>
+                    <p>ETruk travel company.</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\b404f440ed124bee98476360a61caff4.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+             <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Health Company">
+                </a>
+                <div class="project-overlay">
+                    <h3>Food Poster</h3>
+                    <p>Event promotion for health food.</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 7: Restaurant -->
+            <div class="project-item animate" data-category="branding">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" alt="Restaurant">
+                </a>
+                <div class="project-overlay">
+                    <h3>NaanStop Restaurant</h3>
+                    <p>Brand identity for Indian cuisine</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\f8218551a1f848d98db5c57572ab8003.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 8: Job Hiring -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Job Hiring">
+                </a>
+                <div class="project-overlay">
+                    <h3>Circular Hinovatory</h3>
+                    <p>Job posting design</p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 8: Job Hiring -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" alt="Job Hiring">
+                </a>
+                <div class="project-overlay">
+                    <h3>Church poster</h3>
+                    <p>church display </p>
+                    <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
+                </div>
+
+        </div>
+
+        
+            <!-- Project 8: Job Hiring -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\IMG-20250824-WA0005.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\IMG-20250824-WA0005.jpg" alt="Job Hiring">
+                </a>
+                <div class="project-overlay">
+                    <h3>website</h3>
+                    <p>front display website  </p>
+                    <a href="file:///C:/Users/ADMIN/OneDrive/Pictures/Desktop/my%20profile%20website/images/index.html" target="_blank" class="btn view-project">View Project</a>
+                </div>
+
+                </div>
+
+                 <!-- Project 8: Job Hiring -->
+            <div class="project-item animate" data-category="print">
+                <a href="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\WhatsApp Image 2025-09-27 at 18.33.51_af91a97f.jpg" target="_blank">
+                    <img src="c:\Users\ADMIN\OneDrive\Pictures\Desktop\my profile website\images\WhatsApp Image 2025-09-27 at 18.33.51_af91a97f.jpg" alt="Job Hiring">
+                </a>
+                <div class="project-overlay">
+                    <h3>website</h3>
+                    <p>front display website  </p>
+                    <a href="file:///C:/Users/ADMIN/OneDrive/Pictures/Desktop/my%20profile%20website/images/index.html" class="btn view-project">View Project</a>
+                </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-form animate">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Mobile Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Email Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info animate">
+                    <h3>Get In Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> nairobi, </p>
+                    <p><i class="fas fa-phone"></i> 104285997  /  0792316985</p>
+                    <p><i class="fas fa-envelope"></i> Lewiswa205@gmail.com</p>
+                    <p><i class="fab fa-tiktok"></i> @-lewis-</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@g_lewi_?_t=ZM-904Tf5d6ARc&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Artist Lewis. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Project data
+        const projects = {
+       1: {
+    title: "Strawberry Ice Cream",
+    category: "Branding",
+    description: "Brand identity design for an ice cream company called 'Strawberry Ice Cream'. The project included logo design, packaging, and promotional materials.",
+    content: "<img src='images/16.jpg/c:\Users\ADMIN\OneDrive\Documents\16.jpg' class='modal-image'><h3>Strawberry Ice Cream</h3><p>Le Team</p><p>ICEELEAM</p><p>This project involved creating a vibrant and appealing brand identity for an ice cream company. The design focuses on freshness and fun, targeting families and young adults.</p><a href='#contact' class='btn'>Order Now</a>"
+},
+
+            2: {
+                title: "School Admission",
+                category: "Print",
+                description: "Marketing materials for school registration campaign",
+                content: "<img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>School Admission</h3><p>Now open for registrations!</p><p>Work with us in design such design: Jogos, Brand designs, Banners, Flyers, etc.</p><p>This campaign aimed to increase school enrollment through attractive and informative materials that highlight the school's strengths and offerings.</p><a href='#contact' class='btn'>Enrol Now</a>"
+            },
+            3: {
+                title: "Church Youth Service",
+                category: "Print",
+                description: "Promotional design for church youth event",
+                content: "<img src='https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>DELIVERANCE CHURCH GATEWAY</h3><h4>WELCOME TO YOUTH SERVICE</h4><p>SUN, JUL 27</p><p>This design was created to promote a youth service event at Deliverance Church Gateway. The vibrant design aimed to attract young attendees and communicate the energetic nature of the event.</p>"
+            },
+            4: {
+                title: "JBL Headphones",
+                category: "Branding",
+                description: "Product advertisement design for JBL headphones",
+                content: "<img src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>HEADPHONES JBL BLUETOOTH</h3><p>PRICE $70.00</p><p>This advertisement design highlights the premium quality and features of JBL Bluetooth headphones. The clean design focuses on the product while communicating its key selling points.</p>"
+            },
+            5: {
+                title: "Building with Trust",
+                category: "Branding",
+                description: "Branding for construction company",
+                content: "<img src='https://images.unsplash.com/photo-1503387762353-8c6637f89308?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>Building with trust delivering with excellence</h3><h4>Services</h4><ul><li>Bidding architecture plan Construction</li><li>Site engineering and supervising</li><li>Exterior and interior design</li><li>Building renovation</li><li>Supply of building materials</li><li>ETC</li></ul><p>Get our 50% Discount</p><p>CALL: 0792316985<br>VISIT: WWW.GRAPHIX</p>"
+            },
+            6: {
+                title: "Kenya Health Company",
+                category: "Print",
+                description: "Event promotion for health week",
+                content: "<img src='https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>Kenya Health Company</h3><h4>Health WeekTalk</h4><h5>Topics</h5><ul><li>Eye care</li><li>Dental care</li><li>Neonatal jaundice</li><li>Hypertension</li></ul><p>11-15 Jun 2025</p><p>6:30PM EACH NIGHT</p><p>Church Auditorium</p><p>This design promoted a health awareness event featuring talks on various important health topics. The clean, professional design aimed to establish credibility while being accessible to the general public.</p>"
+            },
+            7: {
+                title: "NaanStop Restaurant",
+                category: "Branding",
+                description: "Brand identity for Indian cuisine restaurant",
+                content: "<img src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>NaanStop</h3><p>Authentic Indian Cuisine</p><p>Experience the rich flavors of India with our traditional recipes and modern twist</p><p>This branding project for NaanStop restaurant aimed to communicate the authenticity of the cuisine while appealing to a modern audience. The design incorporates traditional Indian elements with a contemporary style.</p><a href='#contact' class='btn'>Explore Our Menu</a>"
+            },
+            8: {
+                title: "Circular Hinovatory",
+                category: "Print",
+                description: "Job posting design for finance manager position",
+                content: "<img src='https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>CHRISULAR HINOVATORY</h3><h4>WE ARE HIRING!</h4><h5>GROUP FINANCE MANAGER</h5><p>Key Responsibilities include:</p><ul><li>Financial planning and analysis</li><li>Accounting and reporting</li><li>Budgeting and forecasting</li><li>Compliance and risk management</li><li>Team leadership and development</li><li>System management</li></ul><p>This job posting was designed to attract qualified finance professionals by presenting the company as professional and the role as challenging and rewarding.</p><a href='#contact' class='btn'>Apply Now</a>"
+            }
+        };
+
+        // Typewriter effect for "I'm a Artist"
+        const typedText = document.querySelector('.typed-text');
+        const textArray = ['Artist', 'Designer', 'Illustrator', 'Creative Mind'];
+        let arrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[arrayIndex].length) {
+                typedText.textContent += textArray[arrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedText.textContent = textArray[arrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                arrayIndex++;
+                if (arrayIndex >= textArray.length) arrayIndex = 0;
+                setTimeout(type, 1000);
+            }
+        }
+
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Header scroll effect
+        function headerScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get filter value
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Show/hide projects based on filter
+                projectItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project modal
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.querySelector('.close-modal');
+        const viewProjectButtons = document.querySelectorAll('.view-project');
+        
+        viewProjectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.getAttribute('data-project');
+                modalContent.innerHTML = projects[projectId].content;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typedText) type();
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('scroll', headerScroll);
+            checkScroll(); // Check on initial load
+        });
+    </script>
+</body>
+</html>
