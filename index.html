@@ -20,7 +20,7 @@
             --dark: #121212;
             --light: #f8f8f8;
             --gray: #2a2a2a;
-            --red: #c40000;   /* for vault */
+            --red: #c40000;
         }
         
         body {
@@ -372,13 +372,74 @@
             color: #ccc;
         }
         
-        /* Projects Section */
-        .projects {
+        /* Certificates Section */
+        .certificates {
             padding: 100px 0;
             background: rgba(18, 18, 18, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 40px 0;
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .certificate-card {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
+        }
+        
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .certificate-content {
+            padding: 20px;
+        }
+        
+        .certificate-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        
+        .certificate-content p {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        
+        .certificate-content .cert-issuer {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .certificate-content .cert-date {
+            color: #888;
+            font-size: 0.8rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
         }
         
         .projects-filter {
@@ -452,6 +513,10 @@
         /* Contact Section */
         .contact {
             padding: 100px 0;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
         }
         
         .contact-content {
@@ -563,132 +628,6 @@
             transform: translateY(0);
         }
         
-        /* Modal (existing for projects) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 50px 20px;
-        }
-        
-        .modal-content {
-            background: var(--dark);
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: var(--light);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: var(--accent);
-        }
-        
-        .modal-image {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        /* ----- Secure Vault Styles ----- */
-        .vault-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 2100;
-        }
-        
-        .vault-box {
-            background: var(--card, #1b1b1b);
-            width: 100%;
-            max-width: 400px;
-            padding: 30px;
-            border-radius: 12px;
-            border: 2px solid var(--red);
-            text-align: center;
-            animation: fadeIn .3s ease;
-        }
-        
-        .vault-box h2 {
-            margin-top: 0;
-            color: var(--red);
-        }
-        
-        .vault-box input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 6px;
-            border: none;
-        }
-        
-        .vault-box button {
-            padding: 10px 14px;
-            margin: 6px 4px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        .vault-box .primary {
-            background: var(--red);
-            color: white;
-        }
-        
-        .vault-box .secondary {
-            background: #444;
-            color: white;
-        }
-        
-        .file-list {
-            text-align: left;
-            margin-top: 15px;
-        }
-        
-        .file-list h3 {
-            margin-bottom: 5px;
-            color: #ff4d4d;
-        }
-        
-        .upload {
-            margin-top: 15px;
-            padding: 10px;
-            border: 1px dashed var(--red);
-            border-radius: 6px;
-            font-size: 13px;
-        }
-        
-        .error {
-            color: #ff6b6b;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        /* ----------------------------- */
-        
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content {
@@ -793,7 +732,7 @@
     <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">Portfolio </div>
+                <div class="logo">Portfolio</div>
                 <div class="nav-links">
                     <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
@@ -820,10 +759,9 @@
                         </div>
                     </div>
                     
+                    <a href="#certificates">Certificates</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
-                    <!-- New Vault Button -->
-                    <a href="#" id="openVault">🔒 Vault</a>
                 </div>
                 <div class="menu-btn">
                     <i class="fas fa-bars"></i>
@@ -838,7 +776,7 @@
             <div class="hero-content">
                 <h1>Hello, It's Me</h1>
                 <h2>Artist LEWIS</h2>
-                <h3>I'm a   <span class="typed-text highlight"></span></h3>
+                <h3>I'm a <span class="typed-text highlight"></span></h3>
                 <p>Please hold your breath as we dive into a world full of creativity with designer Lewis.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
@@ -852,24 +790,23 @@
     </section>
 
    <!-- About Section -->
-<section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text animate">
-                <h3>Artist, wed developer,graphic designer, blockchain developer,sign langauge interpreter,computer listrace ,Ai developer</h3>
-                <p>Hello, I am Lewis Wanjohi, also known as Lewis. I am a graphics designer, web developer, and blockchain developer based in Nairobi. I am ambitious and have many goals.</p>
-                <p>I have a talent for designing and am a skilled artist. I have worked with Kenyan companies and also as a freelancer.</p>
-                <p>I have collaborated with many clients and hold certificates in graphic design, web development, and blockchain development.</p>
-                <a href="#contact" class="btn">Hire Me</a>
-            </div>
-            <div class="about-image animate">
-                <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg" alt="About Nemo">
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text animate">
+                    <h3>Artist, web developer, graphic designer, blockchain developer, sign language interpreter, computer literate, AI developer</h3>
+                    <p>Hello, I am Lewis Wanjohi, also known as Lewis. I am a graphics designer, web developer, and blockchain developer based in Nairobi. I am ambitious and have many goals.</p>
+                    <p>I have a talent for designing and am a skilled artist. I have worked with Kenyan companies and also as a freelancer.</p>
+                    <p>I have collaborated with many clients and hold certificates in graphic design, web development, and blockchain development.</p>
+                    <a href="#contact" class="btn">Hire Me</a>
+                </div>
+                <div class="about-image animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg" alt="About Lewis">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -901,312 +838,383 @@
         </div>
     </section>
 
-   <!-- Projects Section -->
-<section class="projects" id="projects">
-    <div class="container">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="branding">Posters</button>
-            <button class="filter-btn" data-filter="print">Design</button>
-            <button class="filter-btn" data-filter="web">Web</button>
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <h2 class="section-title">My Certificates</h2>
+            <div class="certificates-grid">
+                
+                <!-- Certificate 1: Web Programming -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/web-development-cert.jpg" alt="Web Programming Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Web+Programming+Certificate'">
+                    <div class="certificate-content">
+                        <h3>Certificate in Web Programming</h3>
+                        <p class="cert-issuer">Equator Institute of Technology</p>
+                        <p>Utawala Campus</p>
+                        <p class="cert-date">Awarded: May 2025</p>
+                        <p>Grade: Distinction</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: Graphic Design -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/graphics-design-cert.jpg" alt="Graphic Design Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Graphic+Design+Certificate'">
+                    <div class="certificate-content">
+                        <h3>Certificate in Graphic Design</h3>
+                        <p class="cert-issuer">CFSK Institute of ICT</p>
+                        <p>Computers for Schools Kenya</p>
+                        <p class="cert-date">Modules: Intro to Graphic Design (B), Adobe Photoshop (A), Adobe Illustrator (A)</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: AI & ML Foundation -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ai-ml-foundation-cert.jpg" alt="AI & ML Foundation Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=AI+%26+ML+Foundation'">
+                    <div class="certificate-content">
+                        <h3>Foundation in AI & Machine Learning</h3>
+                        <p class="cert-issuer">University of Nairobi - KITI</p>
+                        <p>Kenya Inclusivity in Tech Initiative</p>
+                        <p class="cert-date">Completed: March 8, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 4: AI & ML Intermediate -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ai-ml-intermediate-cert.jpg" alt="AI & ML Intermediate Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=AI+%26+ML+Intermediate'">
+                    <div class="certificate-content">
+                        <h3>Intermediate AI & Machine Learning</h3>
+                        <p class="cert-issuer">University of Nairobi - KITI</p>
+                        <p>Kenya Inclusivity in Tech Initiative</p>
+                        <p class="cert-date">Completed: May 28, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 5: Blockchain Foundation -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/blockchain-foundation-cert.jpg" alt="Blockchain Foundation Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Foundation'">
+                    <div class="certificate-content">
+                        <h3>Foundation in Blockchain</h3>
+                        <p class="cert-issuer">University of Nairobi - KITI</p>
+                        <p>Kenya Inclusivity in Tech Initiative</p>
+                        <p class="cert-date">Completed: September 8, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 6: Blockchain Intermediate -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/blockchain-intermediate-cert.jpg" alt="Blockchain Intermediate Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Intermediate'">
+                    <div class="certificate-content">
+                        <h3>Intermediate Blockchain</h3>
+                        <p class="cert-issuer">University of Nairobi - KITI</p>
+                        <p>Kenya Inclusivity in Tech Initiative</p>
+                        <p class="cert-date">Completed: January 21, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 7: Blockchain Advanced -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/blockchain-advanced-cert.jpg" alt="Blockchain Advanced Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Advanced'">
+                    <div class="certificate-content">
+                        <h3>Advanced Blockchain</h3>
+                        <p class="cert-issuer">University of Nairobi - KITI</p>
+                        <p>Kenya Inclusivity in Tech Initiative</p>
+                        <p class="cert-date">Completed: June 16, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 8: HubSpot Social Media Marketing -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/social-media-cert.jpg" alt="Social Media Marketing Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Social+Media+Marketing'">
+                    <div class="certificate-content">
+                        <h3>Social Media Marketing Certified</h3>
+                        <p class="cert-issuer">HubSpot Academy</p>
+                        <p>Inbound Social Media Strategy</p>
+                        <p class="cert-date">Valid: Jun 1, 2026 - Jun 30, 2028</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 9: HubSpot Inbound Marketing -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/inbound-cert.jpg" alt="Inbound Marketing Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Inbound+Marketing'">
+                    <div class="certificate-content">
+                        <h3>Inbound Certified</h3>
+                        <p class="cert-issuer">HubSpot Academy</p>
+                        <p>Inbound Methodology & Flywheel Business Model</p>
+                        <p class="cert-date">Valid: May 26, 2026 - Jun 24, 2028</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 10: KCPE -->
+                <div class="certificate-card animate">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kcpe-cert.jpg" alt="KCPE Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=KCPE+Certificate'">
+                    <div class="certificate-content">
+                        <h3>KCPE Certificate</h3>
+                        <p class="cert-issuer">The Kenya National Examinations Council</p>
+                        <p>C & J Mt. Carmel School</p>
+                        <p class="cert-date">Year: 2020 | Total: 296 Marks</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-        <div class="projects-grid">
-
-            <!-- Project 1: Strawberry Ice Cream -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Strawberry Ice Cream</h3>
-        <p>Brand identity for an ice cream company</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-              <!-- Project 2: Strawberry Ice Cream -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" alt="Strawberry Ice Cream">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Strawberry Ice Cream</h3>
-        <p>Brand identity for an ice cream company</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-<!-- Project 3: Strawberry Ice Cream -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Strawberry Ice Cream">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Strawberry Ice Cream</h3>
-        <p>Brand identity for an ice cream company</p>
-
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-            <!-- Project 4: School Admission -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission">
-    </a>
-
-    <div class="project-overlay">
-        <h3>School Admission</h3>
-        <p>Marketing materials for school registration</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-            <!-- Project 5: School Admission -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" alt="School Admission">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Tour Poster</h3>
-        <p>Make your company know.</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-         <!-- Project 6: Church Event -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Event">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Church Youth Service</h3>
-        <p>Promotional design for church event</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-                <!-- Project 7: Church Event -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Church Event">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Church Teen Service</h3>
-        <p>Promotional design for church event</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-            <!-- Project 8: Headphones -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="Headphones">
-    </a>
-
-    <div class="project-overlay">
-        <h3>JBL Headphones</h3>
-        <p>Product advertisement design</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-        <!-- Project 9: Construction -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Building with Trust</h3>
-        <p>Branding for construction company</p>
-        
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-<!-- Project 10: Health Company -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Kenya Health Company</h3>
-        <p>Event promotion for health week</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-         <!-- Project 11: Restaurant -->
-<div class="project-item animate" data-category="branding">
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="Restaurant">
-    </a>
-    <div class="project-overlay">
-        <h3>R Logo Cool</h3>
-        <p>Brand modern logo</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-          <!-- Project 12: food menu -->
-            <div class="project-item animate" data-category="print">
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Food display">
-    </a>
-    <div class="project-overlay">
-        <h3>Menu Display Front</h3>
-        <p>Front display of food.</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-            <!-- Project 12: Beauty poster -->
-    <div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty poster">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Beauty Poster</h3>
-        <p>Glow with Beauty.</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-               <!-- Project 13: Truck Services Poster -->
-           <div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Poster">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Truck Services Poster</h3>
-        <p>ETruk travel company.</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-    <!-- Project 14: Food Poster -->
-      <div class="project-item animate" data-category="print">
-
-    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank">
-        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Food Poster">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Food Poster</h3>
-        <p>Event promotion for health food.</p>
-        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-
-      <!-- Project 15 : Restaurant -->
-<div class="project-item animate" data-category="branding">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" alt="Restaurant">
-    </a>
-
-    <div class="project-overlay">
-        <h3>NaanStop Restaurant</h3>
-        <p>Brand identity for Indian cuisine</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-           <!-- Project 16: Job Hiring -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Job Hiring Poster">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Job Hiring Poster</h3>
-        <p>Creative design for a job posting circular to attract potential candidates.</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-           <!-- Project 17: Job Hiring -->
-<div class="project-item animate" data-category="print">
-    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank">
-        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" alt="Job Hiring">
-    </a>
-
-    <div class="project-overlay">
-        <h3>CFSK</h3>
-        <p>An institute poster</p>
-        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-
-        
-           <!-- Project 18: Smoothie Poster -->
-<div class="project-item animate" data-category="print">
-
-    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank">
-        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" alt="Job Hiring">
-    </a>
-
-    <div class="project-overlay">
-        <h3>Smoothie</h3>
-        <p>A smoothie is a thick, blended beverage typically made from puréed fruits and vegetables along with a liquid base like milk, juice, or water. They are a convenient and customizable way to pack nutrients, fiber, and flavor into one drink.</p>
-
-        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
-    </div>
-
-</div>
-
-
-       <!-- Project 19: Job Hiring -->
-<div class="project-item animate" data-category="print">
-    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank">
-        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="Job Hiring">
-    </a>
-    <div class="project-overlay">
-        <h3>Website</h3>
-        <p>Front display website</p>
-        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" class="btn view-project">View Project</a>
-    </div>
-</div>
-
-</section>
-
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="branding">Posters</button>
+                <button class="filter-btn" data-filter="print">Design</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Project 1: Strawberry Ice Cream -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Strawberry Ice Cream</h3>
+                        <p>Brand identity for an ice cream company</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" alt="Strawberry Ice Cream">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Strawberry Ice Cream</h3>
+                        <p>Brand identity for an ice cream company</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Strawberry Ice Cream">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Strawberry Ice Cream</h3>
+                        <p>Brand identity for an ice cream company</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: School Admission -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>School Admission</h3>
+                        <p>Marketing materials for school registration</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Poster">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Tour Poster</h3>
+                        <p>Make your company known</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Church Event -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Event">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Church Youth Service</h3>
+                        <p>Promotional design for church event</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Church Event">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Church Teen Service</h3>
+                        <p>Promotional design for church event</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 8: Headphones -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="Headphones">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>JBL Headphones</h3>
+                        <p>Product advertisement design</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 9: Construction -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Building with Trust</h3>
+                        <p>Branding for construction company</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 10: Health Company -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Kenya Health Company</h3>
+                        <p>Event promotion for health week</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 11: Restaurant -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="Restaurant">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>R Logo Cool</h3>
+                        <p>Brand modern logo</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 12: Food Menu -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Food Display">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Menu Display Front</h3>
+                        <p>Front display of food</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 13: Beauty Poster -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Poster">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Beauty Poster</h3>
+                        <p>Glow with Beauty</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 14: Truck Services Poster -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Poster">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Truck Services Poster</h3>
+                        <p>ETruk travel company</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 15: Food Poster -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Food Poster">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Food Poster</h3>
+                        <p>Event promotion for health food</p>
+                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 16: Restaurant -->
+                <div class="project-item animate" data-category="branding">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" alt="Restaurant">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>NaanStop Restaurant</h3>
+                        <p>Brand identity for Indian cuisine</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 17: Job Hiring -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Job Hiring Poster">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Job Hiring Poster</h3>
+                        <p>Creative design for a job posting circular to attract potential candidates</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 18 -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" alt="CFSK">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>CFSK</h3>
+                        <p>An institute poster</p>
+                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 19: Smoothie -->
+                <div class="project-item animate" data-category="print">
+                    <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" alt="Smoothie">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Smoothie</h3>
+                        <p>A smoothie is a thick, blended beverage typically made from puréed fruits and vegetables</p>
+                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 20: Website -->
+                <div class="project-item animate" data-category="web">
+                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="Website">
+                    </a>
+                    <div class="project-overlay">
+                        <h3>Website</h3>
+                        <p>Front display website</p>
+                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" class="btn view-project">View Project</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1240,15 +1248,15 @@
                 </div>
                 <div class="contact-info animate">
                     <h3>Get In Touch</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> nairobi, </p>
-                    <p><i class="fas fa-phone"></i> 104285997  /  0792316985</p>
-                    <p><i class="fas fa-envelope"></i> Lewiswa205@gmail.com</p>
-                    <p><i class="fab fa-tiktok"></i> @-lewis-</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    <p><i class="fas fa-phone"></i> 0792316985</p>
+                    <p><i class="fas fa-envelope"></i> lewiswanjohi68@gmail.com</p>
+                    <p><i class="fab fa-tiktok"></i> @g_lewi_</p>
                     
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@g_lewi_?_t=ZM-904Tf5d6ARc&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.tiktok.com/@g_lewi_?_t=ZM-904Tf5d6ARc&_r=1" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
                     </div>
                 </div>
@@ -1262,19 +1270,6 @@
             <p>&copy; 2025 Artist Lewis. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Project Modals -->
-    <div class="modal" id="project-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="modal-content"></div>
-        </div>
-    </div>
-
-    <!-- Secure Vault Modal -->
-    <div class="vault-modal" id="secureVaultModal">
-        <div class="vault-box" id="vaultBox"></div>
-    </div>
 
     <script>
         // Dropdown functionality
@@ -1326,61 +1321,9 @@
             });
         });
 
-        // Project data
-        const projects = {
-            1: {
-                title: "Strawberry Ice Cream",
-                category: "Branding",
-                description: "Brand identity design for an ice cream company called 'Strawberry Ice Cream'. The project included logo design, packaging, and promotional materials.",
-                content: "<img src='https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg' class='modal-image'><h3>Strawberry Ice Cream</h3><p>Le Team</p><p>ICEELEAM</p><p>This project involved creating a vibrant and appealing brand identity for an ice cream company. The design focuses on freshness and fun, targeting families and young adults.</p><a href='#contact' class='btn'>Order Now</a>"
-            },
-            2: {
-                title: "School Admission",
-                category: "Print",
-                description: "Marketing materials for school registration campaign",
-                content: "<img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>School Admission</h3><p>Now open for registrations!</p><p>Work with us in design such design: Jogos, Brand designs, Banners, Flyers, etc.</p><p>This campaign aimed to increase school enrollment through attractive and informative materials that highlight the school's strengths and offerings.</p><a href='#contact' class='btn'>Enrol Now</a>"
-            },
-            3: {
-                title: "Church Youth Service",
-                category: "Print",
-                description: "Promotional design for church youth event",
-                content: "<img src='https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>DELIVERANCE CHURCH GATEWAY</h3><h4>WELCOME TO YOUTH SERVICE</h4><p>SUN, JUL 27</p><p>This design was created to promote a youth service event at Deliverance Church Gateway. The vibrant design aimed to attract young attendees and communicate the energetic nature of the event.</p>"
-            },
-            4: {
-                title: "JBL Headphones",
-                category: "Branding",
-                description: "Product advertisement design for JBL headphones",
-                content: "<img src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>HEADPHONES JBL BLUETOOTH</h3><p>PRICE $70.00</p><p>This advertisement design highlights the premium quality and features of JBL Bluetooth headphones. The clean design focuses on the product while communicating its key selling points.</p>"
-            },
-            5: {
-                title: "Building with Trust",
-                category: "Branding",
-                description: "Branding for construction company",
-                content: "<img src='https://images.unsplash.com/photo-1503387762353-8c6637f89308?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>Building with trust delivering with excellence</h3><h4>Services</h4><ul><li>Bidding architecture plan Construction</li><li>Site engineering and supervising</li><li>Exterior and interior design</li><li>Building renovation</li><li>Supply of building materials</li><li>ETC</li></ul><p>Get our 50% Discount</p><p>CALL: 0792316985<br>VISIT: WWW.GRAPHIX</p>"
-            },
-            6: {
-                title: "Kenya Health Company",
-                category: "Print",
-                description: "Event promotion for health week",
-                content: "<img src='https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>Kenya Health Company</h3><h4>Health WeekTalk</h4><h5>Topics</h5><ul><li>Eye care</li><li>Dental care</li><li>Neonatal jaundice</li><li>Hypertension</li></ul><p>11-15 Jun 2025</p><p>6:30PM EACH NIGHT</p><p>Church Auditorium</p><p>This design promoted a health awareness event featuring talks on various important health topics. The clean, professional design aimed to establish credibility while being accessible to the general public.</p>"
-            },
-            7: {
-                title: "NaanStop Restaurant",
-                category: "Branding",
-                description: "Brand identity for Indian cuisine restaurant",
-                content: "<img src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>NaanStop</h3><p>Authentic Indian Cuisine</p><p>Experience the rich flavors of India with our traditional recipes and modern twist</p><p>This branding project for NaanStop restaurant aimed to communicate the authenticity of the cuisine while appealing to a modern audience. The design incorporates traditional Indian elements with a contemporary style.</p><a href='#contact' class='btn'>Explore Our Menu</a>"
-            },
-            8: {
-                title: "Circular Hinovatory",
-                category: "Print",
-                description: "Job posting design for finance manager position",
-                content: "<img src='https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80' class='modal-image'><h3>CHRISULAR HINOVATORY</h3><h4>WE ARE HIRING!</h4><h5>GROUP FINANCE MANAGER</h5><p>Key Responsibilities include:</p><ul><li>Financial planning and analysis</li><li>Accounting and reporting</li><li>Budgeting and forecasting</li><li>Compliance and risk management</li><li>Team leadership and development</li><li>System management</li></ul><p>This job posting was designed to attract qualified finance professionals by presenting the company as professional and the role as challenging and rewarding.</p><a href='#contact' class='btn'>Apply Now</a>"
-            }
-        };
-
-        // Typewriter effect for "I'm a Artist"
+        // Typewriter effect
         const typedText = document.querySelector('.typed-text');
-        const textArray = ['Artist', 'web developer', 'graphic designer', 'blockchain developer', 'sign language interpreter', 'computer literate', 'AI developer'];
+        const textArray = ['Artist', 'Web Developer', 'Graphic Designer', 'Blockchain Developer', 'Sign Language Interpreter', 'Computer Literate', 'AI Developer'];
         let arrayIndex = 0;
         let charIndex = 0;
 
@@ -1443,16 +1386,11 @@
         
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
                 button.classList.add('active');
                 
-                // Get filter value
                 const filterValue = button.getAttribute('data-filter');
                 
-                // Show/hide projects based on filter
                 projectItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
@@ -1463,263 +1401,12 @@
             });
         });
 
-        // Project modal
-        const modal = document.getElementById('project-modal');
-        const modalContent = document.getElementById('modal-content');
-        const closeModal = document.querySelector('.close-modal');
-        const viewProjectButtons = document.querySelectorAll('.view-project');
-        
-        viewProjectButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const projectId = button.getAttribute('data-project');
-                modalContent.innerHTML = projects[projectId].content;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // ----- Secure Vault Code -----
-        const vaultModal = document.getElementById("secureVaultModal");
-        const vaultBox = document.getElementById("vaultBox");
-        const openVaultBtn = document.getElementById("openVault");
-
-        let lockTimer;
-        let unlockState = false;
-        let failedAttempts = 0;
-        let lockoutUntil = 0;
-
-        // Helper: generate random salt
-        function generateSalt() {
-            const arr = new Uint8Array(16);
-            crypto.getRandomValues(arr);
-            return Array.from(arr, b => b.toString(16).padStart(2,'0')).join('');
-        }
-
-        // Hash password with SHA-256
-        async function hashPassword(password, salt) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password + salt);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
-        }
-
-        // Open vault modal
-        openVaultBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            vaultModal.style.display = "flex";
-            renderVault();
-        });
-
-        // Close vault modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === vaultModal) {
-                vaultModal.style.display = "none";
-            }
-        });
-
-        // Render vault state
-        async function renderVault() {
-            const storedHash = localStorage.getItem("vaultHash");
-            const storedSalt = localStorage.getItem("vaultSalt");
-
-            if (unlockState && storedHash && storedSalt) {
-                showVaultContent();
-                return;
-            }
-
-            if (!storedHash || !storedSalt) {
-                vaultBox.innerHTML = `
-                <h2>Create Vault Password</h2>
-                <input type="password" id="newPass" placeholder="Enter new password">
-                <div class="error" id="passStrength"></div>
-                <button class="primary" onclick="savePassword()">Save Password</button>
-                `;
-                document.getElementById("newPass")?.addEventListener("input", checkStrength);
-            } else {
-                const now = Date.now();
-                if (now < lockoutUntil) {
-                    const wait = Math.ceil((lockoutUntil - now)/1000);
-                    vaultBox.innerHTML = `
-                    <h2>🔒 Too many attempts</h2>
-                    <p>Locked out for ${wait} seconds.</p>
-                    <button class="primary" onclick="renderVault()">Retry</button>
-                    `;
-                    return;
-                }
-                vaultBox.innerHTML = `
-                <h2>Enter Vault Password</h2>
-                <input type="password" id="enterPass" placeholder="Enter password">
-                <div class="error" id="loginError"></div>
-                <button class="primary" onclick="unlockVault()">Unlock</button>
-                `;
-                failedAttempts = 0;
-            }
-        }
-
-        // Password strength indicator
-        function checkStrength() {
-            const pass = document.getElementById("newPass").value;
-            const strengthEl = document.getElementById("passStrength");
-            let strength = "Weak";
-            if (pass.length >= 8 && /[A-Z]/.test(pass) && /[0-9]/.test(pass) && /[^A-Za-z0-9]/.test(pass)) {
-                strength = "Strong";
-            } else if (pass.length >= 6) {
-                strength = "Medium";
-            }
-            strengthEl.textContent = `Strength: ${strength}`;
-        }
-
-        // Save new password
-        window.savePassword = async function() {
-            const pass = document.getElementById("newPass").value;
-            if (pass.length < 4) {
-                alert("Password must be at least 4 characters.");
-                return;
-            }
-            const salt = generateSalt();
-            const hash = await hashPassword(pass, salt);
-            localStorage.setItem("vaultSalt", salt);
-            localStorage.setItem("vaultHash", hash);
-            alert("Password Created Successfully!");
-            unlockState = false;
-            renderVault();
-        };
-
-        // Unlock vault
-        window.unlockVault = async function() {
-            const entered = document.getElementById("enterPass").value;
-            const storedSalt = localStorage.getItem("vaultSalt");
-            const storedHash = localStorage.getItem("vaultHash");
-            if (!storedSalt || !storedHash) {
-                alert("No vault found. Create one first.");
-                renderVault();
-                return;
-            }
-            const hash = await hashPassword(entered, storedSalt);
-            const errorEl = document.getElementById("loginError");
-            if (hash === storedHash) {
-                unlockState = true;
-                failedAttempts = 0;
-                lockoutUntil = 0;
-                showVaultContent();
-                startAutoLock();
-            } else {
-                failedAttempts++;
-                if (failedAttempts >= 5) {
-                    lockoutUntil = Date.now() + 60000;
-                    renderVault();
-                } else {
-                    errorEl.textContent = `Incorrect password (${failedAttempts}/5 attempts)`;
-                }
-            }
-        };
-
-        // Show vault content
-        function showVaultContent() {
-            vaultBox.innerHTML = `
-            <h2>🔓 Vault Access Granted</h2>
-            <div class="file-list">
-                <h3>Private Files</h3>
-                <p>✔ Client Confidential Designs</p>
-                <p>✔ Premium Logo Archive</p>
-                <p>✔ Upcoming Brand Concepts</p>
-            </div>
-            <div class="upload">
-                <strong>Admin Upload Area</strong><br>
-                <input type="file">
-                <p>(Demo only — files are not stored)</p>
-            </div>
-            <button class="secondary" onclick="changePassword()">Change Password</button>
-            <button class="secondary" onclick="logout()">Logout</button>
-            `;
-        }
-
-        // Change password screen
-        window.changePassword = function() {
-            vaultBox.innerHTML = `
-            <h2>Change Password</h2>
-            <input type="password" id="newChangePass" placeholder="New password">
-            <div class="error" id="changeStrength"></div>
-            <button class="primary" onclick="updatePassword()">Update</button>
-            <button class="secondary" onclick="showVaultContent()">Cancel</button>
-            `;
-            document.getElementById("newChangePass")?.addEventListener("input", (e) => {
-                const pass = e.target.value;
-                const strengthEl = document.getElementById("changeStrength");
-                let strength = "Weak";
-                if (pass.length >= 8 && /[A-Z]/.test(pass) && /[0-9]/.test(pass) && /[^A-Za-z0-9]/.test(pass)) {
-                    strength = "Strong";
-                } else if (pass.length >= 6) {
-                    strength = "Medium";
-                }
-                strengthEl.textContent = `Strength: ${strength}`;
-            });
-        };
-
-        // Update password
-        window.updatePassword = async function() {
-            const newPass = document.getElementById("newChangePass").value;
-            if (newPass.length < 4) {
-                alert("Minimum 4 characters required.");
-                return;
-            }
-            const newSalt = generateSalt();
-            const newHash = await hashPassword(newPass, newSalt);
-            localStorage.setItem("vaultSalt", newSalt);
-            localStorage.setItem("vaultHash", newHash);
-            alert("Password Updated Successfully!");
-            showVaultContent();
-        };
-
-        // Logout
-        window.logout = function() {
-            unlockState = false;
-            clearTimeout(lockTimer);
-            vaultModal.style.display = "none";
-        };
-
-        // Auto-lock after 1 minute
-        function startAutoLock() {
-            clearTimeout(lockTimer);
-            lockTimer = setTimeout(() => {
-                if (unlockState) {
-                    alert("Vault Locked Automatically");
-                    unlockState = false;
-                    vaultModal.style.display = "none";
-                }
-            }, 60000);
-        }
-
-        // Reset auto-lock on activity inside vault
-        vaultBox.addEventListener("click", () => {
-            if (unlockState) startAutoLock();
-        });
-        vaultBox.addEventListener("keydown", () => {
-            if (unlockState) startAutoLock();
-        });
-
-        // Make renderVault available globally for buttons
-        window.renderVault = renderVault;
-
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             if (typedText) type();
             window.addEventListener('scroll', checkScroll);
             window.addEventListener('scroll', headerScroll);
-            checkScroll(); // Check on initial load
+            checkScroll();
         });
     </script>
 </body>
