@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Lewis | Portfolio</title>
+    <title>Githaiga Lewis Wanjohi | Portfolio - Artist, Web Developer, AI & Blockchain Specialist</title>
+    <meta name="description" content="Portfolio of Githaiga Lewis Wanjohi - Artist, Web Developer, Graphic Designer, Blockchain Developer, Sign Language Interpreter, and AI Developer based in Nairobi, Kenya.">
+    <meta name="keywords" content="Lewis Wanjohi, Githaiga Lewis, Artist Lewis, Web Developer Kenya, Graphic Designer Nairobi, Blockchain Developer, AI Developer, Sign Language Interpreter, Portfolio">
+    <meta name="author" content="Githaiga Lewis Wanjohi">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Githaiga Lewis Wanjohi | Portfolio">
+    <meta property="og:description" content="Artist, Web Developer, Graphic Designer, Blockchain & AI Developer based in Nairobi, Kenya.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://lewiswanjohi.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
             --primary: #1a2a6c;
             --secondary: #b21f1f;
@@ -22,7 +28,9 @@
             --gray: #2a2a2a;
             --red: #c40000;
         }
-        
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
@@ -31,14 +39,14 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header & Navigation */
+
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             padding: 20px 0;
             position: fixed;
@@ -49,18 +57,18 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
-        
+
         header.scrolled {
             padding: 15px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 28px;
             font-weight: 700;
@@ -68,20 +76,22 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            align-items: center;
         }
-        
+
         .nav-links a {
             color: var(--light);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
             position: relative;
         }
-        
+
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -92,38 +102,35 @@
             background: var(--accent);
             transition: width 0.3s;
         }
-        
+
         .nav-links a:hover:after,
         .nav-links a.active:after {
             width: 100%;
         }
-        
+
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--accent);
         }
-        
-        /* Modern Dropdown Styles */
-        .dropdown {
-            position: relative;
-        }
-        
+
+        .dropdown { position: relative; }
+
         .dropdown-toggle {
             display: flex;
             align-items: center;
             gap: 5px;
             cursor: pointer;
         }
-        
+
         .dropdown-toggle i {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
         }
-        
+
         .dropdown.active .dropdown-toggle i {
             transform: rotate(180deg);
         }
-        
+
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -142,13 +149,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1000;
         }
-        
+
         .dropdown.active .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-        
+
         .dropdown-menu:before {
             content: '';
             position: absolute;
@@ -161,7 +168,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .dropdown-item {
             display: block;
             padding: 12px 20px;
@@ -170,26 +177,26 @@
             transition: all 0.3s ease;
             font-size: 0.95rem;
         }
-        
+
         .dropdown-item:hover {
             background: rgba(253, 187, 45, 0.1);
             color: var(--accent);
             padding-left: 25px;
         }
-        
+
         .dropdown-divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
             margin: 8px 0;
         }
-        
+
         .menu-btn {
             display: none;
             font-size: 24px;
             cursor: pointer;
         }
-        
-        /* Hero Section */
+
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -197,31 +204,41 @@
             padding-top: 80px;
             position: relative;
         }
-        
+
         .hero-content {
             max-width: 600px;
             z-index: 1;
             animation: fadeIn 1s ease;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 10px;
             line-height: 1.2;
         }
-        
+
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--accent);
         }
-        
+
+        .hero h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h3 .typed-text {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.9;
         }
-        
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -234,24 +251,24 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-outline {
             background: transparent;
             border: 2px solid var(--accent);
             color: var(--accent);
             margin-left: 15px;
         }
-        
+
         .btn-outline:hover {
             background: var(--accent);
             color: var(--dark);
         }
-        
+
         .hero-image {
             position: absolute;
             right: 0;
@@ -261,14 +278,14 @@
             z-index: 0;
             opacity: 0.9;
         }
-        
+
         .hero-image img {
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-        
-        /* About Section */
+
+        /* ===== ABOUT SECTION ===== */
         .about {
             padding: 100px 0;
             background: rgba(18, 18, 18, 0.8);
@@ -276,14 +293,14 @@
             border-radius: 20px;
             margin: 40px 0;
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 60px;
             position: relative;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
@@ -295,53 +312,70 @@
             background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
             border-radius: 2px;
         }
-        
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
-        
+
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--accent);
         }
-        
+
         .about-text p {
             margin-bottom: 20px;
             font-size: 1.1rem;
         }
-        
+
         .about-image {
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
         }
-        
+
         .about-image:hover {
             transform: translateY(-10px);
         }
-        
+
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
-        /* Services Section */
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(253, 187, 45, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(253, 187, 45, 0.3);
+        }
+
+        /* ===== SERVICES SECTION ===== */
         .services {
             padding: 100px 0;
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .service-card {
             background: rgba(18, 18, 18, 0.8);
             backdrop-filter: blur(10px);
@@ -351,42 +385,134 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .service-icon {
             font-size: 3rem;
             margin-bottom: 20px;
             color: var(--accent);
         }
-        
+
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
-        
+
         .service-card p {
             color: #ccc;
         }
-        
-        /* Certificates Section */
-        .certificates {
+
+        /* ===== RESUME SECTION ===== */
+        .resume {
             padding: 100px 0;
             background: rgba(18, 18, 18, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 40px 0;
         }
-        
+
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .resume-left h3,
+        .resume-right h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(253, 187, 45, 0.3);
+        }
+
+        .resume-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .resume-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .resume-item .date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .resume-item p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .skill-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cv-download .btn {
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+
+        .cv-download .btn i {
+            margin-right: 10px;
+        }
+
+        /* ===== CERTIFICATES SECTION ===== */
+        .certificates {
+            padding: 100px 0;
+        }
+
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        
+
         .certificate-card {
             background: rgba(30, 30, 30, 0.9);
             border-radius: 15px;
@@ -394,54 +520,278 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
-        
+
         .certificate-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border-color: var(--accent);
         }
-        
-        .certificate-image {
+
+        .certificate-image-wrapper {
+            position: relative;
             width: 100%;
             height: 200px;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
-            border-bottom: 2px solid var(--accent);
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
         }
-        
+
+        .certificate-image.loaded {
+            opacity: 1;
+        }
+
+        .certificate-image.blur-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(10px);
+            transform: scale(1.1);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .certificate-image.blur-placeholder.hidden {
+            opacity: 0;
+        }
+
+        .certificate-card:hover .certificate-image.loaded {
+            transform: scale(1.1);
+        }
+
         .certificate-content {
             padding: 20px;
         }
-        
+
         .certificate-content h3 {
             font-size: 1.1rem;
             margin-bottom: 8px;
             color: var(--accent);
         }
-        
+
         .certificate-content p {
             font-size: 0.9rem;
             color: #aaa;
             margin-bottom: 5px;
         }
-        
+
         .certificate-content .cert-issuer {
             color: var(--accent);
             font-weight: 600;
             font-size: 0.85rem;
         }
-        
+
         .certificate-content .cert-date {
             color: #888;
             font-size: 0.8rem;
         }
-        
-        /* Projects Section */
+
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* ===== CERTIFICATE MODAL ===== */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cert-modal.active {
+            display: flex;
+        }
+
+        .cert-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .cert-modal-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .cert-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+
+        .cert-modal-close:hover {
+            color: var(--accent);
+        }
+
+        .cert-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-modal-nav:hover {
+            background: rgba(253, 187, 45, 0.3);
+        }
+
+        .cert-modal-prev { left: -70px; }
+        .cert-modal-next { right: -70px; }
+
+        .cert-modal-info {
+            text-align: center;
+            margin-top: 15px;
+            color: #ccc;
+        }
+
+        .cert-modal-info h3 {
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        /* ===== TRAINING & EVENTS SECTION ===== */
+        .training {
+            padding: 100px 0;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .training-card {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .training-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent);
+        }
+
+        .training-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .training-content {
+            padding: 25px;
+        }
+
+        .training-content .training-tag {
+            display: inline-block;
+            background: rgba(253, 187, 45, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .training-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .training-content .training-org {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .training-content .training-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .training-content p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .training-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .training-gallery img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .training-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== PROJECTS SECTION ===== */
         .projects {
             padding: 100px 0;
         }
-        
+
         .projects-filter {
             display: flex;
             justify-content: center;
@@ -449,7 +799,7 @@
             gap: 15px;
             margin-bottom: 40px;
         }
-        
+
         .filter-btn {
             padding: 8px 20px;
             background: transparent;
@@ -458,13 +808,15 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
         }
-        
+
         .filter-btn.active, .filter-btn:hover {
             background: var(--accent);
             color: var(--dark);
         }
-        
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -504,13 +856,14 @@
             transition: opacity 0.3s ease;
             text-align: center;
             padding: 15px;
+            border-radius: 12px;
         }
 
         .project-item:hover .project-overlay {
             opacity: 1;
         }
-        
-        /* Contact Section */
+
+        /* ===== CONTACT SECTION ===== */
         .contact {
             padding: 100px 0;
             background: rgba(18, 18, 18, 0.8);
@@ -518,13 +871,13 @@
             border-radius: 20px;
             margin: 40px 0;
         }
-        
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        
+
         .contact-form {
             background: rgba(18, 18, 18, 0.8);
             backdrop-filter: blur(10px);
@@ -532,17 +885,17 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -552,34 +905,49 @@
             background: rgba(255, 255, 255, 0.1);
             color: var(--light);
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
         }
-        
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
-        
+
         .contact-info {
             padding: 30px;
         }
-        
+
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--accent);
         }
-        
+
         .contact-info p {
             margin-bottom: 15px;
             font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
+
+        .contact-info p i {
+            color: var(--accent);
+            width: 20px;
+        }
+
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 30px;
         }
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -591,60 +959,92 @@
             color: white;
             font-size: 1.2rem;
             transition: transform 0.3s;
+            text-decoration: none;
         }
-        
+
         .social-link:hover {
             transform: translateY(-5px);
         }
-        
-        /* Footer */
+
+        /* ===== FOOTER ===== */
         footer {
             padding: 30px 0;
             text-align: center;
             background: var(--dark);
             margin-top: 60px;
         }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        footer p {
+            color: #888;
         }
-        
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .animate {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s, transform 0.5s;
         }
-        
+
         .animate.animated {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Responsive Design */
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 992px) {
             .hero-content {
                 max-width: 100%;
                 text-align: center;
                 padding: 0 20px;
             }
-            
+
             .hero-image {
                 display: none;
             }
-            
+
             .about-content,
-            .contact-content {
+            .contact-content,
+            .resume-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .dropdown-menu {
                 position: static;
                 opacity: 1;
@@ -657,16 +1057,25 @@
                 border: none;
                 display: none;
             }
-            
+
             .dropdown.active .dropdown-menu {
                 display: block;
             }
-            
+
             .dropdown-menu:before {
                 display: none;
             }
+
+            .cert-modal-prev { left: 10px; }
+            .cert-modal-next { right: 10px; }
+
+            .cert-modal-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -681,19 +1090,19 @@
                 gap: 15px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .dropdown {
                 width: 100%;
             }
-            
+
             .dropdown-toggle {
                 justify-content: space-between;
             }
-            
+
             .dropdown-menu {
                 position: static;
                 opacity: 1;
@@ -704,80 +1113,102 @@
                 background: rgba(30, 30, 30, 0.7);
                 display: none;
             }
-            
+
             .dropdown.active .dropdown-menu {
                 display: block;
             }
-            
+
             .menu-btn {
                 display: block;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero h2 {
                 font-size: 1.5rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .training-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero h3 {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- ===== HEADER & NAVIGATION ===== -->
     <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">Portfolio</div>
-                <div class="nav-links">
+                <div class="logo">Lewis.</div>
+                <div class="nav-links" id="navLinks">
                     <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
-                    
-                    <!-- Modern Dropdown for Services -->
-                    <div class="dropdown">
-                        <a href="#services" class="dropdown-toggle">
-                            Services <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#graphic-design" class="dropdown-item">
-                                <i class="fas fa-paint-brush"></i> Graphic Design
-                            </a>
-                            <a href="#web-dev" class="dropdown-item">
-                                <i class="fas fa-code"></i> Web Development
-                            </a>
-                            <a href="#blockchain" class="dropdown-item">
-                                <i class="fas fa-link"></i> Blockchain
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#consulting" class="dropdown-item">
-                                <i class="fas fa-chart-line"></i> Consulting
-                            </a>
-                        </div>
-                    </div>
-                    
+                    <a href="#services">Services</a>
+                    <a href="#resume">Resume</a>
                     <a href="#certificates">Certificates</a>
+                    <a href="#training">Training</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <div class="menu-btn">
+                <div class="menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>Hello, It's Me</h1>
-                <h2>Artist LEWIS</h2>
-                <h3>I'm a <span class="typed-text highlight"></span></h3>
-                <p>Please hold your breath as we dive into a world full of creativity with designer Lewis.</p>
+                <h2>Artist Lewis</h2>
+                <h3>I'm a <span class="typed-text"></span></h3>
+                <p>Please hold your breath as we dive into a world full of creativity with designer Lewis. I create stunning designs, build powerful websites, and develop cutting-edge AI and blockchain solutions.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -785,173 +1216,375 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Artist Lewis">
+            <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg" alt="Artist Lewis" loading="eager">
         </div>
     </section>
 
-   <!-- About Section -->
+    <!-- ===== ABOUT SECTION ===== -->
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text animate">
-                    <h3>Artist, web developer, graphic designer, blockchain developer, sign language interpreter, computer literate, AI developer</h3>
+                    <h3>Artist, Web Developer, Graphic Designer, Blockchain Developer, Sign Language Interpreter, AI Developer</h3>
                     <p>Hello, I am Lewis Wanjohi, also known as Lewis. I am a graphics designer, web developer, and blockchain developer based in Nairobi. I am ambitious and have many goals.</p>
                     <p>I have a talent for designing and am a skilled artist. I have worked with Kenyan companies and also as a freelancer.</p>
-                    <p>I have collaborated with many clients and hold certificates in graphic design, web development, and blockchain development.</p>
-                    <a href="#contact" class="btn">Hire Me</a>
+                    <p>I have collaborated with many clients and hold certificates in graphic design, web development, AI & machine learning, blockchain technology, and digital marketing from HubSpot Academy and University of Nairobi - KITI.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">AI & ML</span>
+                        <span class="skill-tag">Blockchain</span>
+                        <span class="skill-tag">Digital Marketing</span>
+                        <span class="skill-tag">Sign Language</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <a href="#contact" class="btn" style="margin-top:20px">Hire Me</a>
                 </div>
                 <div class="about-image animate">
-                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg" alt="About Lewis">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250927-WA0030.jpg" alt="About Lewis" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ===== SERVICES SECTION ===== -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
                     <h3>Artist</h3>
                     <p>Art is an attempt to simulate what is happening on the ground in a way that encourages people to do what is good and terrifies them from doing what is bad.</p>
                 </div>
                 <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
                     <h3>Graphic Design</h3>
                     <p>Get a graphic design that makes you stand out and attract attention in your target market. We work on social media designs, brands, logos, and many other designs.</p>
                 </div>
                 <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Marketing</h3>
                     <p>We give you marketing advice and how to attract customers through trends and attractive designs with reels compatible with your identity.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, modern websites with clean code and optimal performance. From landing pages to full-stack applications.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon"><i class="fas fa-link"></i></div>
+                    <h3>Blockchain</h3>
+                    <p>Developing decentralized applications and smart contracts. Certified in Foundation, Intermediate, and Advanced Blockchain by University of Nairobi - KITI.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Leveraging AI and ML to create intelligent solutions, automate processes, and derive insights from data. Foundation and Intermediate certified.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certificates Section -->
+    <!-- ===== RESUME SECTION ===== -->
+    <section class="resume" id="resume">
+        <div class="container">
+            <h2 class="section-title">Professional Resume</h2>
+            <div class="resume-content">
+                <div class="resume-left animate">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+
+                    <div class="resume-item">
+                        <h4>KCSE Certificate</h4>
+                        <div class="date">2024</div>
+                        <p>St. Bonaventure Kaheti Boys High School<br>Mean Grade: C- (Minus) | AGP: 34 | 8 Subjects</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>KCPE Certificate</h4>
+                        <div class="date">2020</div>
+                        <p>C & J Mt. Carmel School<br>Total: 296 Marks</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Certificate in Web Programming</h4>
+                        <div class="date">May 2025</div>
+                        <p>Equator Institute of Technology, Utawala Campus<br>Grade: Distinction</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Certificate in Graphic Design</h4>
+                        <div class="date">Completed</div>
+                        <p>CFSK Institute of ICT (Computers for Schools Kenya)<br>Photoshop (A), Illustrator (A)</p>
+                    </div>
+
+                    <h3 style="margin-top:40px"><i class="fas fa-certificate"></i> Key Certifications</h3>
+
+                    <div class="resume-item">
+                        <h4>Digital Marketing Certified</h4>
+                        <div class="date">HubSpot Academy | Jun 2026 - Jul 2027</div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Social Media Marketing Certified</h4>
+                        <div class="date">HubSpot Academy | Jun 2026 - Jun 2028</div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Inbound Marketing Certified</h4>
+                        <div class="date">HubSpot Academy | May 2026 - Jun 2028</div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Advanced Blockchain</h4>
+                        <div class="date">University of Nairobi - KITI | Jun 2026</div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h4>Intermediate AI & Machine Learning</h4>
+                        <div class="date">University of Nairobi - KITI | May 2026</div>
+                    </div>
+                </div>
+
+                <div class="resume-right animate">
+                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-link"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-hands"></i>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:40px"><i class="fas fa-user"></i> Profile Summary</h3>
+                    <p style="color:#aaa; line-height:1.8; font-size:0.95rem">
+                        A passionate and versatile creative technologist with expertise spanning graphic design, web development, artificial intelligence, blockchain technology, and digital marketing. Certified by HubSpot Academy, University of Nairobi - KITI, and Equator Institute of Technology. Committed to delivering innovative digital solutions that combine artistic creativity with technical excellence.
+                    </p>
+                </div>
+            </div>
+            <div class="cv-download">
+                <a href="#" class="btn" onclick="alert('CV download coming soon! Please contact me directly for now.'); return false;">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATES SECTION ===== -->
     <section class="certificates" id="certificates">
         <div class="container">
             <h2 class="section-title">My Certificates</h2>
+            <p style="text-align:center; color:#aaa; margin-bottom:40px">Click any certificate to preview in full size</p>
             <div class="certificates-grid">
-                
-                <!-- Certificate 1: Web Programming -->
-                <div class="certificate-card animate">
-                    <img src="web development.jpg" alt="Web Programming Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Web+Programming+Certificate'">
+
+                <!-- Certificate 1: KCSE 2024 -->
+                <div class="certificate-card animate" data-cert="0">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kcse.jpg" alt="KCSE Certificate 2024" class="certificate-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=KCSE+Certificate+2024'">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>KCSE Certificate 2024</h3>
+                        <p class="cert-issuer">The Kenya National Examinations Council (KNEC)</p>
+                        <p>St. Bonaventure Kaheti Boys High School</p>
+                        <p class="cert-date">Year: 2024 | Mean Grade: C- | AGP: 34</p>
+                        <span class="cert-badge">8 Subjects</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: Digital Marketing -->
+                <div class="certificate-card animate" data-cert="1">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/digital-maketing.png" alt="Digital Marketing Certificate" class="certificate-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Digital+Marketing+Certified'">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Digital Marketing Certified</h3>
+                        <p class="cert-issuer">HubSpot Academy</p>
+                        <p>Inbound-first digital marketing mindset</p>
+                        <p class="cert-date">Valid: Jun 22, 2026 - Jul 22, 2027</p>
+                        <span class="cert-badge">HubSpot</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: Web Programming -->
+                <div class="certificate-card animate" data-cert="2">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Web+Programming" alt="Web Programming Certificate" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Certificate in Web Programming</h3>
                         <p class="cert-issuer">Equator Institute of Technology</p>
                         <p>Utawala Campus</p>
                         <p class="cert-date">Awarded: May 2025</p>
-                        <p>Grade: Distinction</p>
+                        <span class="cert-badge">Distinction</span>
                     </div>
                 </div>
 
-                <!-- Certificate 2: Graphic Design -->
-                <div class="certificate-card animate">
-                    <img src="graphics design cert.jpg" alt="Graphic Design Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Graphic+Design+Certificate'">
+                <!-- Certificate 4: Graphic Design -->
+                <div class="certificate-card animate" data-cert="3">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Graphic+Design" alt="Graphic Design Certificate" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Certificate in Graphic Design</h3>
                         <p class="cert-issuer">CFSK Institute of ICT</p>
                         <p>Computers for Schools Kenya</p>
-                        <p class="cert-date">Modules: Intro to Graphic Design (B), Adobe Photoshop (A), Adobe Illustrator (A)</p>
+                        <p class="cert-date">Photoshop (A), Illustrator (A)</p>
+                        <span class="cert-badge">Design</span>
                     </div>
                 </div>
 
-                <!-- Certificate 3: AI & ML Foundation -->
-                <div class="certificate-card animate">
-                    <img src="AI_COMPLETION_CERTIFICATE.pdf" alt="AI & ML Foundation Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=AI+%26+ML+Foundation'">
+                <!-- Certificate 5: AI & ML Foundation -->
+                <div class="certificate-card animate" data-cert="4">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=AI+ML+Foundation" alt="AI & ML Foundation" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Foundation in AI & Machine Learning</h3>
                         <p class="cert-issuer">University of Nairobi - KITI</p>
                         <p>Kenya Inclusivity in Tech Initiative</p>
                         <p class="cert-date">Completed: March 8, 2026</p>
+                        <span class="cert-badge">AI/ML</span>
                     </div>
                 </div>
 
-                <!-- Certificate 4: AI & ML Intermediate -->
-                <div class="certificate-card animate">
-                    <img src="AI_amp_ML_Intermediate_Certificate.pdf" alt="AI & ML Intermediate Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=AI+%26+ML+Intermediate'">
+                <!-- Certificate 6: AI & ML Intermediate -->
+                <div class="certificate-card animate" data-cert="5">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=AI+ML+Intermediate" alt="AI & ML Intermediate" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Intermediate AI & Machine Learning</h3>
                         <p class="cert-issuer">University of Nairobi - KITI</p>
                         <p>Kenya Inclusivity in Tech Initiative</p>
                         <p class="cert-date">Completed: May 28, 2026</p>
+                        <span class="cert-badge">AI/ML</span>
                     </div>
                 </div>
 
-                <!-- Certificate 5: Blockchain Foundation -->
-                <div class="certificate-card animate">
-                    <img src="Certificate_of_Completion.pdf" alt="Blockchain Foundation Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Foundation'">
+                <!-- Certificate 7: Blockchain Foundation -->
+                <div class="certificate-card animate" data-cert="6">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Blockchain+Foundation" alt="Blockchain Foundation" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Foundation in Blockchain</h3>
                         <p class="cert-issuer">University of Nairobi - KITI</p>
                         <p>Kenya Inclusivity in Tech Initiative</p>
                         <p class="cert-date">Completed: September 8, 2025</p>
+                        <span class="cert-badge">Blockchain</span>
                     </div>
                 </div>
 
-                <!-- Certificate 6: Blockchain Intermediate -->
-                <div class="certificate-card animate">
-                    <img src="AI_amp_ML_Intermediate_Certificate.pdf" alt="Blockchain Intermediate Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Intermediate'">
+                <!-- Certificate 8: Blockchain Intermediate -->
+                <div class="certificate-card animate" data-cert="7">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Blockchain+Intermediate" alt="Blockchain Intermediate" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Intermediate Blockchain</h3>
                         <p class="cert-issuer">University of Nairobi - KITI</p>
                         <p>Kenya Inclusivity in Tech Initiative</p>
                         <p class="cert-date">Completed: January 21, 2026</p>
+                        <span class="cert-badge">Blockchain</span>
                     </div>
                 </div>
 
-                <!-- Certificate 7: Blockchain Advanced -->
-                <div class="certificate-card animate">
-                    <img src="Advance_Level_Certificate_-_Blockchain.pdf" alt="Blockchain Advanced Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Blockchain+Advanced'">
+                <!-- Certificate 9: Blockchain Advanced -->
+                <div class="certificate-card animate" data-cert="8">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Blockchain+Advanced" alt="Blockchain Advanced" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Advanced Blockchain</h3>
                         <p class="cert-issuer">University of Nairobi - KITI</p>
                         <p>Kenya Inclusivity in Tech Initiative</p>
                         <p class="cert-date">Completed: June 16, 2026</p>
+                        <span class="cert-badge">Blockchain</span>
                     </div>
                 </div>
 
-                <!-- Certificate 8: HubSpot Social Media Marketing -->
-                <div class="certificate-card animate">
-                    <img src="social media.png" alt="Social Media Marketing Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Social+Media+Marketing'">
+                <!-- Certificate 10: Social Media Marketing -->
+                <div class="certificate-card animate" data-cert="9">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Social+Media+Marketing" alt="Social Media Marketing" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Social Media Marketing Certified</h3>
                         <p class="cert-issuer">HubSpot Academy</p>
                         <p>Inbound Social Media Strategy</p>
                         <p class="cert-date">Valid: Jun 1, 2026 - Jun 30, 2028</p>
+                        <span class="cert-badge">HubSpot</span>
                     </div>
                 </div>
 
-                <!-- Certificate 9: HubSpot Inbound Marketing -->
-                <div class="certificate-card animate">
-                    <img src="inbound.png" alt="Inbound Marketing Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=Inbound+Marketing'">
+                <!-- Certificate 11: Inbound Marketing -->
+                <div class="certificate-card animate" data-cert="10">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Inbound+Marketing" alt="Inbound Marketing" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>Inbound Certified</h3>
                         <p class="cert-issuer">HubSpot Academy</p>
                         <p>Inbound Methodology & Flywheel Business Model</p>
                         <p class="cert-date">Valid: May 26, 2026 - Jun 24, 2028</p>
+                        <span class="cert-badge">HubSpot</span>
                     </div>
                 </div>
 
-                <!-- Certificate 10: KCPE -->
-                <div class="certificate-card animate">
-                    <img src="kcpe cert.jpg" alt="KCPE Certificate" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x200/1a2a6c/fdbb2d?text=KCPE+Certificate'">
+                <!-- Certificate 12: KCPE -->
+                <div class="certificate-card animate" data-cert="11">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=KCPE+Certificate" alt="KCPE Certificate" class="certificate-image" loading="lazy">
+                    </div>
                     <div class="certificate-content">
                         <h3>KCPE Certificate</h3>
                         <p class="cert-issuer">The Kenya National Examinations Council</p>
                         <p>C & J Mt. Carmel School</p>
                         <p class="cert-date">Year: 2020 | Total: 296 Marks</p>
+                        <span class="cert-badge">Primary</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 13: Additional Collection -->
+                <div class="certificate-card animate" data-cert="12">
+                    <div class="certificate-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG_20250430_161044_273.jpg" alt="Additional Certificates" class="certificate-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a2a6c/fdbb2d?text=Certificates+Collection'">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Additional Certifications</h3>
+                        <p class="cert-issuer">Multiple Institutions</p>
+                        <p>St. John Ambulance, CFSK ICT, Nyeri Hospice Charity Walk</p>
+                        <p class="cert-date">2022 - 2023</p>
+                        <span class="cert-badge">Collection</span>
                     </div>
                 </div>
 
@@ -959,7 +1592,57 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Certificate Modal -->
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal-content">
+            <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times"></i></button>
+            <button class="cert-modal-nav cert-modal-prev" id="certModalPrev"><i class="fas fa-chevron-left"></i></button>
+            <img src="" alt="Certificate Preview" id="certModalImg">
+            <button class="cert-modal-nav cert-modal-next" id="certModalNext"><i class="fas fa-chevron-right"></i></button>
+            <div class="cert-modal-info" id="certModalInfo"></div>
+        </div>
+    </div>
+
+    <!-- ===== TRAINING & EVENTS SECTION ===== -->
+    <section class="training" id="training">
+        <div class="container">
+            <h2 class="section-title">Training & Events</h2>
+            <div class="training-grid">
+                <div class="training-card animate">
+                    <img src="https://via.placeholder.com/600x400/1a2a6c/fdbb2d?text=Africa+Check+Bootcamp" alt="Africa Check Bootcamp" class="training-image" loading="lazy">
+                    <div class="training-content">
+                        <span class="training-tag">Bootcamp</span>
+                        <h3>Africa Check & Dimlis Africa Bootcamp</h3>
+                        <div class="training-org">Zetech University, Kenya</div>
+                        <div class="training-date">2025</div>
+                        <p>Intensive fact-checking and media literacy bootcamp focused on identifying misinformation, verification techniques, and responsible journalism in the digital age.</p>
+                    </div>
+                </div>
+                <div class="training-card animate">
+                    <img src="https://via.placeholder.com/600x400/1a2a6c/fdbb2d?text=St+John+Ambulance" alt="St John Ambulance Training" class="training-image" loading="lazy">
+                    <div class="training-content">
+                        <span class="training-tag">Training</span>
+                        <h3>St. John Ambulance Brigade Training</h3>
+                        <div class="training-org">St. John Ambulance, Central Region</div>
+                        <div class="training-date">August 2022</div>
+                        <p>Completed a fully fledged Brigade Induction course at Kaheti Boys. Certified in first aid, emergency response, and community health services.</p>
+                    </div>
+                </div>
+                <div class="training-card animate">
+                    <img src="https://via.placeholder.com/600x400/1a2a6c/fdbb2d?text=Nyeri+Hospice+Walk" alt="Nyeri Hospice Charity Walk" class="training-image" loading="lazy">
+                    <div class="training-content">
+                        <span class="training-tag">Charity Event</span>
+                        <h3>Nyeri Hospice Charity Walk 2023</h3>
+                        <div class="training-org">Nyeri Hospice</div>
+                        <div class="training-date">September 23, 2023</div>
+                        <p>Participated in the 10 Km charity walk to raise funds for cancer patients. Certificate of Participation awarded for supporting the cause.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
@@ -975,240 +1658,220 @@
                 <!-- Project 1: Strawberry Ice Cream -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Strawberry Ice Cream</h3>
                         <p>Brand identity for an ice cream company</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" alt="Strawberry Ice Cream">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" alt="Strawberry Ice Cream" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Strawberry Ice Cream</h3>
                         <p>Brand identity for an ice cream company</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Strawberry Ice Cream">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Strawberry Ice Cream" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Strawberry Ice Cream</h3>
                         <p>Brand identity for an ice cream company</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 4: School Admission -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>School Admission</h3>
                         <p>Marketing materials for school registration</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Poster">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Poster" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Tour Poster</h3>
                         <p>Make your company known</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 6: Church Event -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Event">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Event" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Church Youth Service</h3>
                         <p>Promotional design for church event</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 7 -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Church Event">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Church Event" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Church Teen Service</h3>
                         <p>Promotional design for church event</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 8: Headphones -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="Headphones">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="Headphones" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>JBL Headphones</h3>
                         <p>Product advertisement design</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 9: Construction -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Building with Trust</h3>
                         <p>Branding for construction company</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 10: Health Company -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Kenya Health Company</h3>
                         <p>Event promotion for health week</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 11: Restaurant -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="Restaurant">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="Restaurant" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>R Logo Cool</h3>
                         <p>Brand modern logo</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 12: Food Menu -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Food Display">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Food Display" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Menu Display Front</h3>
                         <p>Front display of food</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 13: Beauty Poster -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Poster">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Poster" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Beauty Poster</h3>
                         <p>Glow with Beauty</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 14: Truck Services Poster -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Poster">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Poster" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Truck Services Poster</h3>
                         <p>ETruk travel company</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 15: Food Poster -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank">
-                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Food Poster">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" alt="Food Poster" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Food Poster</h3>
                         <p>Event promotion for health food</p>
-                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/f8218551a1f848d98db5c57572ab8003.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 16: Restaurant -->
                 <div class="project-item animate" data-category="branding">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" alt="Restaurant">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" alt="Restaurant" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>NaanStop Restaurant</h3>
                         <p>Brand identity for Indian cuisine</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 17: Job Hiring -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Job Hiring Poster">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Job Hiring Poster" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Job Hiring Poster</h3>
-                        <p>Creative design for a job posting circular to attract potential candidates</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" class="btn view-project">View Project</a>
+                        <p>Creative design for a job posting circular</p>
                     </div>
                 </div>
 
                 <!-- Project 18 -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank">
-                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" alt="CFSK">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" alt="CFSK" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>CFSK</h3>
                         <p>An institute poster</p>
-                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/0cf77831853040b0b5586341ee2d37db.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
                 <!-- Project 19: Smoothie -->
                 <div class="project-item animate" data-category="print">
                     <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank">
-                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" alt="Smoothie">
+                        <img src="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" alt="Smoothie" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Smoothie</h3>
-                        <p>A smoothie is a thick, blended beverage typically made from puréed fruits and vegetables</p>
-                        <a href="https://github.com/lewis405/lewis-portfolio/blob/main/1650a52ba8b04f1695c5181022d2da59.jpg?raw=true" target="_blank" class="btn view-project">View Project</a>
+                        <p>A thick, blended beverage design</p>
                     </div>
                 </div>
 
                 <!-- Project 20: Website -->
                 <div class="project-item animate" data-category="web">
                     <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="Website">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="Website" loading="lazy">
                     </a>
                     <div class="project-overlay">
                         <h3>Website</h3>
                         <p>Front display website</p>
-                        <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" class="btn view-project">View Project</a>
                     </div>
                 </div>
 
@@ -1216,7 +1879,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
@@ -1225,25 +1888,25 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" required placeholder="Your full name">
                         </div>
                         <div class="form-group">
                             <label for="phone">Mobile Number</label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" id="phone" required placeholder="Your phone number">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" required placeholder="your@email.com">
                         </div>
                         <div class="form-group">
                             <label for="subject">Email Subject</label>
-                            <input type="text" id="subject" required>
+                            <input type="text" id="subject" required placeholder="What is this about?">
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
+                            <textarea id="message" required placeholder="Tell me about your project..."></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
                     </form>
                 </div>
                 <div class="contact-info animate">
@@ -1252,11 +1915,11 @@
                     <p><i class="fas fa-phone"></i> 0792316985</p>
                     <p><i class="fas fa-envelope"></i> lewiswanjohi68@gmail.com</p>
                     <p><i class="fab fa-tiktok"></i> @g_lewi_</p>
-                    
+
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@g_lewi_?_t=ZM-904Tf5d6ARc&_r=1" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.tiktok.com/@g_lewi_" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
                     </div>
                 </div>
@@ -1264,106 +1927,96 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Artist Lewis. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
     <script>
-        // Dropdown functionality
+        // ===== DROPDOWN FUNCTIONALITY =====
         document.addEventListener('DOMContentLoaded', function() {
             const dropdowns = document.querySelectorAll('.dropdown');
-            const menuBtn = document.querySelector('.menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            // Toggle dropdowns
+            const menuBtn = document.getElementById('menuBtn');
+            const navLinks = document.getElementById('navLinks');
+
             dropdowns.forEach(dropdown => {
                 const toggle = dropdown.querySelector('.dropdown-toggle');
-                
                 toggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
-                    // Close other dropdowns
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current dropdown
+                    dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
                     dropdown.classList.toggle('active');
                 });
             });
-            
-            // Close dropdowns when clicking outside
+
             document.addEventListener('click', function() {
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
+                dropdowns.forEach(d => d.classList.remove('active'));
             });
-            
-            // Mobile menu toggle
+
             if (menuBtn) {
                 menuBtn.addEventListener('click', function() {
                     navLinks.classList.toggle('active');
+                    this.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 });
             }
-            
-            // Close mobile menu when clicking on a link
-            const navLinksItems = document.querySelectorAll('.nav-links a');
-            navLinksItems.forEach(link => {
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
+                    if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 });
             });
         });
 
-        // Typewriter effect
+        // ===== TYPEWRITER EFFECT =====
         const typedText = document.querySelector('.typed-text');
-        const textArray = ['Artist', 'Web Developer', 'Graphic Designer', 'Blockchain Developer', 'Sign Language Interpreter', 'Computer Literate', 'AI Developer'];
+        const textArray = ['Artist', 'Web Developer', 'Graphic Designer', 'Blockchain Developer', 'Sign Language Interpreter', 'AI Developer', 'Digital Marketer'];
         let arrayIndex = 0;
         let charIndex = 0;
+        let isDeleting = false;
 
         function type() {
-            if (charIndex < textArray[arrayIndex].length) {
-                typedText.textContent += textArray[arrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, 100);
-            } else {
-                setTimeout(erase, 2000);
-            }
-        }
-
-        function erase() {
-            if (charIndex > 0) {
-                typedText.textContent = textArray[arrayIndex].substring(0, charIndex - 1);
+            const currentText = textArray[arrayIndex];
+            if (isDeleting) {
+                typedText.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
-                setTimeout(erase, 50);
             } else {
-                arrayIndex++;
-                if (arrayIndex >= textArray.length) arrayIndex = 0;
-                setTimeout(type, 1000);
+                typedText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
             }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                arrayIndex = (arrayIndex + 1) % textArray.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
         }
 
-        // Scroll animations
+        // ===== SCROLL ANIMATIONS =====
         function checkScroll() {
             const elements = document.querySelectorAll('.animate');
-            
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
+                const screenPosition = window.innerHeight / 1.2;
                 if (elementPosition < screenPosition) {
                     element.classList.add('animated');
                 }
             });
         }
 
-        // Header scroll effect
+        // ===== HEADER SCROLL EFFECT =====
         function headerScroll() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -1373,40 +2026,150 @@
             }
         }
 
-        // Form submission
+        // ===== ACTIVE NAV LINK =====
+        function activeNavLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+        function toggleBackToTop() {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== SKILL BARS ANIMATION =====
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-fill');
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    bar.style.width = bar.getAttribute('data-width') + '%';
+                }
+            });
+        }
+
+        // ===== FORM SUBMISSION =====
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
         });
 
-        // Project filtering
+        // ===== PROJECT FILTERING =====
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectItems = document.querySelectorAll('.project-item');
-        
+
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                
                 const filterValue = button.getAttribute('data-filter');
-                
                 projectItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
+                        setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
                     } else {
-                        item.style.display = 'none';
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => { item.style.display = 'none'; }, 300);
                     }
                 });
             });
         });
 
-        // Initialize
+        // ===== CERTIFICATE MODAL =====
+        const certModal = document.getElementById('certModal');
+        const certModalImg = document.getElementById('certModalImg');
+        const certModalInfo = document.getElementById('certModalInfo');
+        const certModalClose = document.getElementById('certModalClose');
+        const certModalPrev = document.getElementById('certModalPrev');
+        const certModalNext = document.getElementById('certModalNext');
+        const certCards = document.querySelectorAll('.certificate-card');
+        let currentCertIndex = 0;
+
+        function openCertModal(index) {
+            currentCertIndex = index;
+            const card = certCards[index];
+            const img = card.querySelector('.certificate-image');
+            const title = card.querySelector('h3').textContent;
+            const issuer = card.querySelector('.cert-issuer').textContent;
+            certModalImg.src = img.src;
+            certModalInfo.innerHTML = '<h3>' + title + '</h3><p>' + issuer + '</p>';
+            certModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal() {
+            certModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateCert(direction) {
+            currentCertIndex = (currentCertIndex + direction + certCards.length) % certCards.length;
+            openCertModal(currentCertIndex);
+        }
+
+        certCards.forEach((card, index) => {
+            card.addEventListener('click', () => openCertModal(index));
+        });
+
+        certModalClose.addEventListener('click', closeCertModal);
+        certModalPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateCert(-1); });
+        certModalNext.addEventListener('click', (e) => { e.stopPropagation(); navigateCert(1); });
+        certModal.addEventListener('click', (e) => { if (e.target === certModal) closeCertModal(); });
+        document.addEventListener('keydown', (e) => {
+            if (!certModal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeCertModal();
+            if (e.key === 'ArrowLeft') navigateCert(-1);
+            if (e.key === 'ArrowRight') navigateCert(1);
+        });
+
+        // ===== LAZY LOADING WITH BLUR-UP =====
+        document.querySelectorAll('.certificate-image').forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+            }
+        });
+
+        // ===== INITIALIZE =====
         document.addEventListener('DOMContentLoaded', function() {
             if (typedText) type();
-            window.addEventListener('scroll', checkScroll);
-            window.addEventListener('scroll', headerScroll);
             checkScroll();
+            animateSkillBars();
+        });
+
+        window.addEventListener('scroll', function() {
+            checkScroll();
+            headerScroll();
+            activeNavLink();
+            toggleBackToTop();
+            animateSkillBars();
         });
     </script>
 </body>
