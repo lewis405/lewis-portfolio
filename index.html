@@ -64,7 +64,7 @@
             min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative;
             overflow: hidden;
         }
-        .hero-content { max-width: 550px; z-index: 2; animation: fadeIn 1s ease; position: relative; padding-left: 20px; }
+        .hero-content { max-width: 520px; z-index: 2; animation: fadeIn 1s ease; position: relative; padding-left: 20px; }
         .hero h1 { font-size: 4.2rem; margin-bottom: 5px; line-height: 1.1; text-shadow: 3px 3px 20px rgba(0,0,0,0.8); font-weight: 800; letter-spacing: -1px; }
         .hero h2 { font-size: 1.6rem; margin-bottom: 25px; color: var(--accent); text-shadow: 2px 2px 15px rgba(0,0,0,0.7); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         .hero h3 { font-size: 1.8rem; margin-bottom: 30px; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); font-weight: 500; }
@@ -92,24 +92,24 @@
             75% { transform: translate(30px, -20px) scale(1.1); opacity: 0.7; }
         }
         .hero-portrait {
-            position: absolute; right: 2%; top: 50%; transform: translateY(-50%);
-            width: 42%; height: 80%; z-index: 0; display: flex; align-items: center; justify-content: center;
+            position: absolute; right: 5%; top: 55%; transform: translateY(-50%);
+            width: 35%; height: 70%; z-index: 0; display: flex; align-items: center; justify-content: center;
         }
         .hero-portrait img {
-            width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
-            mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0) 72%);
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0) 72%);
+            width: 260px; height: 260px; border-radius: 50%; object-fit: cover;
+            mask-image: radial-gradient(circle, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0) 75%);
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0) 75%);
             filter: contrast(1.05) saturate(0.95);
             position: relative; z-index: 2;
         }
         .portrait-glow {
-            position: absolute; width: 380px; height: 380px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(253,187,45,0.2) 0%, rgba(178,31,31,0.1) 45%, transparent 70%);
+            position: absolute; width: 320px; height: 320px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(253,187,45,0.18) 0%, rgba(178,31,31,0.08) 50%, transparent 72%);
             z-index: 1; animation: pulseGlow 4s ease-in-out infinite;
         }
         .portrait-ring {
-            position: absolute; width: 350px; height: 350px; border-radius: 50%;
-            border: 2px solid rgba(253,187,45,0.25); z-index: 3;
+            position: absolute; width: 290px; height: 290px; border-radius: 50%;
+            border: 2px solid rgba(253,187,45,0.2); z-index: 3;
             animation: rotateRing 20s linear infinite;
         }
         .portrait-ring::before {
@@ -212,9 +212,9 @@
         .cert-modal-info h3 { color: var(--accent); margin-bottom: 5px; }
         .training { padding: 100px 0; background: rgba(18,18,18,0.8); backdrop-filter: blur(10px); border-radius: 20px; margin: 40px 0; }
         .training-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .training-card { background: rgba(30,30,30,0.9); border-radius: 15px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .training-card { background: rgba(30,30,30,0.9); border-radius: 15px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); max-width: 500px; margin: 0 auto; }
         .training-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); border-color: var(--accent); }
-        .training-image { width: 100%; height: 220px; object-fit: cover; object-position: top center; display: block; }
+        .training-image { width: 100%; height: 260px; object-fit: cover; object-position: center 20%; display: block; }
         .training-content { padding: 25px; }
         .training-content .training-tag { display: inline-block; background: rgba(253,187,45,0.2); color: var(--accent); padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; }
         .training-content h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--light); }
@@ -278,10 +278,10 @@
             .hero h1 { font-size: 2.8rem; } .hero h2 { font-size: 1.3rem; } .hero h3 { font-size: 1.4rem; }
             .hero-content { padding: 0 15px; text-align: center; }
             .hero p { font-size: 1rem; max-width: 100%; }
-            .hero-portrait { height: 260px; }
-            .hero-portrait img { width: 200px; height: 200px; }
-            .portrait-glow { width: 240px; height: 240px; }
-            .portrait-ring { width: 220px; height: 220px; }
+            .hero-portrait { height: 240px; }
+            .hero-portrait img { width: 180px; height: 180px; }
+            .portrait-glow { width: 220px; height: 220px; }
+            .portrait-ring { width: 200px; height: 200px; }
             .section-title { font-size: 2rem; }
             .skills-grid { grid-template-columns: 1fr; }
             .training-grid { grid-template-columns: 1fr; }
@@ -292,10 +292,10 @@
             .hero h1 { font-size: 2.2rem; } .hero h2 { font-size: 1.1rem; } .hero h3 { font-size: 1.2rem; }
             .hero p { font-size: 0.95rem; }
             .hero-content { padding: 0 12px; }
-            .hero-portrait { height: 220px; }
-            .hero-portrait img { width: 160px; height: 160px; }
-            .portrait-glow { width: 190px; height: 190px; }
-            .portrait-ring { width: 175px; height: 175px; }
+            .hero-portrait { height: 200px; }
+            .hero-portrait img { width: 150px; height: 150px; }
+            .portrait-glow { width: 180px; height: 180px; }
+            .portrait-ring { width: 165px; height: 165px; }
             .btn { padding: 10px 20px; font-size: 0.9rem; }
             .btn-outline { margin-left: 0; margin-top: 10px; }
             .hero-buttons { display: flex; flex-direction: column; gap: 10px; }
