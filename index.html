@@ -41,7 +41,7 @@
 
         /* LOADING SCREEN */
         .loader-overlay {
-            position: fixed; inset: 0; background: var(--dark); z-index: 10000;
+            position: fixed; inset: 0; background: var(--dark); z-index: 10002;
             display: flex; align-items: center; justify-content: center; flex-direction: column;
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
@@ -70,12 +70,12 @@
         @media (max-width: 768px) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto; } }
 
         /* SCROLL PROGRESS BAR */
-        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary)); z-index: 10001; width: 0%; transition: width 0.1s; }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary)); z-index: 10003; width: 0%; transition: width 0.1s; }
 
         /* HEADER */
         header {
             padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000;
-            background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(10px); transition: all 0.3s ease;
+            background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(10px); transition: all 0.3s ease;
         }
         header.scrolled { padding: 15px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -99,56 +99,118 @@
 
         /* HERO */
         .hero {
-            min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative;
+            min-height: calc(100vh - 80px); 
+            display: flex; 
+            align-items: center; 
+            padding-top: 100px; 
+            padding-bottom: 40px;
+            position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #1a0a2e 0%, #4a0e2e 30%, #8b1a1a 60%, #c2410c 85%, #f59e0b 100%);
         }
-        .hero-portrait {
-            position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
-            width: 55%; height: 90%; z-index: 1;
-            display: flex; align-items: center; justify-content: center;
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            gap: 40px;
         }
-        .hero-portrait img {
-            width: 420px; height: 420px; border-radius: 50%;
-            object-fit: cover; object-position: center top;
-            position: relative; z-index: 2;
+        .hero-text-col {
+            flex: 1;
+            max-width: 580px;
+            z-index: 5;
+            animation: fadeIn 1s ease;
+        }
+        .hero-img-col {
+            flex: 0 0 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 3;
+        }
+        .hero-portrait-wrap {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-portrait-wrap img {
+            width: 340px; 
+            height: 340px; 
+            border-radius: 50%;
+            object-fit: cover; 
+            object-position: center top;
+            position: relative; 
+            z-index: 2;
             border: 4px solid rgba(253, 187, 45, 0.3);
             box-shadow: 0 0 60px rgba(253, 187, 45, 0.2), 0 0 120px rgba(253, 187, 45, 0.1);
         }
-        .hero-portrait::before {
-            content: ''; position: absolute; width: 480px; height: 480px; border-radius: 50%;
-            border: 2px solid rgba(253, 187, 45, 0.25); z-index: 1;
+        .hero-portrait-wrap::before {
+            content: ''; 
+            position: absolute; 
+            width: 390px; 
+            height: 390px; 
+            border-radius: 50%;
+            border: 2px solid rgba(253, 187, 45, 0.25); 
+            z-index: 1;
             animation: rotateRing 20s linear infinite;
         }
-        .hero-portrait::after {
-            content: ''; position: absolute; width: 520px; height: 520px; border-radius: 50%;
-            border: 1px solid rgba(253, 187, 45, 0.12); z-index: 0;
+        .hero-portrait-wrap::after {
+            content: ''; 
+            position: absolute; 
+            width: 440px; 
+            height: 440px; 
+            border-radius: 50%;
+            border: 1px solid rgba(253, 187, 45, 0.12); 
+            z-index: 0;
             animation: rotateRing 30s linear infinite reverse;
         }
         @keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .hero-content { 
-            max-width: 600px; z-index: 2; animation: fadeIn 1s ease; 
-            position: relative; padding-left: 60px; padding-top: 10px;
-        }
         .hero h1 { 
-            font-size: 5.2rem; margin-bottom: 10px; line-height: 1.05; 
-            text-shadow: 2px 2px 20px rgba(0,0,0,0.5); font-weight: 800; letter-spacing: -2px; color: #fff;
+            font-size: 3.6rem; 
+            margin-bottom: 10px; 
+            line-height: 1.1; 
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5); 
+            font-weight: 800; 
+            letter-spacing: -1px; 
+            color: #fff;
         }
         .hero h2 { 
-            font-size: 1.15rem; margin-bottom: 30px; color: var(--accent); 
-            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); font-weight: 600; 
-            letter-spacing: 3.5px; text-transform: uppercase;
+            font-size: 1.1rem; 
+            margin-bottom: 25px; 
+            color: var(--accent); 
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); 
+            font-weight: 600; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
         }
         .hero h3 { 
-            font-size: 2rem; margin-bottom: 35px; 
-            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); font-weight: 500;
-            color: #fff; line-height: 1.4;
+            font-size: 1.7rem; 
+            margin-bottom: 25px; 
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); 
+            font-weight: 500;
+            color: #fff; 
+            line-height: 1.4;
         }
         .hero h3 .typed-text { color: var(--accent); font-weight: 700; }
         .hero p { 
-            font-size: 1.05rem; margin-bottom: 45px; opacity: 0.9; 
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.4); line-height: 1.85; max-width: 480px;
+            font-size: 1rem; 
+            margin-bottom: 30px; 
+            opacity: 0.9; 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.4); 
+            line-height: 1.75; 
             color: rgba(255,255,255,0.9);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .btn {
             display: inline-block; padding: 14px 35px;
@@ -160,7 +222,7 @@
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); margin-left: 15px; }
         .btn-outline:hover { background: var(--accent); color: var(--dark); }
 
-        .hero-particles { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+        .hero-particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
         .particle { position: absolute; border-radius: 50%; animation: floatParticle 6s ease-in-out infinite; }
         @keyframes floatParticle {
             0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
@@ -170,6 +232,7 @@
         /* TRUST BADGES BAR */
         .trust-bar {
             background: rgba(18,18,18,0.95); padding: 30px 0; border-bottom: 1px solid rgba(253,187,45,0.1);
+            position: relative; z-index: 10;
         }
         .trust-bar-content { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; }
         .trust-item { display: flex; align-items: center; gap: 10px; color: #aaa; font-size: 0.9rem; }
@@ -494,7 +557,7 @@
         .social-link:hover { transform: translateY(-5px); }
 
         /* LIVE CHAT WIDGET */
-        .chat-widget { position: fixed; bottom: 100px; right: 30px; z-index: 998; }
+        .chat-widget { position: fixed; bottom: 95px; right: 30px; z-index: 999; }
         .chat-toggle {
             width: 60px; height: 60px; border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), var(--secondary));
@@ -509,33 +572,42 @@
         }
         .chat-toggle:hover { transform: scale(1.1); }
         .chat-box {
-            position: absolute; bottom: 75px; right: 0; width: 320px;
+            position: absolute; bottom: 70px; right: 0; width: 320px;
             background: rgba(18,18,18,0.98); backdrop-filter: blur(20px);
             border-radius: 20px; border: 1px solid rgba(253,187,45,0.2);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5); overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             transform: scale(0); transform-origin: bottom right;
-            transition: transform 0.3s ease; opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0;
+            max-height: 480px; display: flex; flex-direction: column;
+            overflow: visible;
         }
-        .chat-box.active { transform: scale(1); opacity: 1; }
+        .chat-box.active {
+            transform: scale(1); opacity: 1;
+        }
+
         .chat-header {
-            padding: 20px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex; align-items: center; gap: 12px;
+            flex-shrink: 0;
+            height: auto;
+            min-height: 65px;
+            border-radius: 20px 20px 0 0;
         }
-        .chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--dark); }
-        .chat-header-info h4 { font-size: 1rem; }
-        .chat-header-info p { font-size: 0.75rem; opacity: 0.8; }
-        .chat-body { padding: 20px; max-height: 300px; overflow-y: auto; }
+        .chat-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--dark); flex-shrink: 0; font-size: 1rem; }
+        .chat-header-info h4 { font-size: 1rem; margin: 0; line-height: 1.3; }
+        .chat-header-info p { font-size: 0.75rem; opacity: 0.8; margin: 0; line-height: 1.3; }
+        .chat-body { padding: 15px 20px; max-height: 260px; overflow-y: auto; flex: 1; min-height: 100px; }
         .chat-message { margin-bottom: 15px; display: flex; gap: 10px; }
         .chat-message.bot { justify-content: flex-start; }
         .chat-bubble { padding: 12px 15px; border-radius: 15px; max-width: 220px; font-size: 0.9rem; line-height: 1.5; }
         .chat-bubble.bot { background: rgba(253,187,45,0.15); color: var(--light); border-bottom-left-radius: 4px; }
         .chat-bubble.user { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-bottom-right-radius: 4px; margin-left: auto; }
-        .chat-input-area { padding: 15px 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 10px; }
+        .chat-input-area { padding: 12px 20px 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 10px; flex-shrink: 0; background: rgba(18,18,18,0.98); border-radius: 0 0 20px 20px; }
         .chat-input-area input { flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--light); font-family: 'Poppins', sans-serif; outline: none; }
         .chat-input-area input:focus { border-color: var(--accent); }
         .chat-send { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--accent); color: var(--dark); cursor: none; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
         .chat-send:hover { transform: scale(1.1); }
-        .chat-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 20px 15px; }
+        .chat-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 20px 15px; flex-shrink: 0; background: rgba(18,18,18,0.98); }
         .chat-quick-replies button {
             padding: 6px 14px; border-radius: 15px; border: 1px solid rgba(253,187,45,0.3);
             background: transparent; color: var(--accent); font-family: 'Poppins', sans-serif;
@@ -560,7 +632,7 @@
         .footer-bottom p { color: #666; font-size: 0.85rem; }
 
         /* BACK TO TOP */
-        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--secondary)); color: var(--dark); border: none; border-radius: 50%; font-size: 1.2rem; cursor: none; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999; display: flex; align-items: center; justify-content: center; }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--secondary)); color: var(--dark); border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 9990; display: flex; align-items: center; justify-content: center; }
         .back-to-top.visible { opacity: 1; visibility: visible; }
         .back-to-top:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
@@ -581,11 +653,11 @@
 
         /* RESPONSIVE */
         @media (max-width: 992px) {
-            .hero-content { max-width: 100%; text-align: center; padding: 0 40px; padding-top: 0; }
+            .hero-content { max-width: 100%; text-align: center; padding: 0 40px; padding-top: 20px; }
             .hero-portrait { position: relative; right: auto; top: auto; transform: none; width: 100%; height: 350px; margin-top: 30px; }
-            .hero-portrait img { width: 280px; height: 280px; }
-            .hero-portrait::before { width: 320px; height: 320px; }
-            .hero-portrait::after { width: 360px; height: 360px; }
+            .hero-portrait img { width: 260px; height: 260px; }
+            .hero-portrait::before { width: 300px; height: 300px; }
+            .hero-portrait::after { width: 340px; height: 340px; }
             .hero { flex-direction: column; justify-content: center; padding-top: 100px; }
             .about-content, .contact-content, .resume-content { grid-template-columns: 1fr; }
             .cert-modal-prev { left: 10px; } .cert-modal-next { right: 10px; }
@@ -597,38 +669,56 @@
             .case-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(18,18,18,0.95); backdrop-filter: blur(10px); flex-direction: column; padding: 20px; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(18,18,18,0.95); backdrop-filter: blur(10px); flex-direction: column; padding: 20px; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1001; }
             .nav-links.active { display: flex; }
             .menu-btn { display: block; }
-            .hero h1 { font-size: 3.2rem; letter-spacing: -1px; } 
-            .hero h2 { font-size: 1.1rem; letter-spacing: 2px; } 
-            .hero h3 { font-size: 1.6rem; }
-            .hero-content { padding: 0 25px; text-align: center; }
-            .hero p { font-size: 0.95rem; max-width: 100%; line-height: 1.7; }
+            .hero-inner { padding: 0 20px; gap: 25px; }
+            .hero h1 { font-size: 2.6rem; letter-spacing: -1px; } 
+            .hero h2 { font-size: 0.9rem; letter-spacing: 2px; } 
+            .hero h3 { font-size: 1.2rem; }
+            .hero p { font-size: 0.9rem; line-height: 1.7; }
+            .hero { padding-top: 90px; }
+            .hero-img-col { flex: 0 0 auto; margin-top: 10px; }
+            .hero-portrait-wrap { width: 240px; height: 240px; }
+            .hero-portrait-wrap img { width: 200px; height: 200px; }
+            .hero-portrait-wrap::before { width: 240px; height: 240px; }
+            .hero-portrait-wrap::after { width: 280px; height: 280px; }
             .section-title { font-size: 2rem; }
             .skills-grid { grid-template-columns: 1fr; }
             .certificates-grid { grid-template-columns: 1fr; }
             .stats-bar { grid-template-columns: 1fr; }
             .trust-bar-content { gap: 20px; }
             .trust-divider { display: none; }
-            .chat-widget { right: 15px; bottom: 85px; }
-            .chat-box { width: calc(100vw - 40px); right: -15px; }
+            .chat-widget { right: 15px; bottom: 20px; }
+            .chat-box { width: calc(100vw - 30px); max-height: 65vh; }
+            .chat-body { max-height: 35vh; }
+            .chat-header { padding: 14px 16px; min-height: 64px; }
+            .chat-avatar { width: 42px; height: 42px; font-size: 1rem; }
+            .chat-header-info h4 { font-size: 0.95rem; }
+            .chat-header-info p { font-size: 0.75rem; }
             .footer-content { grid-template-columns: 1fr; text-align: center; }
             .before-after { grid-template-columns: 1fr; }
             .newsletter-form { flex-direction: column; }
             .newsletter-form input { width: 100%; }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.6rem; } 
-            .hero h2 { font-size: 0.95rem; letter-spacing: 1.5px; } 
-            .hero h3 { font-size: 1.3rem; }
-            .hero p { font-size: 0.88rem; }
-            .hero-content { padding: 0 20px; }
+            .hero-inner { padding: 0 15px; }
+            .hero h1 { font-size: 2rem; } 
+            .hero h2 { font-size: 0.8rem; letter-spacing: 1.5px; } 
+            .hero h3 { font-size: 1.1rem; }
+            .hero p { font-size: 0.85rem; }
+            .hero { padding-top: 85px; }
+            .hero-img-col { flex: 0 0 auto; margin-top: 5px; }
+            .hero-portrait-wrap { width: 200px; height: 200px; }
+            .hero-portrait-wrap img { width: 170px; height: 170px; }
+            .hero-portrait-wrap::before { width: 200px; height: 200px; }
+            .hero-portrait-wrap::after { width: 230px; height: 230px; }
             .btn { padding: 12px 25px; font-size: 0.9rem; }
-            .btn-outline { margin-left: 0; margin-top: 12px; }
-            .hero-buttons { display: flex; flex-direction: column; gap: 12px; }
+            .btn-outline { margin-left: 0; margin-top: 0; }
+            .hero-buttons { flex-direction: column; gap: 12px; align-items: center; }
         }
     </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -671,11 +761,8 @@
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-particles" id="particles"></div>
-        <div class="hero-portrait">
-            <img src="me imgn.jpg" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face';this.style.objectFit='cover';">
-        </div>
-        <div class="container">
-            <div class="hero-content">
+        <div class="hero-inner">
+            <div class="hero-text-col">
                 <h1>Hello, I'm Lewis</h1>
                 <h2>Digital Marketing Specialist</h2>
                 <h3>I Drive Growth Through <span class="typed-text"></span></h3>
@@ -683,6 +770,11 @@
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-img-col">
+                <div class="hero-portrait-wrap">
+                    <img src="me imgn.jpg" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face';this.style.objectFit='cover';">
                 </div>
             </div>
         </div>
@@ -1189,7 +1281,7 @@
 
                 <div class="certificate-card animate" data-cert="3" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img src="digital maketing adobe.jpeg" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/digital%20maketing%20adobe.jpeg" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Digital Marketing (Adobe)</h3>
@@ -1883,7 +1975,7 @@
                 <div class="chat-avatar">LW</div>
                 <div class="chat-header-info">
                     <h4>Lewis Wanjohi</h4>
-                    <p><i class="fas fa-circle" style="color:#4ade80;font-size:0.6rem;margin-right:4px;"></i> Typically replies in minutes</p>
+                    <p><span class="status-dot"></span> Typically replies in minutes</p>
                 </div>
             </div>
             <div class="chat-body" id="chatBody">
