@@ -61,19 +61,74 @@
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
         .menu-btn { display: none; font-size: 24px; cursor: pointer; }
 
-        /* === HERO SECTION - Image 1 Style === */
+        /* === HERO SECTION - Iconic Circular Portrait Style === */
         .hero {
             min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a0e2e 30%, #8b1a1a 60%, #c2410c 85%, #f59e0b 100%);
         }
-        .hero-content { max-width: 520px; z-index: 2; animation: fadeIn 1s ease; position: relative; padding-left: 20px; }
-        .hero h1 { font-size: 4.2rem; margin-bottom: 5px; line-height: 1.1; text-shadow: 3px 3px 20px rgba(0,0,0,0.8); font-weight: 800; letter-spacing: -1px; }
-        .hero h2 { font-size: 1.6rem; margin-bottom: 25px; color: var(--accent); text-shadow: 2px 2px 15px rgba(0,0,0,0.7); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .hero h3 { font-size: 1.8rem; margin-bottom: 30px; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); font-weight: 500; }
+        /* Circular portrait on the right */
+        .hero-portrait {
+            position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+            width: 55%; height: 90%; z-index: 1;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-portrait img {
+            width: 420px; height: 420px; border-radius: 50%;
+            object-fit: cover; object-position: center top;
+            position: relative; z-index: 2;
+            border: 4px solid rgba(253, 187, 45, 0.3);
+            box-shadow: 0 0 60px rgba(253, 187, 45, 0.2), 0 0 120px rgba(253, 187, 45, 0.1);
+        }
+        /* Glowing ring around portrait */
+        .hero-portrait::before {
+            content: '';
+            position: absolute;
+            width: 480px; height: 480px; border-radius: 50%;
+            border: 2px solid rgba(253, 187, 45, 0.25);
+            z-index: 1;
+            animation: rotateRing 20s linear infinite;
+        }
+        .hero-portrait::after {
+            content: '';
+            position: absolute;
+            width: 520px; height: 520px; border-radius: 50%;
+            border: 1px solid rgba(253, 187, 45, 0.12);
+            z-index: 0;
+            animation: rotateRing 30s linear infinite reverse;
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        /* Content on the left */
+        .hero-content { 
+            max-width: 600px; z-index: 2; animation: fadeIn 1s ease; 
+            position: relative; padding-left: 60px; padding-top: 10px;
+        }
+        .hero h1 { 
+            font-size: 5.2rem; margin-bottom: 10px; line-height: 1.05; 
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5); font-weight: 800; letter-spacing: -2px;
+            color: #fff;
+        }
+        .hero h2 { 
+            font-size: 1.15rem; margin-bottom: 30px; color: var(--accent); 
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); font-weight: 600; 
+            letter-spacing: 3.5px; text-transform: uppercase;
+        }
+        .hero h3 { 
+            font-size: 2rem; margin-bottom: 35px; 
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.4); font-weight: 500;
+            color: #fff; line-height: 1.4;
+        }
         .hero h3 .typed-text { color: var(--accent); font-weight: 700; }
-        .hero p { font-size: 1.15rem; margin-bottom: 45px; opacity: 0.9; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); line-height: 1.7; max-width: 480px; }
+        .hero p { 
+            font-size: 1.05rem; margin-bottom: 45px; opacity: 0.9; 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.4); line-height: 1.85; max-width: 480px;
+            color: rgba(255,255,255,0.9);
+        }
         .btn {
-            display: inline-block; padding: 12px 30px;
+            display: inline-block; padding: 14px 35px;
             background: linear-gradient(to right, var(--primary), var(--secondary)); color: white;
             text-decoration: none; border-radius: 30px; font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer;
@@ -82,53 +137,17 @@
         .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); margin-left: 15px; }
         .btn-outline:hover { background: var(--accent); color: var(--dark); }
 
-        /* Hero portrait - matching image 1 style */
-        .hero-portrait {
-            position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-            width: 42%; height: 85%; z-index: 1; display: flex; align-items: center; justify-content: center;
-        }
-        .hero-portrait img {
-            width: 100%; max-width: 420px; height: auto; max-height: 520px; border-radius: 0;
-            object-fit: cover; object-position: center top;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            position: relative; z-index: 2;
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-        }
-        .portrait-glow {
-            position: absolute; width: 100%; max-width: 460px; height: 100%; max-height: 560px;
-            background: linear-gradient(135deg, rgba(253,187,45,0.12), rgba(178,31,31,0.08));
-            filter: blur(40px);
-            z-index: 0; animation: pulseGlow 4s ease-in-out infinite;
-        }
-        .portrait-ring {
-            position: absolute; width: 100%; max-width: 440px; height: 100%; max-height: 540px;
-            border: 1px solid rgba(253,187,45,0.15); z-index: 3; border-radius: 0;
-            animation: rotateRing 30s linear infinite;
-        }
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.1); opacity: 0.9; }
-        }
-        @keyframes rotateRing {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Floating particles - no colored dots */
+        /* Floating dots like in the image */
         .hero-particles {
-            position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            position: absolute; inset: 0; z-index: 3; pointer-events: none;
         }
         .particle {
-            position: absolute; border-radius: 50%; opacity: 0.3;
-            background: rgba(255,255,255,0.3);
-            animation: floatParticle 8s ease-in-out infinite;
+            position: absolute; border-radius: 50%;
+            animation: floatParticle 6s ease-in-out infinite;
         }
         @keyframes floatParticle {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-            25% { transform: translate(20px, -30px) scale(1.2); opacity: 0.5; }
-            50% { transform: translate(-10px, -50px) scale(0.8); opacity: 0.3; }
-            75% { transform: translate(30px, -20px) scale(1.1); opacity: 0.4; }
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(10px, -15px) scale(1.2); opacity: 0.7; }
         }
 
         .about { padding: 100px 0; background: rgba(18,18,18,0.8); backdrop-filter: blur(10px); border-radius: 20px; margin: 40px 0; }
@@ -265,11 +284,11 @@
         .certificate-image-wrapper { min-height: 200px; }
 
         @media (max-width: 992px) {
-            .hero-content { max-width: 100%; text-align: center; padding: 0 20px; }
-            .hero-portrait { position: relative; right: auto; top: auto; transform: none; width: 100%; height: auto; margin-top: 30px; }
-            .hero-portrait img { width: 280px; max-height: 380px; }
-            .portrait-glow { width: 320px; height: 400px; }
-            .portrait-ring { width: 300px; height: 380px; }
+            .hero-content { max-width: 100%; text-align: center; padding: 0 40px; padding-top: 0; }
+            .hero-portrait { position: relative; right: auto; top: auto; transform: none; width: 100%; height: 350px; margin-top: 30px; }
+            .hero-portrait img { width: 280px; height: 280px; }
+            .hero-portrait::before { width: 320px; height: 320px; }
+            .hero-portrait::after { width: 360px; height: 360px; }
             .hero { flex-direction: column; justify-content: center; padding-top: 100px; }
             .about-content, .contact-content, .resume-content { grid-template-columns: 1fr; }
             .cert-modal-prev { left: 10px; } .cert-modal-next { right: 10px; }
@@ -279,27 +298,25 @@
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(18,18,18,0.95); backdrop-filter: blur(10px); flex-direction: column; padding: 20px; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
             .nav-links.active { display: flex; }
             .menu-btn { display: block; }
-            .hero h1 { font-size: 2.8rem; } .hero h2 { font-size: 1.3rem; } .hero h3 { font-size: 1.4rem; }
-            .hero-content { padding: 0 15px; text-align: center; }
-            .hero p { font-size: 1rem; max-width: 100%; }
-            .hero-portrait img { width: 220px; max-height: 300px; }
-            .portrait-glow { width: 260px; height: 320px; }
-            .portrait-ring { width: 240px; height: 300px; }
+            .hero h1 { font-size: 3.2rem; letter-spacing: -1px; } 
+            .hero h2 { font-size: 1.1rem; letter-spacing: 2px; } 
+            .hero h3 { font-size: 1.6rem; }
+            .hero-content { padding: 0 25px; text-align: center; }
+            .hero p { font-size: 0.95rem; max-width: 100%; line-height: 1.7; }
             .section-title { font-size: 2rem; }
             .skills-grid { grid-template-columns: 1fr; }
             .certificates-grid { grid-template-columns: 1fr; }
             .stats-bar { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; } .hero h2 { font-size: 1.1rem; } .hero h3 { font-size: 1.2rem; }
-            .hero p { font-size: 0.95rem; }
-            .hero-content { padding: 0 12px; }
-            .hero-portrait img { width: 180px; max-height: 250px; }
-            .portrait-glow { width: 210px; height: 270px; }
-            .portrait-ring { width: 195px; height: 255px; }
-            .btn { padding: 10px 20px; font-size: 0.9rem; }
-            .btn-outline { margin-left: 0; margin-top: 10px; }
-            .hero-buttons { display: flex; flex-direction: column; gap: 10px; }
+            .hero h1 { font-size: 2.6rem; } 
+            .hero h2 { font-size: 0.95rem; letter-spacing: 1.5px; } 
+            .hero h3 { font-size: 1.3rem; }
+            .hero p { font-size: 0.88rem; }
+            .hero-content { padding: 0 20px; }
+            .btn { padding: 12px 25px; font-size: 0.9rem; }
+            .btn-outline { margin-left: 0; margin-top: 12px; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 12px; }
         }
     </style>
 <base target="_blank">
@@ -326,25 +343,22 @@
 
     <section class="hero" id="home">
         <div class="hero-particles" id="particles"></div>
+        <div class="hero-portrait">
+            <img src="me imgn.jpg" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high">
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Hello, It's Me</h1>
-                <h2>Artist Lewis</h2>
-                <h3>I'm a <span class="typed-text"></span></h3>
-                <p>Please hold your breath as we dive into a world full of creativity with designer Lewis. I create stunning designs, build powerful websites, and develop cutting-edge AI and blockchain solutions.</p>
+                <h1>Hello, I'm Lewis</h1>
+                <h2>Digital Marketing Specialist</h2>
+                <h3>I Drive Growth Through <span class="typed-text"></span></h3>
+                <p>Certified by HubSpot Academy in Digital Marketing, Social Media Marketing, and Inbound Marketing. I help brands attract, engage, and convert customers through data-driven strategies and compelling creative campaigns.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
         </div>
-        <div class="hero-portrait">
-            <div class="portrait-glow"></div>
-            <div class="portrait-ring"></div>
-            <img src="me imgn.jpg" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high">
-        </div>
     </section>
-
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -532,7 +546,6 @@
             </div>
         </div>
     </section>
-
     <section class="certificates" id="certificates">
         <div class="container">
             <h2 class="section-title">My Certifications</h2>
@@ -749,7 +762,6 @@
             <div class="cert-modal-info" id="certModalInfo"></div>
         </div>
     </div>
-
     <!-- === TRAINING SECTION - Image 4 Style (single card with your photo) === -->
     <section class="training" id="training">
         <div class="container">
@@ -1100,7 +1112,7 @@
         });
 
         const typedText = document.querySelector('.typed-text');
-        const textArray = ['Digital Marketing', 'Social Media Strategy', 'Inbound Campaigns', 'Content That Converts', 'Brand Growth', 'SEO & Analytics', 'Creative Design'];
+        const textArray = ['Inbound Campaigns', 'Digital Marketing', 'Social Media Strategy', 'Content That Converts', 'Brand Growth', 'SEO & Analytics', 'Creative Design'];
         let arrayIndex = 0, charIndex = 0, isDeleting = false;
         function type() {
             const currentText = textArray[arrayIndex];
