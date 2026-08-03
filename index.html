@@ -35,92 +35,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ===== MODERN DESIGN SYSTEM TOKENS & RESET ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
             --primary: #1a2a6c;
             --secondary: #b21f1f;
             --accent: #fdbb2d;
-            --accent-glow: rgba(253, 187, 45, 0.25);
-            --dark: #0f111a;
-            --dark-surface: rgba(18, 18, 24, 0.92);
-            --dark-card: rgba(26, 30, 46, 0.8);
-            --light: #f8fafc;
-            --light-muted: #cbd5e1;
-            --text-dim: #94a3b8;
-            --border-subtle: rgba(255, 255, 255, 0.1);
-            --border-accent: rgba(253, 187, 45, 0.3);
-            
-            --h1-size: clamp(2.2rem, 5vw, 3.6rem);
-            --h2-size: clamp(1rem, 2vw, 1.25rem);
-            --h3-size: clamp(1.25rem, 3vw, 1.75rem);
-            --section-title-size: clamp(1.75rem, 4vw, 2.5rem);
-            --body-size: clamp(0.95rem, 1.5vw, 1.05rem);
-            
-            --header-height: 80px;
-            --container-max: 1200px;
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-full: 9999px;
-            
-            --z-back: -1;
-            --z-normal: 1;
-            --z-header: 1000;
-            --z-floating: 8000;
-            --z-modal: 9000;
-            --z-loader: 10000;
-            --z-cursor: 99999;
+            --dark: #121212;
+            --light: #f8f8f8;
+            --gray: #2a2a2a;
+            --red: #c40000;
         }
-
-        html { 
-            scroll-behavior: smooth; 
-            scroll-padding-top: var(--header-height);
-        }
-        
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
             background-attachment: fixed;
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
             cursor: none;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
         }
-        
-        .container { 
-            max-width: var(--container-max); 
-            margin: 0 auto; 
-            padding: 0 20px; 
-            width: 100%;
-        }
-
-        /* ACCESSIBLE FOCUS VISIBLE RINGS (WCAG AA) */
-        :focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* LOADING SCREEN */
         .loader-overlay {
-            position: fixed; inset: 0; background: var(--dark); z-index: var(--z-loader);
+            position: fixed; inset: 0; background: var(--dark); z-index: 10002;
             display: flex; align-items: center; justify-content: center; flex-direction: column;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         .loader-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .loader-ring {
-            width: 70px; height: 70px; border-radius: 50%;
+            width: 80px; height: 80px; border-radius: 50%;
             border: 3px solid transparent;
             border-top-color: var(--accent);
             border-right-color: var(--secondary);
-            animation: spinLoader 1s linear infinite;
+            animation: spinLoader 1.2s linear infinite;
         }
         .loader-text {
-            margin-top: 20px; font-size: 1.1rem; font-weight: 600;
+            margin-top: 25px; font-size: 1.1rem; font-weight: 600;
             background: linear-gradient(to right, var(--accent), var(--secondary), var(--accent));
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shimmer 2s linear infinite;
@@ -128,87 +80,70 @@
         @keyframes spinLoader { to { transform: rotate(360deg); } }
         @keyframes shimmer { to { background-position: 200% center; } }
 
-        /* CUSTOM CURSOR & TOUCH FALLBACK */
-        .cursor-dot { 
-            position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; 
-            pointer-events: none; z-index: var(--z-cursor); transform: translate(-50%, -50%); 
-            transition: width 0.2s, height 0.2s, background 0.2s; mix-blend-mode: difference; 
-        }
-        .cursor-outline { 
-            position: fixed; width: 40px; height: 40px; border: 2px solid rgba(253,187,45,0.6); 
-            border-radius: 50%; pointer-events: none; z-index: calc(var(--z-cursor) - 1); 
-            transform: translate(-50%, -50%); transition: all 0.15s ease-out; 
-        }
-        .cursor-outline.hover { width: 56px; height: 56px; border-color: var(--accent); background: rgba(253,187,45,0.12); }
+        /* CUSTOM CURSOR */
+        .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background 0.2s; mix-blend-mode: difference; }
+        .cursor-outline { position: fixed; width: 40px; height: 40px; border: 2px solid rgba(253,187,45,0.5); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: all 0.15s ease-out; }
+        .cursor-outline.hover { width: 60px; height: 60px; border-color: var(--accent); background: rgba(253,187,45,0.1); }
         .cursor-dot.hover { width: 12px; height: 12px; }
-        
-        @media (hover: none) or (pointer: coarse) or (max-width: 768px) { 
-            .cursor-dot, .cursor-outline { display: none !important; } 
-            body, button, a, input, textarea { cursor: auto !important; } 
-        }
+        @media (max-width: 768px) { .cursor-dot, .cursor-outline { display: none; } body { cursor: auto; } }
 
         /* SCROLL PROGRESS BAR */
-        .scroll-progress { 
-            position: fixed; top: 0; left: 0; height: 3px; 
-            background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary)); 
-            z-index: calc(var(--z-header) + 1); width: 0%; transition: width 0.1s linear; 
-        }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary)); z-index: 10003; width: 0%; transition: width 0.1s; }
 
         /* HEADER */
         header {
-            padding: 16px 0; position: fixed; width: 100%; top: 0; z-index: var(--z-header);
-            background: rgba(15, 17, 26, 0.92); backdrop-filter: blur(12px); 
-            border-bottom: 1px solid var(--border-subtle); transition: all 0.3s ease;
+            padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(10px); transition: all 0.3s ease;
         }
-        header.scrolled { padding: 12px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        header.scrolled { padding: 15px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo {
-            font-size: 1.6rem; font-weight: 700;
-            background: linear-gradient(to right, var(--accent), #ffa726);
+            font-size: 28px; font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-decoration: none;
         }
-        .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a {
-            color: var(--light-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem;
-            transition: color 0.3s; position: relative; padding: 4px 0;
+            color: var(--light); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s; position: relative;
         }
         .nav-links a:after {
-            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
-            background: var(--accent); transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--accent); transition: width 0.3s;
         }
         .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-        .menu-btn { display: none; font-size: 24px; cursor: pointer; color: var(--light); background: none; border: none; }
+        .menu-btn { display: none; font-size: 24px; cursor: pointer; }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 80px); 
             display: flex; 
             align-items: center; 
-            padding-top: calc(var(--header-height) + 40px); 
-            padding-bottom: 60px;
+            padding-top: 100px; 
+            padding-bottom: 40px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #160a28 0%, #3a0b25 35%, #701515 65%, #a8350b 85%, #d97706 100%);
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a0e2e 30%, #8b1a1a 60%, #c2410c 85%, #f59e0b 100%);
         }
         .hero-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            max-width: var(--container-max);
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             gap: 40px;
         }
         .hero-text-col {
-            flex: 1 1 560px;
-            max-width: 600px;
+            flex: 1;
+            max-width: 580px;
             z-index: 5;
+            animation: fadeIn 1s ease;
         }
         .hero-img-col {
-            flex: 0 0 auto;
+            flex: 0 0 420px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -224,15 +159,15 @@
             justify-content: center;
         }
         .hero-portrait-wrap img {
-            width: 85%;
-            height: 85%;
+            width: 85%; 
+            height: 85%; 
             border-radius: 50%;
             object-fit: cover; 
-            object-position: center top;
+            object-position: center center;
             position: relative; 
             z-index: 2;
-            border: 4px solid rgba(253, 187, 45, 0.35);
-            box-shadow: 0 0 50px rgba(253, 187, 45, 0.25), 0 0 100px rgba(0,0,0,0.5);
+            border: 4px solid rgba(253, 187, 45, 0.3);
+            box-shadow: 0 0 60px rgba(253, 187, 45, 0.2), 0 0 120px rgba(253, 187, 45, 0.1);
         }
         .hero-portrait-wrap::before {
             content: ''; 
@@ -240,7 +175,7 @@
             width: 98%; 
             height: 98%; 
             border-radius: 50%;
-            border: 2px solid rgba(253, 187, 45, 0.3); 
+            border: 2px solid rgba(253, 187, 45, 0.25); 
             z-index: 1;
             animation: rotateRing 20s linear infinite;
         }
@@ -250,82 +185,50 @@
             width: 112%; 
             height: 112%; 
             border-radius: 50%;
-            border: 1px dashed rgba(253, 187, 45, 0.2); 
+            border: 1px solid rgba(253, 187, 45, 0.12); 
             z-index: 0;
             animation: rotateRing 30s linear infinite reverse;
         }
         @keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        
         .hero h1 { 
-            font-size: var(--h1-size); 
-            margin-bottom: 12px; 
+            font-size: clamp(2.2rem, 5vw, 3.6rem); 
+            margin-bottom: 10px; 
             line-height: 1.15; 
-            text-shadow: 2px 2px 20px rgba(0,0,0,0.6); 
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5); 
             font-weight: 800; 
             letter-spacing: -1px; 
             color: #fff;
         }
         .hero h2 { 
-            font-size: var(--h2-size); 
-            margin-bottom: 20px; 
+            font-size: 1.1rem; 
+            margin-bottom: 25px; 
             color: var(--accent); 
             text-shadow: 1px 1px 10px rgba(0,0,0,0.4); 
             font-weight: 600; 
-            letter-spacing: 2.5px; 
+            letter-spacing: 3px; 
             text-transform: uppercase;
         }
-        
-        /* TYPED ANIMATION (CLS FIX & STABILITY) */
-        .hero-subtitle { 
-            font-size: var(--h3-size); 
-            margin-bottom: 25px; 
-            font-weight: 500;
-            color: #fff; 
-            line-height: 1.35;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px;
-        }
-        .typed-wrapper {
-            display: inline-flex;
-            align-items: center;
-            min-width: clamp(220px, 45vw, 340px);
-            min-height: 2.2rem;
-            position: relative;
-            white-space: nowrap;
-        }
-        .typed-text { color: var(--accent); font-weight: 700; }
-        .typed-cursor { color: var(--accent); font-weight: 400; margin-left: 2px; animation: blinkCursor 0.8s infinite; }
-        @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
         .hero p { 
-            font-size: var(--body-size); 
+            font-size: 1rem; 
             margin-bottom: 30px; 
+            opacity: 0.9; 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.4); 
             line-height: 1.75; 
-            color: rgba(255,255,255,0.92);
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.4);
+            color: rgba(255,255,255,0.9);
         }
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 15px;
             flex-wrap: wrap;
-            align-items: center;
         }
         .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-            color: white; text-decoration: none; border-radius: var(--radius-full); font-weight: 600;
-            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s; 
-            border: none; cursor: pointer; text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: inline-block; padding: 14px 35px;
+            background: linear-gradient(to right, var(--primary), var(--secondary)); color: white;
+            text-decoration: none; border-radius: 30px; font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer;
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
-        .btn-outline { 
-            background: rgba(15,17,26,0.4); border: 2px solid var(--accent); color: var(--accent); 
-            backdrop-filter: blur(8px);
-        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); margin-left: 15px; }
         .btn-outline:hover { background: var(--accent); color: var(--dark); }
 
         .hero-particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -335,7 +238,51 @@
             50% { transform: translate(10px, -15px) scale(1.2); opacity: 0.7; }
         }
 
-        /* FLOATING ACTIONS STACK (COLLISION PREVENTION FIX) */
+        /* ===== ADDED BUGFIXES & RESPONSIVE ENHANCEMENTS ===== */
+        :root {
+            --h1-size: clamp(2.2rem, 5vw, 3.6rem);
+            --h2-size: clamp(1rem, 2vw, 1.25rem);
+            --h3-size: clamp(1.25rem, 3vw, 1.75rem);
+            --section-title-size: clamp(1.75rem, 4vw, 2.5rem);
+            --header-height: 80px;
+            --z-floating: 8000;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent) !important;
+            outline-offset: 3px !important;
+        }
+
+        /* CLS FIX FOR TYPED ANIMATION */
+        .hero-subtitle {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+        .typed-wrapper {
+            display: inline-flex;
+            align-items: center;
+            min-width: clamp(220px, 45vw, 340px);
+            min-height: 2.2rem;
+            position: relative;
+            white-space: nowrap;
+        }
+        .typed-text {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .typed-cursor {
+            color: var(--accent);
+            font-weight: 400;
+            margin-left: 2px;
+            animation: blinkCursor 0.8s infinite;
+        }
+        @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* FLOATING ACTIONS STACK (COLLISION FIX) */
         .floating-actions-stack {
             position: fixed;
             bottom: 30px;
@@ -379,76 +326,173 @@
             transform: translateY(0) scale(1);
         }
 
-        /* TRUST BADGES BAR */
-        .trust-bar {
-            background: var(--dark-surface); padding: 28px 0; border-bottom: 1px solid var(--border-subtle);
-            position: relative; z-index: 10;
+        /* ENSURE ANIMATE ELEMENTS ARE VISIBLE & ANIMATE SMOOTHLY */
+        .animate {
+            opacity: 1; /* Fallback for immediate visibility */
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        .trust-bar-content { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
-        .trust-item { display: flex; align-items: center; gap: 10px; color: var(--light-muted); font-size: 0.9rem; }
-        .trust-item i { color: var(--accent); font-size: 1.2rem; }
-        .trust-divider { width: 1px; height: 28px; background: rgba(253,187,45,0.25); }
-
-        /* SECTIONS COMMON */
-        section { padding: 90px 0; }
-        .section-card { 
-            background: var(--dark-surface); 
-            backdrop-filter: blur(12px); 
-            border-radius: var(--radius-lg); 
-            border: 1px solid var(--border-subtle);
-            padding: 60px 40px;
-            margin: 40px 0; 
-        }
-        .section-title { 
-            text-align: center; font-size: var(--section-title-size); 
-            margin-bottom: 50px; position: relative; font-weight: 700; color: #fff;
-        }
-        .section-title:after {
-            content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
-            width: 70px; height: 4px; background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent)); border-radius: 2px;
-        }
-
-        /* RESPONSIVE BREAKPOINTS (320px, 360px, 375px, 390px, 414px, 768px, 1024px) */
+        
         @media (max-width: 992px) {
             .hero-inner { flex-direction: column-reverse; text-align: center; gap: 30px; }
             .hero-text-col { max-width: 100%; }
             .hero-buttons { justify-content: center; }
             .hero-subtitle { justify-content: center; }
             .typed-wrapper { min-width: 240px; justify-content: center; }
-            .about-content, .resume-content { grid-template-columns: 1fr; gap: 40px; }
         }
         @media (max-width: 768px) {
-            section { padding: 60px 0; }
-            .section-card { padding: 40px 20px; margin: 25px 0; }
-            .menu-btn { display: block; }
-            .nav-links {
-                position: fixed; top: var(--header-height); left: 0; width: 100%;
-                background: rgba(15, 17, 26, 0.98); backdrop-filter: blur(20px);
-                flex-direction: column; padding: 30px 20px; gap: 20px;
-                transform: translateY(-150%); opacity: 0; visibility: hidden;
-                transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-                border-bottom: 1px solid var(--border-accent);
-            }
-            .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
             .floating-actions-stack { bottom: 20px; right: 20px; gap: 10px; }
             .floating-btn { width: 46px; height: 46px; font-size: 1.1rem; }
-        }
-        @media (max-width: 480px) {
-            .container { padding: 0 15px; }
-            .btn { width: 100%; margin-left: 0 !important; }
-            .hero-subtitle { font-size: 1.25rem; }
-            .typed-wrapper { min-width: 200px; }
-            .trust-bar-content { gap: 20px; }
-            .trust-divider { display: none; }
-        }
-        @media (max-width: 360px) {
-            .hero h1 { font-size: 2rem; }
-            .hero h2 { font-size: 0.9rem; letter-spacing: 1.5px; }
-            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Complete updated index.html saved to C:\Users\lewis\.gemini\antigravity\scratch\lewis-portfolio\index.html -->
+    <!-- LOADING OVERLAY -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Loading Experience...</div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Githaiga Lewis</a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#training">Training</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-inner">
+            <div class="hero-text-col">
+                <h2>Digital Marketing Specialist</h2>
+                <h1>Githaiga Lewis Wanjohi</h1>
+                <h3 class="hero-subtitle">
+                    <span class="typed-lead">I Drive Growth Through</span>
+                    <span class="typed-wrapper" aria-live="polite">
+                        <span class="typed-text"></span><span class="typed-cursor" aria-hidden="true">|</span>
+                    </span>
+                </h3>
+                <p>HubSpot Certified Digital Marketer & Sign Language Interpreter based in Nairobi, Kenya. I combine strategic inbound marketing, creative content production, and accessibility solutions to elevate brands.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#case-studies" class="btn btn-outline">View Case Studies</a>
+                </div>
+            </div>
+            <div class="hero-img-col">
+                <div class="hero-portrait-wrap">
+                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" alt="Githaiga Lewis Wanjohi Graduation Photo" loading="eager" fetchpriority="high" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING ACTIONS STACK (Collision Prevention Fix) -->
+    <div class="floating-actions-stack" role="region" aria-label="Floating Shortcuts">
+        <button id="chatToggle" class="floating-btn chat-widget-toggle" onclick="toggleChat()" aria-label="Open Live AI Chat" title="Chat with Lewis AI">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+        </button>
+        <button id="backToTop" class="floating-btn back-to-top-btn" aria-label="Back to top" title="Back to top">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ===== LOADING SCREEN =====
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                if (loader) loader.classList.add('hidden');
+            }, 500);
+        });
+
+        // ===== CUSTOM CURSOR =====
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorOutline = document.getElementById('cursorOutline');
+        if (cursorDot && cursorOutline && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX; mouseY = e.clientY;
+                cursorDot.style.left = mouseX + 'px';
+                cursorDot.style.top = mouseY + 'px';
+            }, { passive: true });
+
+            function animateCursor() {
+                outlineX += (mouseX - outlineX) * 0.15;
+                outlineY += (mouseY - outlineY) * 0.15;
+                cursorOutline.style.left = outlineX + 'px';
+                cursorOutline.style.top = outlineY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        // ===== TYPING EFFECT =====
+        const typedText = document.querySelector('.typed-text');
+        const textArray = ['Inbound Campaigns', 'Digital Marketing', 'Social Media Strategy', 'Content That Converts', 'Brand Growth', 'SEO & Analytics', 'Creative Design'];
+        let arrayIndex = 0, charIndex = 0, isDeleting = false;
+        function type() {
+            if (!typedText) return;
+            const currentText = textArray[arrayIndex];
+            if (isDeleting) {
+                typedText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            let typeSpeed = isDeleting ? 45 : 95;
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                arrayIndex = (arrayIndex + 1) % textArray.length;
+                typeSpeed = 400;
+            }
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // ===== SCROLL PROGRESS & BACK TO TOP =====
+        const scrollProgress = document.getElementById('scrollProgress');
+        const backToTop = document.getElementById('backToTop');
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollProgress && docHeight > 0) scrollProgress.style.width = (scrollTop / docHeight * 100) + '%';
+            if (header) header.classList.toggle('scrolled', scrollTop > 50);
+            if (backToTop) backToTop.classList.toggle('visible', scrollTop > 400);
+        }, { passive: true });
+
+        if (backToTop) {
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
 </body>
 </html>
