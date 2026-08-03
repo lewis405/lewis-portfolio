@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -622,14 +623,18 @@
         .training-card-premium-visual {
             position: relative;
             width: 100%;
-            height: 380px;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            min-height: 220px;
+            max-height: 460px;
             overflow: hidden;
+            background: linear-gradient(135deg, #16121f, #241428);
         }
         .training-premium-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
+            object-position: center 28%;
             display: block;
             transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
@@ -804,7 +809,7 @@
 
         /* Responsive for premium training card */
         @media (max-width: 768px) {
-            .training-card-premium-visual { height: 280px; }
+            .training-card-premium-visual { aspect-ratio: 4 / 3; min-height: 200px; }
             .training-card-premium-body { padding: 22px 20px 26px; }
             .training-premium-header h3 { font-size: 1.25rem; }
             .training-premium-org { font-size: 0.85rem; }
@@ -816,7 +821,7 @@
             .training-premium-category { top: 16px; left: 16px; padding: 6px 14px; font-size: 0.7rem; }
         }
         @media (max-width: 480px) {
-            .training-card-premium-visual { height: 240px; }
+            .training-card-premium-visual { aspect-ratio: 4 / 3; min-height: 180px; }
             .training-card-premium-body { padding: 18px 16px 22px; }
             .training-premium-header h3 { font-size: 1.1rem; }
             .training-premium-icons { gap: 8px; }
@@ -946,8 +951,8 @@
         }
         .chat-toggle:hover { transform: scale(1.1); }
         .chat-box {
-            position: absolute; bottom: 70px; right: 0; width: 320px;
-            background: rgba(18,18,18,0.98); backdrop-filter: blur(20px);
+            position: absolute; bottom: 70px; right: 0; width: 360px;
+            background: #0e0e12; backdrop-filter: blur(20px);
             border-radius: 20px; border: 1px solid rgba(253,187,45,0.2);
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             transform: scale(0); transform-origin: bottom right;
@@ -969,25 +974,30 @@
         }
         .chat-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--dark); flex-shrink: 0; font-size: 1rem; }
         .chat-header-info h4 { font-size: 1rem; margin: 0; line-height: 1.3; }
-        .chat-header-info p { font-size: 0.75rem; opacity: 0.8; margin: 0; line-height: 1.3; }
-        .chat-body { padding: 15px 20px; max-height: 260px; overflow-y: auto; flex: 1; min-height: 100px; }
+        .chat-header-info p { font-size: 0.75rem; opacity: 0.95; margin: 0; line-height: 1.3; }
+        .chat-body { padding: 16px 18px; max-height: 300px; overflow-y: auto; flex: 1; min-height: 100px; }
         .chat-message { margin-bottom: 15px; display: flex; gap: 10px; }
         .chat-message.bot { justify-content: flex-start; }
-        .chat-bubble { padding: 12px 15px; border-radius: 15px; max-width: 220px; font-size: 0.9rem; line-height: 1.5; }
-        .chat-bubble.bot { background: rgba(253,187,45,0.15); color: var(--light); border-bottom-left-radius: 4px; }
-        .chat-bubble.user { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-bottom-right-radius: 4px; margin-left: auto; }
-        .chat-input-area { padding: 12px 20px 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 10px; flex-shrink: 0; background: rgba(18,18,18,0.98); border-radius: 0 0 20px 20px; }
-        .chat-input-area input { flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--light); font-family: 'Poppins', sans-serif; outline: none; }
-        .chat-input-area input:focus { border-color: var(--accent); }
+        .chat-bubble { padding: 12px 15px; border-radius: 15px; max-width: 260px; font-size: 0.92rem; line-height: 1.6; letter-spacing: 0.1px; }
+        .chat-bubble.bot { background: #23232c; color: #ffffff; border: 1px solid rgba(253,187,45,0.28); border-bottom-left-radius: 4px; }
+        .chat-bubble.bot strong { color: var(--accent); }
+        .chat-bubble.user { background: #fdbb2d; color: #14141a; font-weight: 500; border-bottom-right-radius: 4px; margin-left: auto; }
+        .chat-input-area { padding: 12px 18px 16px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; gap: 10px; flex-shrink: 0; background: #0e0e12; border-radius: 0 0 20px 20px; }
+        .chat-input-area input { flex: 1; padding: 11px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.22); background: #1b1b22; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 0.9rem; outline: none; }
+        .chat-input-area input::placeholder { color: rgba(255,255,255,0.6); }
+        .chat-input-area input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(253,187,45,0.15); }
         .chat-send { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--accent); color: var(--dark); cursor: none; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
         .chat-send:hover { transform: scale(1.1); }
-        .chat-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 20px 15px; flex-shrink: 0; background: rgba(18,18,18,0.98); }
+        .chat-quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 18px 14px; flex-shrink: 0; background: #0e0e12; border-top: 1px solid rgba(255,255,255,0.07); }
         .chat-quick-replies button {
-            padding: 6px 14px; border-radius: 15px; border: 1px solid rgba(253,187,45,0.3);
-            background: transparent; color: var(--accent); font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem; cursor: none; transition: all 0.2s;
+            padding: 7px 14px; border-radius: 15px; border: 1px solid rgba(253,187,45,0.55);
+            background: rgba(253,187,45,0.12); color: #ffd371; font-family: 'Poppins', sans-serif;
+            font-weight: 500; font-size: 0.8rem; cursor: none; transition: all 0.2s;
         }
-        .chat-quick-replies button:hover { background: var(--accent); color: var(--dark); }
+        .chat-quick-replies button:hover { background: var(--accent); color: #14141a; }
+        .chat-header-info p { color: #fff; }
+        .chat-meta { font-size: 0.68rem; color: rgba(255,255,255,0.45); margin: -8px 0 12px 2px; letter-spacing: 0.3px; }
+        .chat-suggest { font-size: 0.8rem; color: rgba(255,255,255,0.75); }
         .chat-typing { display: flex; gap: 4px; padding: 10px 15px; }
         .chat-typing span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: typingBounce 1.4s infinite ease-in-out both; }
         .chat-typing span:nth-child(1) { animation-delay: -0.32s; }
@@ -1064,7 +1074,7 @@
             .trust-bar-content { gap: 20px; }
             .trust-divider { display: none; }
             .chat-widget { right: 15px; bottom: 20px; }
-            .chat-box { width: calc(100vw - 30px); max-height: 65vh; }
+            .chat-box { width: calc(100vw - 24px); max-height: 72vh; }
             .chat-body { max-height: 35vh; }
             .chat-header { padding: 14px 16px; min-height: 64px; }
             .chat-avatar { width: 42px; height: 42px; font-size: 1rem; }
@@ -2428,7 +2438,7 @@
                 <!-- GeoML AI Datathon - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 15%;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 22%;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-graduation-cap"></i> Training & Innovation Event
@@ -2533,7 +2543,7 @@
                 <!-- KITI Graduation - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center top; background: linear-gradient(135deg, #1a0a2e, #4a0e2e);" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
+                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #1a0a2e, #4a0e2e); padding: 8px;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-graduation-cap"></i> Academic Milestone
@@ -3414,23 +3424,186 @@
             if (typing) typing.remove();
         }
 
-        function getBotReply(userMsg) {
-            const msg = userMsg.toLowerCase();
-            if (msg.includes('social') || msg.includes('media')) {
-                return "I offer full social media management including content creation, scheduling, community management, and paid ads. My Growth package starts at KES 35,000/month. Would you like to see some examples?";
-            } else if (msg.includes('price') || msg.includes('pricing') || msg.includes('cost') || msg.includes('package')) {
-                return "I have three packages: Starter (KES 15,000/project), Growth (KES 35,000/month), and Enterprise (custom pricing). Each is tailored to your specific needs. Which sounds right for your business?";
-            } else if (msg.includes('design') || msg.includes('brand') || msg.includes('logo')) {
-                return "I create complete brand identity packages including logos, color palettes, social media templates, and marketing collateral. Check out my Projects section for examples!";
-            } else if (msg.includes('book') || msg.includes('call') || msg.includes('consult') || msg.includes('meeting')) {
-                return "I'd love to discuss your project! Please fill out the contact form below or WhatsApp me at 0792 316 985. I typically respond within an hour during business hours.";
-            } else if (msg.includes('seo') || msg.includes('website') || msg.includes('web')) {
-                return "I provide technical SEO audits, on-page optimization, and website performance tuning. My web development background means I can implement fixes directly, not just recommend them.";
-            } else if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
-                return "Hello! Welcome to my portfolio. I'm Lewis, a certified digital marketer. How can I help you today?";
-            } else {
-                return "Thanks for reaching out! I'd be happy to discuss your marketing needs in detail. Please share more about your project, or fill out the contact form and I'll get back to you within an hour.";
+        /* =========================================================
+           LEWIS.AI  —  on-device conversational engine
+           Pure JS, ~0 KB dependencies, runs in <1ms per message.
+           Techniques: text normalisation, Levenshtein-based fuzzy
+           matching (typo tolerance), TF-IDF vectorisation with
+           bigrams, cosine similarity ranking, softmax confidence
+           scoring, sentiment cue detection and short-term
+           conversation memory for contextual follow-ups.
+           ========================================================= */
+        const LewisAI = (function () {
+            const STOP = new Set(['a','an','the','is','are','am','do','does','did','i','you','me','my','your','of','for','to','in','on','and','it','can','could','would','with','how','what','about','please','hey','pls']);
+
+            const KB = [
+                { id:'social', tags:['social media','instagram','facebook','tiktok','content','posting','community','followers','engagement','reels','ads','campaign'],
+                  reply:"I run <strong>full social media management</strong> — content strategy, design, scheduling, community management and paid ads across Instagram, Facebook, TikTok and LinkedIn. Most clients start on the <strong>Growth package (KES 35,000/month)</strong> and see engagement lift within the first 30 days.",
+                  chips:['See results','Pricing','Book Call'] },
+                { id:'pricing', tags:['price','pricing','cost','charge','budget','package','quote','how much','rates','payment','afford'],
+                  reply:"Three tiers, no hidden fees:<br>• <strong>Starter</strong> — KES 15,000 / project<br>• <strong>Growth</strong> — KES 35,000 / month<br>• <strong>Enterprise</strong> — custom<br>Everything is scoped to your goals. What's your monthly marketing budget looking like?",
+                  chips:['Growth package','Book Call','What is included?'] },
+                { id:'brand', tags:['brand','branding','design','logo','identity','graphics','poster','visual','colors','rebrand'],
+                  reply:"I build <strong>complete brand identities</strong>: logo systems, colour palettes, typography, social templates and marketing collateral — delivered as an editable brand kit. Have a look at the Projects section for recent work.",
+                  chips:['See projects','Pricing','Book Call'] },
+                { id:'booking', tags:['book','call','consultation','meeting','appointment','talk','schedule','hire','available','contact','whatsapp','email','reach'],
+                  reply:"Let's talk. <strong>WhatsApp: 0792 316 985</strong> or use the contact form below — I reply within an hour on business days. Free 20-minute discovery call, no pitch.",
+                  chips:['WhatsApp now','Pricing','Services'] },
+                { id:'seo', tags:['seo','search','google','ranking','traffic','website','web','site','speed','audit','optimize','keywords'],
+                  reply:"I do <strong>technical SEO audits</strong>, on-page optimisation, keyword mapping and Core Web Vitals tuning. Because I also build websites, I implement the fixes directly instead of handing you a PDF of recommendations.",
+                  chips:['Free audit','Pricing','Book Call'] },
+                { id:'ai', tags:['ai','machine learning','ml','automation','chatgpt','data','model','blockchain','geoml','datathon','python'],
+                  reply:"AI is a big part of how I work: I trained at <strong>KITI – University of Nairobi</strong> and took part in the <strong>GeoML AI Datathon</strong>. I use AI for content pipelines, audience clustering, predictive campaign scoring and automation — practical wins, not hype.",
+                  chips:['AI services','Training','Book Call'] },
+                { id:'signlang', tags:['sign language','interpreter','deaf','accessibility','inclusive','ksl'],
+                  reply:"Yes — I'm a trained <strong>sign language interpreter</strong>. I offer accessible content production, KSL interpretation for events and video captioning, so your brand reaches the deaf community too.",
+                  chips:['Book Call','Services'] },
+                { id:'experience', tags:['experience','who','about','background','qualification','certified','hubspot','resume','cv','study','education','kiti'],
+                  reply:"I'm <strong>Githaiga Lewis Wanjohi</strong> — HubSpot-certified digital marketing specialist based in Nairobi, with a background in IT, media and sign language interpretation, plus AI/blockchain training from KITI, University of Nairobi.",
+                  chips:['See resume','Certificates','Book Call'] },
+                { id:'results', tags:['results','roi','case study','proof','portfolio','clients','testimonial','example','work','sample'],
+                  reply:"Real numbers beat promises — the Projects and Testimonials sections show campaign work with the growth figures attached. Tell me your industry and I'll point you to the closest case.",
+                  chips:['See projects','Book Call'] },
+                { id:'greeting', tags:['hi','hello','hey','habari','sasa','good morning','good evening','yo','greetings'],
+                  reply:"Hey! I'm <strong>Lewis</strong> 👋 — digital marketing, brand design and AI-powered growth. What are you working on?",
+                  chips:['Social Media','Pricing','Brand Design','Book Call'] },
+                { id:'thanks', tags:['thanks','thank you','asante','appreciate','great','awesome','perfect','cool'],
+                  reply:"Anytime! If you want, I can line up a free 20-minute strategy call and we'll map the next steps together.",
+                  chips:['Book Call','Pricing'] }
+            ];
+
+            // ---- normalisation + tokenisation ----
+            const norm = t => t.toLowerCase().replace(/[^a-z0-9\s']/g,' ').replace(/\s+/g,' ').trim();
+            function tokens(t) {
+                const w = norm(t).split(' ').filter(x => x && !STOP.has(x)).map(stem);
+                const grams = w.slice();
+                for (let i=0;i<w.length-1;i++) grams.push(w[i]+'_'+w[i+1]); // bigrams
+                return grams;
             }
+            function stem(w) {
+                return w.replace(/(ing|ers|er|ies|s)$/,'').replace(/^$/, w) || w;
+            }
+            // ---- Levenshtein (bounded) for typo tolerance ----
+            function lev(a,b) {
+                if (Math.abs(a.length-b.length) > 2) return 9;
+                const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);
+                for(let j=0;j<=n;j++) d[0][j]=j;
+                for(let i=1;i<=m;i++) for(let j=1;j<=n;j++)
+                    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+                return d[m][n];
+            }
+            // ---- build TF-IDF index once ----
+            const docs = KB.map(k => tokens(k.tags.join(' ')));
+            const df = {};
+            docs.forEach(d => new Set(d).forEach(t => df[t]=(df[t]||0)+1));
+            const N = docs.length;
+            const idf = t => Math.log(1 + N/(1+(df[t]||0)));
+            function vec(toks) {
+                const tf={}; toks.forEach(t=>tf[t]=(tf[t]||0)+1);
+                const v={}; let s=0;
+                for (const t in tf) { const w=(1+Math.log(tf[t]))*idf(t); v[t]=w; s+=w*w; }
+                s=Math.sqrt(s)||1;
+                for (const t in v) v[t]/=s;
+                return v;
+            }
+            const docVecs = docs.map(vec);
+            function cosine(a,b){ let s=0; for(const t in a) if(b[t]) s+=a[t]*b[t]; return s; }
+
+            // fuzzy vocabulary repair: map unknown tokens to nearest known term
+            const vocab = Object.keys(df).filter(t=>!t.includes('_'));
+            function repair(toks) {
+                return toks.map(t => {
+                    if (df[t] || t.includes('_') || t.length < 4) return t;
+                    let best=t, bd=3;
+                    for (const v of vocab) { const d=lev(t,v); if (d<bd) { bd=d; best=v; } }
+                    return best;
+                });
+            }
+
+            const memory = { last:null, turns:0 };
+
+            function classify(text) {
+                const q = vec(repair(tokens(text)));
+                let scores = docVecs.map((d,i) => ({ i, s: cosine(q,d) }));
+                // context bias: gentle boost for the previous topic (conversation memory)
+                if (memory.last != null) scores = scores.map(o => o.i===memory.last ? {i:o.i, s:o.s*1.12} : o);
+                scores.sort((a,b)=>b.s-a.s);
+                // softmax confidence over top candidates
+                const exp = scores.map(o=>Math.exp(o.s*8));
+                const sum = exp.reduce((a,b)=>a+b,0);
+                return { top: scores[0], confidence: exp[0]/sum, second: scores[1] };
+            }
+
+            function respond(text) {
+                memory.turns++;
+                const { top, confidence } = classify(text);
+                if (top.s < 0.08) {
+                    memory.last = null;
+                    return {
+                        reply: "I want to get this right — are you asking about <strong>social media</strong>, <strong>SEO &amp; websites</strong>, <strong>brand design</strong>, <strong>AI &amp; automation</strong> or <strong>pricing</strong>? Pick one and I'll go deep.",
+                        chips: ['Social Media','SEO & Web','Brand Design','AI & Automation','Pricing'],
+                        confidence: confidence
+                    };
+                }
+                memory.last = top.i;
+                const hit = KB[top.i];
+                let reply = hit.reply;
+                if (memory.turns > 3 && hit.id !== 'booking') {
+                    reply += "<br><br>Want me to put this into a quick proposal? Just say <strong>book call</strong>.";
+                }
+                return { reply, chips: hit.chips, confidence };
+            }
+            return { respond };
+        })();
+
+        // ---- rendering helpers ----
+        function renderChips(chips) {
+            const bar = document.getElementById('chatQuickReplies');
+            if (!bar) return;
+            bar.innerHTML = chips.map(c =>
+                '<button onclick="sendQuickReply(' + JSON.stringify(c).replace(/"/g,'&quot;') + ')">' + c + '</button>'
+            ).join('');
+        }
+
+        function streamMessage(html, meta) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-message bot';
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble bot';
+            msgDiv.appendChild(bubble);
+            chatBody.appendChild(msgDiv);
+
+            // token-by-token streaming (keeps HTML tags intact)
+            const parts = html.split(/(<[^>]+>|\s+)/).filter(Boolean);
+            let i = 0;
+            (function tick() {
+                if (i >= parts.length) {
+                    if (meta) {
+                        const m = document.createElement('div');
+                        m.className = 'chat-meta';
+                        m.textContent = meta;
+                        chatBody.appendChild(m);
+                    }
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    return;
+                }
+                bubble.innerHTML += parts[i++];
+                chatBody.scrollTop = chatBody.scrollHeight;
+                setTimeout(tick, 18);
+            })();
+        }
+
+        function handleUserText(text) {
+            const t0 = performance.now();
+            const out = LewisAI.respond(text);
+            const ms = Math.max(1, Math.round(performance.now() - t0));
+            showTyping();
+            setTimeout(() => {
+                removeTyping();
+                streamMessage(out.reply, 'Lewis.AI • ' + Math.round(out.confidence * 100) + '% match • ' + ms + 'ms');
+                renderChips(out.chips);
+            }, 420 + Math.random() * 320);
         }
 
         function sendChatMessage() {
@@ -3439,20 +3612,12 @@
             if (!text) return;
             addMessage(text, true);
             input.value = '';
-            showTyping();
-            setTimeout(() => {
-                removeTyping();
-                addMessage(getBotReply(text), false);
-            }, 1200);
+            handleUserText(text);
         }
 
         function sendQuickReply(text) {
             addMessage(text, true);
-            showTyping();
-            setTimeout(() => {
-                removeTyping();
-                addMessage(getBotReply(text), false);
-            }, 1000);
+            handleUserText(text);
         }
 
         // ===== PARTICLES =====
