@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +9,14 @@
     <meta name="description" content="Portfolio of Githaiga Lewis Wanjohi - A well qualified Digital Marketing Specialist skilled in sign language interpretation, IT, media, and marketing. HubSpot Academy Certified. Based in Nairobi, Kenya.">
     <meta name="keywords" content="Githaiga Lewis Wanjohi, Lewis Wanjohi, Lewis Wanjohi KITI, Lewis Wanjohi University of Nairobi, KITI Graduate, Digital Marketing Specialist Kenya, Sign Language Interpreter Nairobi, IT Expert Kenya, Media and Marketing, Social Media Marketing, SEO Specialist, Inbound Marketing, HubSpot Certified, AI and Machine Learning Kenya, Blockchain Developer Kenya, Digital Marketing Portfolio, Nairobi Tech Professional">
     <meta name="author" content="Githaiga Lewis Wanjohi">
-    <meta name="robots" content="index, follow">
     <meta property="og:title" content="Githaiga Lewis Wanjohi | Digital Marketing Specialist & Sign Language Interpreter">
     <meta property="og:description" content="Githaiga Lewis Wanjohi - A well qualified Digital Marketing Specialist skilled in sign language interpretation, IT, media, and marketing. HubSpot Academy Certified.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg">
+    <meta property="og:image" content="https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Githaiga Lewis Wanjohi | Digital Marketing Specialist & Sign Language Interpreter">
     <meta name="twitter:description" content="A well qualified Digital Marketing Specialist skilled in sign language interpretation, IT, media, and marketing. HubSpot Academy Certified. KITI Graduate.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg">
+    <meta name="twitter:image" content="https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg">
     <meta name="twitter:site" content="@g_lewi_">
     <meta name="twitter:creator" content="@g_lewi_">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -27,12 +27,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google-site-verification" content="PLACEHOLDER-ADD-YOUR-GSC-CODE">
-    <link rel="canonical" href="https://lewiswanjohi.com">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://lewiswanjohi.com/sitemap.xml">
-    <link rel="alternate" hreflang="en-ke" href="https://lewiswanjohi.com">
-    <link rel="alternate" hreflang="en" href="https://lewiswanjohi.com">
+    <meta property="og:url" content="https://lewis405.github.io/lewis-portfolio/">
+    <meta property="og:site_name" content="Githaiga Lewis Wanjohi">
+    <meta property="og:locale" content="en_KE">
+    <meta property="og:image:alt" content="Githaiga Lewis Wanjohi, Digital Marketing Specialist in Nairobi, Kenya">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image:alt" content="Githaiga Lewis Wanjohi, Digital Marketing Specialist in Nairobi, Kenya">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="canonical" href="https://lewis405.github.io/lewis-portfolio/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://lewis405.github.io/lewis-portfolio/sitemap.xml">
+    <link rel="alternate" hreflang="en-ke" href="https://lewis405.github.io/lewis-portfolio/">
+    <link rel="alternate" hreflang="en" href="https://lewis405.github.io/lewis-portfolio/">
     <link rel="me" href="https://kiti.uonbi.ac.ke/">
     <link rel="me" href="https://www.tiktok.com/@g_lewi_">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1101,8 +1116,130 @@
             .btn-outline { margin-left: 0; margin-top: 0; }
             .hero-buttons { flex-direction: column; gap: 12px; align-items: center; }
         }
+
+        /* ============================================================
+           AUDIT PATCH — accessibility, responsiveness & performance.
+           Visual identity, palette and animations are unchanged.
+           ============================================================ */
+
+        /* Skip link for keyboard and screen-reader users */
+        .skip-link {
+            position: absolute; left: 12px; top: -60px; z-index: 10005;
+            background: var(--dark); color: var(--accent); padding: 12px 18px;
+            border-radius: 0 0 10px 10px; text-decoration: none; font-weight: 600;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Visible keyboard focus everywhere */
+        a:focus-visible, button:focus-visible, input:focus-visible,
+        textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* Custom cursor only where a real mouse exists; touch/keyboard users keep native cursors */
+        @media (pointer: coarse), (hover: none) {
+            body, .btn, .filter-btn, .testimonial-dot, .chat-send,
+            .testimonial-arrow, .faq-question { cursor: auto; }
+            .cursor-dot, .cursor-outline { display: none !important; }
+        }
+        button, .btn, .filter-btn, .testimonial-dot, .chat-send, .faq-question { cursor: pointer; }
+        @media (pointer: fine) {
+            button, .btn, .filter-btn, .testimonial-dot, .chat-send, .faq-question { cursor: none; }
+        }
+
+        /* Media never overflows its container */
+        img, video, iframe { max-width: 100%; height: auto; }
+        .certificate-image, .hero-portrait-wrap img { height: 100%; }
+        .hero-portrait-wrap img { height: auto; aspect-ratio: 1 / 1; }
+
+        /* Carousel must not create horizontal scroll on any screen */
+        .testimonial-slider, .testimonials-wrapper { overflow: hidden; }
+
+        /* Comfortable touch targets (WCAG 2.5.8) */
+        .menu-btn { min-width: 44px; min-height: 44px; display: none;
+            align-items: center; justify-content: center; background: none;
+            border: 0; color: var(--light); font-size: 24px; padding: 0; }
+        .nav-links a { padding: 6px 2px; }
+        .social-links a, .footer-social a { min-width: 44px; min-height: 44px;
+            display: inline-flex; align-items: center; justify-content: center; }
+
+        /* Hero stacks cleanly from tablet down (fixes squeezed text column on phones) */
+        @media (max-width: 992px) {
+            .hero-inner {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 24px;
+                gap: 30px;
+            }
+            .hero-text-col { max-width: 100%; width: 100%; order: 2; }
+            .hero-img-col { flex: 0 0 auto; order: 1; width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .btn-outline { margin-left: 0; }
+            .hero-portrait-wrap { width: min(320px, 78vw); height: min(320px, 78vw); }
+            .hero-portrait-wrap img { width: 84%; height: 84%; }
+            .hero-portrait-wrap::before { width: 96%; height: 96%; }
+            .hero-portrait-wrap::after  { width: 108%; height: 108%; }
+        }
+        @media (max-width: 768px) {
+            .menu-btn { display: inline-flex; }
+            .hero h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+            .hero h3 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+            .hero p  { font-size: 0.95rem; }
+            .hero-portrait-wrap { width: min(260px, 70vw); height: min(260px, 70vw); }
+            .hero-portrait-wrap img { width: 84%; height: 84%; }
+        }
+        @media (max-width: 480px) {
+            .container, .hero-inner { padding-left: 16px; padding-right: 16px; }
+            .hero-portrait-wrap { width: min(220px, 66vw); height: min(220px, 66vw); }
+            .trust-divider { display: none; }
+        }
+
+        /* Ultra-wide screens keep the layout centred instead of stretching */
+        @media (min-width: 1800px) {
+            .container, .hero-inner { max-width: 1440px; }
+        }
+
+        /* Long words never break the layout */
+        h1, h2, h3, h4, p, li, a { overflow-wrap: break-word; }
+
+        /* Respect the user's motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* Screen-reader-only helper */
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
+
+
+        /* Small phones: circular gallery ring and case-study stats fit the viewport */
+        .about-gallery-ring { max-width: 100%; }
+        .case-results { flex-wrap: wrap; }
+        .case-result-item { flex: 1 1 90px; min-width: 0; }
+        @media (max-width: 480px) {
+            .about-gallery-ring { width: min(300px, 82vw) !important; height: min(300px, 82vw) !important; }
+            .case-result-item { padding: 12px 8px; }
+            .case-result-item .num { font-size: 1.3rem; }
+        }
+
+        /* Printable one-page résumé view */
+        @media print {
+            header, .chat-widget, .chat-toggle, .cursor-dot, .cursor-outline,
+            .scroll-progress, .loader-overlay, .back-to-top { display: none !important; }
+            body { background: #fff !important; color: #000 !important; }
+        }
     </style>
-<base target="_blank">
 
     <!-- JSON-LD STRUCTURED DATA FOR SEO -->
     <script type="application/ld+json">
@@ -1120,7 +1257,7 @@
           "jobTitle": "Digital Marketing Specialist",
           "description": "A well qualified Digital Marketing Specialist skilled in sign language interpretation, IT, media, and marketing. HubSpot Academy Certified.",
           "url": "https://lewiswanjohi.com",
-          "image": "https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg",
+          "image": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
           "email": "lewiswanjohi68@gmail.com",
           "telephone": "+254792316985",
           "address": {
@@ -1283,7 +1420,7 @@
           },
           "primaryImageOfPage": {
             "@type": "ImageObject",
-            "url": "https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg"
+            "url": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg"
           }
         },
         {
@@ -1404,7 +1541,7 @@
           "addressCountry": "KE"
         }
       },
-      "image": "https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg",
+      "image": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
       "about": {
         "@id": "https://lewiswanjohi.com/#person"
       }
@@ -1536,8 +1673,8 @@
       "name": "Githaiga Lewis Wanjohi Digital Marketing Services",
       "description": "Professional digital marketing, social media strategy, brand design, and AI consulting services by Githaiga Lewis Wanjohi - KITI Graduate and HubSpot Certified Specialist.",
       "url": "https://lewiswanjohi.com",
-      "logo": "https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg",
-      "image": "https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg",
+      "logo": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
+      "image": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
       "telephone": "+254792316985",
       "email": "lewiswanjohi68@gmail.com",
       "address": {
@@ -1573,9 +1710,9 @@
     }
     </script>
 
-<base target="_blank">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- LOADING SCREEN -->
     <div class="loader-overlay" id="loader">
         <div class="loader-ring"></div>
@@ -1592,9 +1729,9 @@
     <!-- HEADER -->
     <header id="header">
         <div class="container">
-            <nav>
+            <nav aria-label="Primary navigation">
                 <div class="logo">Lewis.</div>
-                <div class="nav-links" id="navLinks">
+                <div class="nav-links" id="navLinks" role="list">
                     <a href="#home" class="active">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
@@ -1608,7 +1745,7 @@
                     <a href="#blog">Blog</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
+                <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><i class="fas fa-bars" aria-hidden="true"></i></button>
             </nav>
         </div>
     </header>
@@ -1630,7 +1767,7 @@
             </div>
             <div class="hero-img-col">
                 <div class="hero-portrait-wrap">
-                    <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/email%20image.png" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/email%20image.png';">
+                    <img src="email%20image.png" alt="Lewis Wanjohi - Digital Marketing Specialist" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='email%20image.png';">
                 </div>
             </div>
         </div>
@@ -1640,17 +1777,17 @@
     <section class="trust-bar">
         <div class="container">
             <div class="trust-bar-content">
-                <div class="trust-item"><i class="fas fa-check-circle"></i> HubSpot Certified</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> HubSpot Certified</div>
                 <div class="trust-divider"></div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> Adobe Certified</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Adobe Certified</div>
                 <div class="trust-divider"></div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> AI & ML Trained</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> AI & ML Trained</div>
                 <div class="trust-divider"></div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> 22+ Campaigns</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> 22+ Campaigns</div>
                 <div class="trust-divider"></div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> Nairobi, Kenya</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Nairobi, Kenya</div>
                 <div class="trust-divider"></div>
-                <div class="trust-item"><i class="fas fa-graduation-cap"></i> <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">KITI Graduate</a></div>
+                <div class="trust-item"><i class="fas fa-graduation-cap" aria-hidden="true"></i> <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">KITI Graduate</a></div>
             </div>
         </div>
     </section>
@@ -1665,7 +1802,7 @@
             </div>
             <div class="trust-bar-content" style="gap: 40px;">
                 <div class="trust-item" style="flex-direction: column; gap: 8px;">
-                    <i class="fas fa-graduation-cap" style="font-size: 1.8rem; color: var(--accent);"></i>
+                    <i class="fas fa-graduation-cap" style="font-size: 1.8rem; color: var(--accent);" aria-hidden="true"></i>
                     <div style="text-align: center;">
                         <div style="font-weight: 600; color: var(--light);"><a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">KITI</a></div>
                         <div style="font-size: 0.75rem; color: #888;">University of Nairobi</div>
@@ -1673,7 +1810,7 @@
                 </div>
                 <div class="trust-divider"></div>
                 <div class="trust-item" style="flex-direction: column; gap: 8px;">
-                    <i class="fab fa-hubspot" style="font-size: 1.8rem; color: var(--accent);"></i>
+                    <i class="fab fa-hubspot" style="font-size: 1.8rem; color: var(--accent);" aria-hidden="true"></i>
                     <div style="text-align: center;">
                         <div style="font-weight: 600; color: var(--light);">HubSpot Academy</div>
                         <div style="font-size: 0.75rem; color: #888;">Digital Marketing</div>
@@ -1681,7 +1818,7 @@
                 </div>
                 <div class="trust-divider"></div>
                 <div class="trust-item" style="flex-direction: column; gap: 8px;">
-                    <i class="fas fa-university" style="font-size: 1.8rem; color: var(--accent);"></i>
+                    <i class="fas fa-university" style="font-size: 1.8rem; color: var(--accent);" aria-hidden="true"></i>
                     <div style="text-align: center;">
                         <div style="font-weight: 600; color: var(--light);">Vanderbilt University</div>
                         <div style="font-size: 0.75rem; color: #888;">AI & Prompt Engineering</div>
@@ -1689,7 +1826,7 @@
                 </div>
                 <div class="trust-divider"></div>
                 <div class="trust-item" style="flex-direction: column; gap: 8px;">
-                    <i class="fab fa-adobe" style="font-size: 1.8rem; color: var(--accent);"></i>
+                    <i class="fab fa-adobe" style="font-size: 1.8rem; color: var(--accent);" aria-hidden="true"></i>
                     <div style="text-align: center;">
                         <div style="font-weight: 600; color: var(--light);">Adobe & Coursera</div>
                         <div style="font-size: 0.75rem; color: #888;">Digital Marketing</div>
@@ -1731,10 +1868,10 @@
                         <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="about-photo-main">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kiti%20gradutation%20image%20.jpeg" alt="Lewis Wanjohi at KITI Graduation" loading="lazy">
+                        <img decoding="async" src="kiti%20gradutation%20image%20.jpeg" alt="Lewis Wanjohi at KITI Graduation" loading="lazy">
                     </div>
                     <div class="about-photo-accent">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi Graduation Portrait" loading="lazy">
+                        <img decoding="async" src="lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi Graduation Portrait" loading="lazy">
                     </div>
                     <div class="about-photo-badge">🎓 KITI Graduate</div>
                 </div>
@@ -1748,37 +1885,37 @@
             <h2 class="section-title">Marketing Services</h2>
             <div class="services-grid">
                 <div class="service-card animate">
-                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <div class="service-icon"><i class="fas fa-bullhorn" aria-hidden="true"></i></div>
                     <h3>Digital Marketing Strategy</h3>
                     <p>Comprehensive digital marketing strategies tailored to your business goals. From audience research to conversion optimization, I build data-driven roadmaps that deliver measurable ROI.</p>
                 </div>
                 <div class="service-card animate delay-1">
-                    <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+                    <div class="service-icon"><i class="fas fa-hashtag" aria-hidden="true"></i></div>
                     <h3>Social Media Marketing</h3>
                     <p>HubSpot-certified social media strategies that grow your brand presence, engage your audience, and drive traffic. Platform-specific content calendars, paid campaigns, and community management.</p>
                 </div>
                 <div class="service-card animate delay-2">
-                    <div class="service-icon"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="service-icon"><i class="fas fa-funnel-dollar" aria-hidden="true"></i></div>
                     <h3>Inbound Marketing</h3>
                     <p>Certified in HubSpot's Inbound Methodology. I create content that attracts the right audience, converts visitors into leads, and delights customers into promoters of your brand.</p>
                 </div>
                 <div class="service-card animate delay-3">
-                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <div class="service-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
                     <h3>Creative Content & Design</h3>
                     <p>Eye-catching visuals, posters, and branded content that stops the scroll. From social media graphics to marketing collateral, I design content that aligns with your brand identity and marketing goals.</p>
                 </div>
                 <div class="service-card animate delay-4">
-                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <div class="service-icon"><i class="fas fa-search" aria-hidden="true"></i></div>
                     <h3>SEO & Web Optimization</h3>
                     <p>Leveraging my web development background to optimize sites for search engines and user experience. Technical SEO, on-page optimization, and performance tuning for better rankings.</p>
                 </div>
                 <div class="service-card animate">
-                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="service-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
                     <h3>Marketing Analytics</h3>
                     <p>Track, measure, and optimize campaign performance. I use data insights to refine strategies, improve conversion rates, and maximize your marketing budget efficiency.</p>
                 </div>
                 <div class="service-card animate">
-                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="service-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
                     <h3>AI & Blockchain Consulting</h3>
                     <p>Leveraging advanced AI and Blockchain knowledge gained from <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">KITI - University of Nairobi</a> to help businesses integrate emerging technologies into their marketing and operations.</p>
                 </div>
@@ -1827,14 +1964,14 @@
                     <p style="color:#888; font-size:0.9rem;">Perfect for small businesses</p>
                     <div class="pricing-price">KES 15,000<span>/project</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Social Media Setup (2 platforms)</li>
-                        <li><i class="fas fa-check"></i> 10 Branded Social Posts</li>
-                        <li><i class="fas fa-check"></i> Basic SEO Audit</li>
-                        <li><i class="fas fa-check"></i> 1 Marketing Poster Design</li>
-                        <li><i class="fas fa-check"></i> 14-Day Delivery</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Paid Ad Management</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Monthly Analytics Report</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Dedicated Support</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Social Media Setup (2 platforms)</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 10 Branded Social Posts</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Basic SEO Audit</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 1 Marketing Poster Design</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 14-Day Delivery</li>
+                        <li class="not-included"><i class="fas fa-times" aria-hidden="true"></i> Paid Ad Management</li>
+                        <li class="not-included"><i class="fas fa-times" aria-hidden="true"></i> Monthly Analytics Report</li>
+                        <li class="not-included"><i class="fas fa-times" aria-hidden="true"></i> Dedicated Support</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" style="margin-left:0; width:100%;">Get Started</a>
                 </div>
@@ -1844,14 +1981,14 @@
                     <p style="color:#888; font-size:0.9rem;">For brands ready to scale</p>
                     <div class="pricing-price">KES 35,000<span>/month</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Full Social Media Management (4 platforms)</li>
-                        <li><i class="fas fa-check"></i> 20 Posts + Stories/Reels</li>
-                        <li><i class="fas fa-check"></i> Content Calendar & Strategy</li>
-                        <li><i class="fas fa-check"></i> 5 Marketing Designs/Month</li>
-                        <li><i class="fas fa-check"></i> Basic Ad Campaign Setup</li>
-                        <li><i class="fas fa-check"></i> Monthly Analytics Report</li>
-                        <li><i class="fas fa-check"></i> Email Support</li>
-                        <li class="not-included"><i class="fas fa-times"></i> Dedicated Account Manager</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Full Social Media Management (4 platforms)</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 20 Posts + Stories/Reels</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Content Calendar & Strategy</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 5 Marketing Designs/Month</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Basic Ad Campaign Setup</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Monthly Analytics Report</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Email Support</li>
+                        <li class="not-included"><i class="fas fa-times" aria-hidden="true"></i> Dedicated Account Manager</li>
                     </ul>
                     <a href="#contact" class="btn" style="width:100%;">Get Started</a>
                 </div>
@@ -1860,14 +1997,14 @@
                     <p style="color:#888; font-size:0.9rem;">Full-scale marketing partner</p>
                     <div class="pricing-price">Custom<span>/month</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Growth</li>
-                        <li><i class="fas fa-check"></i> Unlimited Social Platforms</li>
-                        <li><i class="fas fa-check"></i> Unlimited Designs & Content</li>
-                        <li><i class="fas fa-check"></i> Full Ad Campaign Management</li>
-                        <li><i class="fas fa-check"></i> SEO & Website Optimization</li>
-                        <li><i class="fas fa-check"></i> Weekly Strategy Calls</li>
-                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
-                        <li><i class="fas fa-check"></i> Priority Support (WhatsApp)</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Everything in Growth</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Unlimited Social Platforms</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Unlimited Designs & Content</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Full Ad Campaign Management</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> SEO & Website Optimization</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Weekly Strategy Calls</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Dedicated Account Manager</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Priority Support (WhatsApp)</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" style="margin-left:0; width:100%;">Contact for Quote</a>
                 </div>
@@ -1893,7 +2030,7 @@
                                 <div class="metric">120</div>
                                 <div style="font-size:0.8rem; color:#888;">Monthly Followers</div>
                             </div>
-                            <div class="case-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="case-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
                             <div class="before-after-box after-box">
                                 <div class="label">After</div>
                                 <div class="metric">2,400+</div>
@@ -1929,7 +2066,7 @@
                                 <div class="metric">45</div>
                                 <div style="font-size:0.8rem; color:#888;">Inquiries/Term</div>
                             </div>
-                            <div class="case-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="case-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
                             <div class="before-after-box after-box">
                                 <div class="label">After</div>
                                 <div class="metric">180+</div>
@@ -1965,7 +2102,7 @@
                 <div class="testimonials-track" id="testimonialTrack">
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <div class="testimonial-stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
                             <p class="testimonial-text">Lewis completely transformed our social media presence. His designs are eye-catching and his strategy actually brought us real customers. Our restaurant bookings increased by 40% in just two months!</p>
                             <div class="testimonial-author">
                                 <div class="testimonial-avatar">JM</div>
@@ -1978,7 +2115,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <div class="testimonial-stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
                             <p class="testimonial-text">Working with Lewis was a game-changer for our school. The enrollment campaign he designed brought in more inquiries than we've ever had. Professional, creative, and always delivers on time.</p>
                             <div class="testimonial-author">
                                 <div class="testimonial-avatar">SK</div>
@@ -1991,7 +2128,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                            <div class="testimonial-stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i></div>
                             <p class="testimonial-text">The branding package Lewis created for our construction company exceeded expectations. From logo design to social media templates, everything was cohesive and professional. Highly recommended!</p>
                             <div class="testimonial-author">
                                 <div class="testimonial-avatar">PK</div>
@@ -2004,7 +2141,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <div class="testimonial-stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
                             <p class="testimonial-text">Lewis understands digital marketing at a deep level. His SEO recommendations helped our website rank on the first page of Google for key terms. The ROI on his services has been incredible.</p>
                             <div class="testimonial-author">
                                 <div class="testimonial-avatar">AO</div>
@@ -2018,8 +2155,8 @@
                 </div>
                 <div class="testimonial-dots" id="testimonialDots"></div>
                 <div class="testimonial-nav">
-                    <button id="testPrev"><i class="fas fa-chevron-left"></i></button>
-                    <button id="testNext"><i class="fas fa-chevron-right"></i></button>
+                    <button id="testPrev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <button id="testNext"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -2031,7 +2168,7 @@
             <h2 class="section-title">Professional Resume</h2>
             <div class="resume-content">
                 <div class="resume-left animate">
-                    <h3><i class="fas fa-certificate"></i> Core Marketing Certifications</h3>
+                    <h3><i class="fas fa-certificate" aria-hidden="true"></i> Core Marketing Certifications</h3>
 
                     <div class="resume-item">
                         <h4>Digital Marketing Certified</h4>
@@ -2063,7 +2200,7 @@
                         <p>Leveraging AI tools to supercharge marketing content creation, automate customer interactions, and generate data-driven campaign insights at scale.</p>
                     </div>
 
-                    <h3 style="margin-top:40px"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <h3 style="margin-top:40px"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h3>
 
                     <div class="resume-item">
                         <h4>Certificate in Web Programming</h4>
@@ -2083,7 +2220,7 @@
                         <p>St. Bonaventure Kaheti Boys High School | Mean Grade: C- | AGP: 34</p>
                     </div>
 
-                    <h3 style="margin-top:40px"><i class="fas fa-brain"></i> Supporting Tech Certifications</h3>
+                    <h3 style="margin-top:40px"><i class="fas fa-brain" aria-hidden="true"></i> Supporting Tech Certifications</h3>
 
                     <div class="resume-item">
                         <h4>Foundation, Intermediate & Advanced AI & Machine Learning</h4>
@@ -2099,44 +2236,44 @@
                 </div>
 
                 <div class="resume-right animate">
-                    <h3><i class="fas fa-tools"></i> Marketing & Technical Skills</h3>
+                    <h3><i class="fas fa-tools" aria-hidden="true"></i> Marketing & Technical Skills</h3>
 
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <i class="fas fa-bullhorn"></i>
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-hashtag"></i>
+                            <i class="fas fa-hashtag" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-funnel-dollar"></i>
+                            <i class="fas fa-funnel-dollar" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-paint-brush"></i>
+                            <i class="fas fa-paint-brush" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-search"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-code" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-brain" aria-hidden="true"></i>
                             <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
                         </div>
                     </div>
 
-                    <h3 style="margin-top:40px"><i class="fas fa-user"></i> Professional Summary</h3>
+                    <h3 style="margin-top:40px"><i class="fas fa-user" aria-hidden="true"></i> Professional Summary</h3>
                     <p style="color:#aaa; line-height:1.8; font-size:0.95rem">
                         A <strong>well qualified Digital Marketing Specialist</strong> skilled in sign language interpretation, IT, media, and marketing. I combine strategic inbound marketing methodologies with creative design and web development capabilities to deliver campaigns that don't just look good — they convert.<br><br>
                         My approach is data-driven and customer-centric: I research your audience, craft compelling narratives, design eye-catching visuals, and optimize every touchpoint for maximum ROI. Whether you need social media growth, lead generation, or brand awareness, I build marketing systems that scale.<br><br>
@@ -2145,9 +2282,9 @@
                 </div>
             </div>
             <div class="cv-download">
-                <a href="#" class="btn" onclick="alert('CV download coming soon! Please contact me directly for now.'); return false;">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
+                <button type="button" class="btn" onclick="alert('CV download coming soon! Please contact me directly for now.');">
+                    <i class="fas fa-download" aria-hidden="true"></i> Download CV
+                </button>
             </div>
         </div>
     </section>
@@ -2161,7 +2298,7 @@
 
                 <div class="certificate-card animate" data-cert="0" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/digital%20maketing%20(2).png" alt="Digital Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Digital Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="digital%20maketing%20(2).png" alt="Digital Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Digital Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Digital Marketing Certified</h3>
@@ -2174,7 +2311,7 @@
 
                 <div class="certificate-card animate" data-cert="1" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/social%20media.png" alt="Social Media Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Social Media<br>Certificate</div>'">
+                        <img decoding="async" src="social%20media.png" alt="Social Media Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Social Media<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Social Media Marketing Certified</h3>
@@ -2187,7 +2324,7 @@
 
                 <div class="certificate-card animate" data-cert="2" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/inbound.png" alt="Inbound Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Inbound Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="inbound.png" alt="Inbound Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Inbound Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Inbound Certified</h3>
@@ -2200,7 +2337,7 @@
 
                 <div class="certificate-card animate" data-cert="3" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/digital%20maketing%20adobe.jpeg" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="digital%20maketing%20adobe.jpeg" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Digital Marketing (Adobe)</h3>
@@ -2213,7 +2350,7 @@
 
                 <div class="certificate-card animate" data-cert="4" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/promont.jpeg" alt="Prompt Engineering for ChatGPT - Vanderbilt" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Prompt Engineering<br>Certificate</div>'">
+                        <img decoding="async" src="promont.jpeg" alt="Prompt Engineering for ChatGPT - Vanderbilt" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Prompt Engineering<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Prompt Engineering for ChatGPT</h3>
@@ -2226,7 +2363,7 @@
 
                 <div class="certificate-card animate" data-cert="5" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/web%20development.jpg" alt="Web Programming Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Web Programming<br>Certificate</div>'">
+                        <img decoding="async" src="web%20development.jpg" alt="Web Programming Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Web Programming<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Web Programming</h3>
@@ -2239,7 +2376,7 @@
 
                 <div class="certificate-card animate" data-cert="6" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/graphics%20design%20cert.jpg" alt="Graphic Design Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Graphic Design<br>Certificate</div>'">
+                        <img decoding="async" src="graphics%20design%20cert.jpg" alt="Graphic Design Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Graphic Design<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Graphic Design</h3>
@@ -2252,7 +2389,7 @@
 
                 <div class="certificate-card animate" data-cert="7" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/Foundation%20in%20AI%20&%20Machine%20Learning.jpeg" alt="AI & ML Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Foundation<br>Certificate</div>'">
+                        <img decoding="async" src="Foundation%20in%20AI%20&%20Machine%20Learning.jpeg" alt="AI & ML Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Foundation<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Foundation in AI & Machine Learning</h3>
@@ -2265,7 +2402,7 @@
 
                 <div class="certificate-card animate" data-cert="8" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/al%20and%20ml%20inter.jpeg" alt="AI & ML Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Intermediate<br>Certificate</div>'">
+                        <img decoding="async" src="al%20and%20ml%20inter.jpeg" alt="AI & ML Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Intermediate<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Intermediate AI & Machine Learning</h3>
@@ -2279,7 +2416,7 @@
 <!-- Certificate 19: Advanced AI -->
                 <div class="certificate-card animate" data-cert="18" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ai%20advance.png" alt="Advanced AI Certificate - KITI" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class='fas fa-image' style='font-size:2rem;margin-bottom:10px;display:block;'></i>Advanced AI<br>Certificate</div>'">
+                        <img decoding="async" src="ai%20advance.png" alt="Advanced AI Certificate - KITI" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class='fas fa-image' style='font-size:2rem;margin-bottom:10px;display:block;'></i>Advanced AI<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Advanced Artificial Intelligence</h3>
@@ -2292,7 +2429,7 @@
 
                 <div class="certificate-card animate" data-cert="9" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/foundtion%20blockchain.png" alt="Blockchain Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Foundation<br>Certificate</div>'">
+                        <img decoding="async" src="foundtion%20blockchain.png" alt="Blockchain Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Foundation<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Foundation in Blockchain</h3>
@@ -2305,7 +2442,7 @@
 
                 <div class="certificate-card animate" data-cert="10" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/Intermediate%20Blockchain.png" alt="Blockchain Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Intermediate<br>Certificate</div>'">
+                        <img decoding="async" src="Intermediate%20Blockchain.png" alt="Blockchain Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Intermediate<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Intermediate Blockchain</h3>
@@ -2318,7 +2455,7 @@
 
                 <div class="certificate-card animate" data-cert="11" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/Advanced%20Blockchain.png" alt="Blockchain Advanced" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Advanced<br>Certificate</div>'">
+                        <img decoding="async" src="Advanced%20Blockchain.png" alt="Blockchain Advanced" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Advanced<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Advanced Blockchain</h3>
@@ -2331,7 +2468,7 @@
 
                 <div class="certificate-card animate" data-cert="12" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/computer%20packages.jpg" alt="Computer Packages Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Computer Packages<br>Certificate</div>'">
+                        <img decoding="async" src="computer%20packages.jpg" alt="Computer Packages Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Computer Packages<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Computer Packages</h3>
@@ -2344,7 +2481,7 @@
 
                 <div class="certificate-card animate" data-cert="13" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kcse.jpg" alt="KCSE Certificate 2024" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCSE<br>Certificate</div>'">
+                        <img decoding="async" src="kcse.jpg" alt="KCSE Certificate 2024" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCSE<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>KCSE Certificate 2024</h3>
@@ -2357,7 +2494,7 @@
 
                 <div class="certificate-card animate" data-cert="14" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kcpe%20cert.jpg" alt="KCPE Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCPE<br>Certificate</div>'">
+                        <img decoding="async" src="kcpe%20cert.jpg" alt="KCPE Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCPE<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>KCPE Certificate</h3>
@@ -2370,7 +2507,7 @@
 
                 <div class="certificate-card animate" data-cert="15" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG_20250430_161044_273.jpg" alt="Additional Certifications" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Additional<br>Certificates</div>'">
+                        <img decoding="async" src="IMG_20250430_161044_273.jpg" alt="Additional Certifications" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Additional<br>Certificates</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Additional Certifications</h3>
@@ -2383,7 +2520,7 @@
 
                 <div class="certificate-card animate" data-cert="16" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/itech.png" alt="GeoML Datathon Certificate - iTech Zetech University" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>GeoML Datathon<br>Certificate</div>'">
+                        <img decoding="async" src="itech.png" alt="GeoML Datathon Certificate - iTech Zetech University" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>GeoML Datathon<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>GeoML Datathon Certificate</h3>
@@ -2398,7 +2535,7 @@
 
                 <div class="certificate-card animate" data-cert="17" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/africa%20check%20image%20.jpg" alt="Information Integrity, Media & AI Literacy - Africa Check" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Information Integrity<br>Certificate</div>'">
+                        <img decoding="async" src="africa%20check%20image%20.jpg" alt="Information Integrity, Media & AI Literacy - Africa Check" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Information Integrity<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Information Integrity, Media & AI Literacy</h3>
@@ -2419,12 +2556,12 @@
 
     <div class="cert-modal" id="certModal">
         <div class="cert-modal-content">
-            <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times"></i></button>
-            <button class="cert-modal-nav cert-modal-prev" id="certModalPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times" aria-hidden="true"></i></button>
+            <button class="cert-modal-nav cert-modal-prev" id="certModalPrev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
             <div id="certModalViewer">
-                <img src="" alt="Certificate Preview" id="certModalImg">
+                <img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">
             </div>
-            <button class="cert-modal-nav cert-modal-next" id="certModalNext"><i class="fas fa-chevron-right"></i></button>
+            <button class="cert-modal-nav cert-modal-next" id="certModalNext"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             <div class="cert-modal-info" id="certModalInfo"></div>
         </div>
     </div>
@@ -2438,28 +2575,28 @@
                 <!-- GeoML AI Datathon - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 22%;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 22%;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
-                            <i class="fas fa-graduation-cap"></i> Training & Innovation Event
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i> Training & Innovation Event
                         </div>
                     </div>
                     <div class="training-card-premium-body">
                         <div class="training-premium-header">
                             <h3>GeoML AI Datathon – Overnight AI Model Development Sprint</h3>
                             <div class="training-premium-org">
-                                <i class="fas fa-university"></i> Zetech University Mang'u Campus <span style="color:var(--accent);">×</span> <i class="fas fa-microchip"></i> iTech
+                                <i class="fas fa-university" aria-hidden="true"></i> Zetech University Mang'u Campus <span style="color:var(--accent);">×</span> <i class="fas fa-microchip" aria-hidden="true"></i> iTech
                             </div>
                             <div class="training-premium-date">
-                                <i class="fas fa-calendar-alt"></i> July 11–12, 2026
+                                <i class="fas fa-calendar-alt" aria-hidden="true"></i> July 11–12, 2026
                             </div>
                         </div>
                         <div class="training-premium-icons">
-                            <div class="training-premium-icon-item"><i class="fas fa-brain"></i><span>AI</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-users"></i><span>Teamwork</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-robot"></i><span>Machine Learning</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-lightbulb"></i><span>Innovation</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-code"></i><span>Datathon</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-brain" aria-hidden="true"></i><span>AI</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-users" aria-hidden="true"></i><span>Teamwork</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-robot" aria-hidden="true"></i><span>Machine Learning</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-lightbulb" aria-hidden="true"></i><span>Innovation</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-code" aria-hidden="true"></i><span>Datathon</span></div>
                         </div>
                         <div class="training-premium-desc">
                             <p>Participated in an intensive overnight <strong>Artificial Intelligence development sprint</strong> together with members of the Zetech University Mang'u Campus technology club.</p>
@@ -2479,7 +2616,7 @@
                             <span class="tp-badge">Problem Solving</span>
                         </div>
                         <div class="training-premium-action">
-                            <button class="btn" onclick="openCertModal(16)"><i class="fas fa-certificate"></i> View Certificate</button>
+                            <button class="btn" onclick="openCertModal(16)"><i class="fas fa-certificate" aria-hidden="true"></i> View Certificate</button>
                         </div>
                     </div>
                 </div>
@@ -2487,28 +2624,28 @@
                 <!-- Africa Check & Dimlis Africa Bootcamp - Restored Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img src="africa check imgn.jpeg" alt="Africa Check & Dimlis Africa Bootcamp" class="training-premium-image" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="africa check imgn.jpeg" alt="Africa Check & Dimlis Africa Bootcamp" class="training-premium-image" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
-                            <i class="fas fa-shield-alt"></i> Media Literacy
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i> Media Literacy
                         </div>
                     </div>
                     <div class="training-card-premium-body">
                         <div class="training-premium-header">
                             <h3>Africa Check & Dimlis Africa Bootcamp</h3>
                             <div class="training-premium-org">
-                                <i class="fas fa-university"></i> Zetech University, Kenya
+                                <i class="fas fa-university" aria-hidden="true"></i> Zetech University, Kenya
                             </div>
                             <div class="training-premium-date">
-                                <i class="fas fa-calendar-alt"></i> 2025
+                                <i class="fas fa-calendar-alt" aria-hidden="true"></i> 2025
                             </div>
                         </div>
                         <div class="training-premium-icons">
-                            <div class="training-premium-icon-item"><i class="fas fa-check-double"></i><span>Fact Checking</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-newspaper"></i><span>Media</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-shield-alt"></i><span>Integrity</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-robot"></i><span>AI Literacy</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-brain"></i><span>Critical Thinking</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-check-double" aria-hidden="true"></i><span>Fact Checking</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-newspaper" aria-hidden="true"></i><span>Media</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Integrity</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-robot" aria-hidden="true"></i><span>AI Literacy</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-brain" aria-hidden="true"></i><span>Critical Thinking</span></div>
                         </div>
                         <div class="training-premium-desc">
                             <p>Developed critical skills in <strong>fact-checking and media verification</strong> — essential for creating credible, trustworthy marketing content and combating misinformation in brand communications.</p>
@@ -2523,7 +2660,7 @@
                             <span class="tp-badge">Information Integrity</span>
                         </div>
                         <div class="training-premium-action">
-                            <button class="btn" onclick="openCertModal(17)"><i class="fas fa-certificate"></i> View Certificate</button>
+                            <button class="btn" onclick="openCertModal(17)"><i class="fas fa-certificate" aria-hidden="true"></i> View Certificate</button>
                         </div>
                     </div>
                 </div>
@@ -2543,28 +2680,28 @@
                 <!-- KITI Graduation - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #1a0a2e, #4a0e2e); padding: 8px;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #1a0a2e, #4a0e2e); padding: 8px;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
-                            <i class="fas fa-graduation-cap"></i> Academic Milestone
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Milestone
                         </div>
                     </div>
                     <div class="training-card-premium-body">
                         <div class="training-premium-header">
                             <h3><a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">KITI Graduation Ceremony</a></h3>
                             <div class="training-premium-org">
-                                <i class="fas fa-university"></i> <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">University of Nairobi — Kenya Inclusivity in Tech Initiative (KITI)</a>
+                                <i class="fas fa-university" aria-hidden="true"></i> <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">University of Nairobi — Kenya Inclusivity in Tech Initiative (KITI)</a>
                             </div>
                             <div class="training-premium-date">
-                                <i class="fas fa-calendar-alt"></i> 2026
+                                <i class="fas fa-calendar-alt" aria-hidden="true"></i> 2026
                             </div>
                         </div>
                         <div class="training-premium-icons">
-                            <div class="training-premium-icon-item"><i class="fas fa-award"></i><span>Certified</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-brain"></i><span>AI & ML</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-link"></i><span>Blockchain</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-laptop-code"></i><span>Tech</span></div>
-                            <div class="training-premium-icon-item"><i class="fas fa-handshake"></i><span>Networking</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-award" aria-hidden="true"></i><span>Certified</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-brain" aria-hidden="true"></i><span>AI & ML</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-link" aria-hidden="true"></i><span>Blockchain</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-laptop-code" aria-hidden="true"></i><span>Tech</span></div>
+                            <div class="training-premium-icon-item"><i class="fas fa-handshake" aria-hidden="true"></i><span>Networking</span></div>
                         </div>
                         <div class="training-premium-desc">
                             <p>Graduated from the <strong><a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Kenya Inclusivity in Tech Initiative (KITI)</a></strong> at the <a href="https://www.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">University of Nairobi</a>, earning certifications in Artificial Intelligence, Machine Learning, and Blockchain Technology.</p>
@@ -2584,8 +2721,8 @@
                 <!-- Graduation Video -->
                 <div class="training-card-premium animate" style="max-width: 700px; margin: 0 auto;">
                     <div style="position: relative; width: 100%; border-radius: 20px; overflow: hidden; background: #1a1a1a;">
-                        <video controls poster="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/lewi%20gradution%20photo.jpeg" style="width: 100%; display: block; border-radius: 20px;">
-                            <source src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/kiti%20gradution%20video%20.mp4" type="video/mp4">
+                        <video controls poster="lewi%20gradution%20photo.jpeg" style="width: 100%; display: block; border-radius: 20px;">
+                            <source src="kiti%20gradution%20video%20.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -2593,7 +2730,7 @@
                         <div class="training-premium-header">
                             <h3>Graduation Day Highlights</h3>
                             <div class="training-premium-org">
-                                <i class="fas fa-video"></i> Watch the ceremony moments
+                                <i class="fas fa-video" aria-hidden="true"></i> Watch the ceremony moments
                             </div>
                         </div>
                     </div>
@@ -2617,8 +2754,8 @@
             <div class="projects-grid">
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560008581-09826d1de69e?w=400&h=250&fit=crop'">
+                    <a href="dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560008581-09826d1de69e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Strawberry Ice Cream</h3>
@@ -2627,8 +2764,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/d69b437622b84439a61f061d02b41353.jpg" alt="Ice Cream Campaign Variant 2" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=250&fit=crop'">
+                    <a href="d69b437622b84439a61f061d02b41353.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="d69b437622b84439a61f061d02b41353.jpg" alt="Ice Cream Campaign Variant 2" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Ice Cream Campaign V2</h3>
@@ -2637,8 +2774,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Ice Cream Campaign Variant 3" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=250&fit=crop'">
+                    <a href="261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Ice Cream Campaign Variant 3" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Ice Cream Campaign V3</h3>
@@ -2647,8 +2784,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop'">
+                    <a href="95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>School Admission Drive</h3>
@@ -2657,8 +2794,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=250&fit=crop'">
+                    <a href="126722573e5046e898c9082b7e8304ea.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Tour & Travel Campaign</h3>
@@ -2667,8 +2804,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Youth Event Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop'">
+                    <a href="e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Youth Event Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Youth Event Promotion</h3>
@@ -2677,8 +2814,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Teen Service Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=250&fit=crop'">
+                    <a href="ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Teen Service Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Teen Service Campaign</h3>
@@ -2687,8 +2824,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="JBL Product Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=250&fit=crop'">
+                    <a href="c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="JBL Product Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>JBL Headphones Ad</h3>
@@ -2697,8 +2834,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop'">
+                    <a href="49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Building with Trust</h3>
@@ -2707,8 +2844,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop'">
+                    <a href="bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Health Week Campaign</h3>
@@ -2717,8 +2854,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250902-WA0019.jpg" alt="R Logo Brand Identity" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=250&fit=crop'">
+                    <a href="IMG-20250902-WA0019.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="IMG-20250902-WA0019.jpg" alt="R Logo Brand Identity" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>R Logo Brand Identity</h3>
@@ -2727,8 +2864,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Restaurant Menu Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop'">
+                    <a href="4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Restaurant Menu Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Menu Display Design</h3>
@@ -2737,8 +2874,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=250&fit=crop'">
+                    <a href="75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Beauty Brand Campaign</h3>
@@ -2747,8 +2884,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop'">
+                    <a href="b404f440ed124bee98476360a61caff4.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>ETruk Logistics Campaign</h3>
@@ -2757,8 +2894,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/f8218551a1f848d98db5c57572ab8003.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/f8218551a1f848d98db5c57572ab8003.jpg" alt="Food Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop'">
+                    <a href="f8218551a1f848d98db5c57572ab8003.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="f8218551a1f848d98db5c57572ab8003.jpg" alt="Food Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Healthy Food Campaign</h3>
@@ -2767,8 +2904,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="branding">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/IMG-20250824-WA0006.jpg" alt="Restaurant Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop'">
+                    <a href="IMG-20250824-WA0006.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="IMG-20250824-WA0006.jpg" alt="Restaurant Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>NaanStop Restaurant Branding</h3>
@@ -2777,8 +2914,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop'">
+                    <a href="8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Talent Acquisition Campaign</h3>
@@ -2787,8 +2924,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/0cf77831853040b0b5586341ee2d37db.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/0cf77831853040b0b5586341ee2d37db.jpg" alt="Institute Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop'">
+                    <a href="0cf77831853040b0b5586341ee2d37db.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="0cf77831853040b0b5586341ee2d37db.jpg" alt="Institute Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Institute Awareness Campaign</h3>
@@ -2797,8 +2934,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/1650a52ba8b04f1695c5181022d2da59.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/1650a52ba8b04f1695c5181022d2da59.jpg" alt="Beverage Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop'">
+                    <a href="1650a52ba8b04f1695c5181022d2da59.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="1650a52ba8b04f1695c5181022d2da59.jpg" alt="Beverage Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Smoothie Launch Campaign</h3>
@@ -2807,8 +2944,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/2b5b47ef04b748539929f1f63527dbab.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/2b5b47ef04b748539929f1f63527dbab.jpg" alt="Business Promotion" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop'">
+                    <a href="2b5b47ef04b748539929f1f63527dbab.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="2b5b47ef04b748539929f1f63527dbab.jpg" alt="Business Promotion" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Business Growth Campaign</h3>
@@ -2817,8 +2954,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="print">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/9808f986b4be468086c89da1f73f923c.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/9808f986b4be468086c89da1f73f923c.jpg" alt="Job Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop'">
+                    <a href="9808f986b4be468086c89da1f73f923c.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="9808f986b4be468086c89da1f73f923c.jpg" alt="Job Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Recruitment Drive Campaign</h3>
@@ -2827,8 +2964,8 @@
                 </div>
 
                 <div class="project-item animate" data-category="web">
-                    <a href="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank">
-                        <img src="https://raw.githubusercontent.com/lewis405/lewis-portfolio/main/WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="School Website Design" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop'">
+                    <a href="WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" rel="noopener noreferrer">
+                        <img decoding="async" src="WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="School Website Design" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Foundation Montessori Website</h3>
@@ -2847,39 +2984,39 @@
             <p style="text-align:center; color:#aaa; margin-bottom:50px;">Tips, trends, and strategies from the frontlines of digital marketing</p>
             <div class="blog-grid">
                 <div class="blog-card animate">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Social Media Strategy" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Social Media Strategy" class="blog-image" loading="lazy">
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span><i class="fas fa-calendar"></i> Jun 15, 2026</span>
-                            <span><i class="fas fa-tag"></i> Social Media</span>
+                            <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 15, 2026</span>
+                            <span><i class="fas fa-tag" aria-hidden="true"></i> Social Media</span>
                         </div>
                         <h3>5 Social Media Trends Every Kenyan Business Must Know in 2026</h3>
                         <p>From AI-powered content creation to the rise of nano-influencers, discover what's shaping social media marketing in Kenya right now.</p>
-                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="blog-card animate delay-1">
-                    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop" alt="SEO Tips" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop" alt="SEO Tips" class="blog-image" loading="lazy">
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span><i class="fas fa-calendar"></i> Jun 10, 2026</span>
-                            <span><i class="fas fa-tag"></i> SEO</span>
+                            <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 10, 2026</span>
+                            <span><i class="fas fa-tag" aria-hidden="true"></i> SEO</span>
                         </div>
                         <h3>SEO for Small Businesses: A Beginner's Guide to Ranking #1 on Google</h3>
                         <p>Learn the fundamentals of search engine optimization that can help your Kenyan business get found online without breaking the bank.</p>
-                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="blog-card animate delay-2">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI in Marketing" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI in Marketing" class="blog-image" loading="lazy">
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <span><i class="fas fa-calendar"></i> Jun 5, 2026</span>
-                            <span><i class="fas fa-tag"></i> AI & Marketing</span>
+                            <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 5, 2026</span>
+                            <span><i class="fas fa-tag" aria-hidden="true"></i> AI & Marketing</span>
                         </div>
                         <h3>How AI is Revolutionizing Content Marketing in 2026</h3>
                         <p>From ChatGPT to Midjourney, explore how artificial intelligence tools are helping marketers create better content faster than ever before.</p>
-                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-readmore" onclick="event.preventDefault(); alert('Blog post coming soon!');">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -2893,37 +3030,37 @@
             <p style="text-align:center; color:#aaa; margin-bottom:50px;">Everything you need to know before we work together</p>
             <div class="faq-list">
                 <div class="faq-item animate">
-                    <button class="faq-question">How long does it take to see results from digital marketing? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">How long does it take to see results from digital marketing? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>Results vary by service. Social media growth typically shows within 2-4 weeks, while SEO improvements take 3-6 months. I set clear KPIs from day one and provide weekly progress updates so you always know where we stand.</p>
                     </div>
                 </div>
                 <div class="faq-item animate delay-1">
-                    <button class="faq-question">What platforms do you manage? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">What platforms do you manage? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>I manage all major platforms including Facebook, Instagram, TikTok, Twitter/X, LinkedIn, and YouTube. I also handle Google Business Profile, email marketing via Mailchimp/HubSpot, and website content management.</p>
                     </div>
                 </div>
                 <div class="faq-item animate delay-2">
-                    <button class="faq-question">Do you offer one-time projects or only monthly retainers? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">Do you offer one-time projects or only monthly retainers? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>Both! I offer one-time projects like brand identity packages, website design, and campaign launches. For ongoing growth, monthly retainers provide the best ROI with consistent content, community management, and optimization.</p>
                     </div>
                 </div>
                 <div class="faq-item animate delay-3">
-                    <button class="faq-question">How do you measure campaign success? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">How do you measure campaign success? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>I track KPIs aligned with your goals: engagement rate, reach, website traffic, lead generation, conversion rate, and ROI. You'll receive detailed monthly reports with actionable insights and next-step recommendations.</p>
                     </div>
                 </div>
                 <div class="faq-item animate">
-                    <button class="faq-question">What makes you different from other digital marketers? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">What makes you different from other digital marketers? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>My unique combination of HubSpot-certified marketing expertise PLUS technical skills in web development, graphic design, AI, and blockchain means I can execute end-to-end campaigns without outsourcing. This saves you money and ensures brand consistency.</p>
                     </div>
                 </div>
                 <div class="faq-item animate delay-1">
-                    <button class="faq-question">Can you work with businesses outside Nairobi? <i class="fas fa-chevron-down"></i></button>
+                    <button class="faq-question">Can you work with businesses outside Nairobi? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                     <div class="faq-answer">
                         <p>Absolutely! I work with clients across Kenya and internationally via video calls, WhatsApp, and email. My remote workflow is optimized for seamless collaboration regardless of location.</p>
                     </div>
@@ -2941,7 +3078,7 @@
                 <p>Join 500+ business owners receiving weekly insights on digital marketing, social media strategy, and brand growth — no spam, just value.</p>
                 <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! You will receive marketing tips weekly.'); this.reset();">
                     <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe</button>
                 </form>
             </div>
         </div>
@@ -2954,25 +3091,25 @@
             <p style="text-align:center; color:#aaa; margin-bottom:50px;">Milestones that reflect commitment to excellence in digital marketing</p>
             <div class="awards-grid">
                 <div class="award-card animate">
-                    <div class="award-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="award-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
                     <h3>HubSpot Academy Certified</h3>
                     <p>Digital Marketing, Social Media Marketing & Inbound Marketing</p>
                     <span class="award-year">2026</span>
                 </div>
                 <div class="award-card animate delay-1">
-                    <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="award-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
                     <h3>Web Programming Distinction</h3>
                     <p>Equator Institute of Technology — Top performing student</p>
                     <span class="award-year">2025</span>
                 </div>
                 <div class="award-card animate delay-2">
-                    <div class="award-icon"><i class="fas fa-brain"></i></div>
+                    <div class="award-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
                     <h3>AI & Machine Learning Scholar</h3>
                     <p>University of Nairobi — KITI Foundation & Intermediate</p>
                     <span class="award-year">2026</span>
                 </div>
                 <div class="award-card animate delay-3">
-                    <div class="award-icon"><i class="fas fa-palette"></i></div>
+                    <div class="award-icon"><i class="fas fa-palette" aria-hidden="true"></i></div>
                     <h3>Graphic Design Excellence</h3>
                     <p>CFSK Institute — Photoshop (A) & Illustrator (A)</p>
                     <span class="award-year">2024</span>
@@ -3014,15 +3151,15 @@
                             <label for="message">Tell Me About Your Project</label>
                             <textarea id="message" name="message" required placeholder="What are your marketing goals? Who is your target audience? What's your budget and timeline?"></textarea>
                         </div>
-                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Get a Free Quote</button>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Get a Free Quote</button>
                     </form>
                 </div>
                 <div class="contact-info animate">
                     <h3>Ready to Scale?</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya (Available Remote)</p>
-                    <p><i class="fas fa-phone"></i> 0792 316 985</p>
-                    <p><i class="fas fa-envelope"></i> lewiswanjohi68@gmail.com</p>
-                    <p><i class="fab fa-tiktok"></i> @g_lewi_ (Marketing Content)</p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Nairobi, Kenya (Available Remote)</p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> 0792 316 985</p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> lewiswanjohi68@gmail.com</p>
+                    <p><i class="fab fa-tiktok" aria-hidden="true"></i> @g_lewi_ (Marketing Content)</p>
 
                     <div class="stats-bar">
                         <div class="stat-item">
@@ -3040,10 +3177,10 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@g_lewi_" class="social-link" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.tiktok.com/@g_lewi_" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -3082,7 +3219,7 @@
                     <a href="mailto:lewiswanjohi68@gmail.com">lewiswanjohi68@gmail.com</a>
                     <a href="tel:+254792316985">+254 792 316 985</a>
                     <a href="#">Nairobi, Kenya</a>
-                    <a href="https://www.tiktok.com/@g_lewi_" target="_blank">TikTok: @g_lewi_</a>
+                    <a href="https://www.tiktok.com/@g_lewi_" target="_blank" rel="noopener noreferrer">TikTok: @g_lewi_</a>
                     <a href="https://kiti.uonbi.ac.ke/" target="_blank" rel="noopener noreferrer">KITI - University of Nairobi</a>
                 </div>
             </div>
@@ -3115,13 +3252,13 @@
             </div>
             <div class="chat-input-area">
                 <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChatMessage()">
-                <button class="chat-send" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                <button class="chat-send" onclick="sendChatMessage()"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
             </div>
         </div>
-        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()"><i class="fas fa-comment-dots" aria-hidden="true"></i></button>
     </div>
 
-    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <script>
         // ===== LOADING SCREEN =====
@@ -3179,13 +3316,16 @@
             if (menuBtn) {
                 menuBtn.addEventListener('click', function() {
                     navLinks.classList.toggle('active');
-                    this.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    const open = navLinks.classList.contains('active');
+                    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    menuBtn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+                    this.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
                 });
             }
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
                 });
             });
         });
@@ -3304,9 +3444,9 @@
             const src = img ? img.src : '';
 
             if (certType === 'pdf' || (src && src.toLowerCase().endsWith('.pdf'))) {
-                certModalViewer.innerHTML = '<div class="pdf-fallback"><i class="fas fa-file-pdf" style="font-size: 4rem; margin-bottom: 20px; display: block;"></i><h3 style="color: var(--accent); margin-bottom: 15px;">' + title + '</h3><p style="margin-bottom: 20px;">' + issuer + '</p><a href="' + src + '" target="_blank" class="btn" style="margin-right: 10px;"><i class="fas fa-external-link-alt"></i> Open PDF</a><a href="' + src + '" download class="btn btn-outline"><i class="fas fa-download"></i> Download</a></div>';
+                certModalViewer.innerHTML = '<div class="pdf-fallback"><i class="fas fa-file-pdf" style="font-size: 4rem; margin-bottom: 20px; display: block;" aria-hidden="true"></i><h3 style="color: var(--accent); margin-bottom: 15px;">' + title + '</h3><p style="margin-bottom: 20px;">' + issuer + '</p><a href="' + src + '" target="_blank" rel="noopener noreferrer" class="btn" style="margin-right: 10px;"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Open PDF</a><a href="' + src + '" download class="btn btn-outline"><i class="fas fa-download" aria-hidden="true"></i> Download</a></div>';
             } else {
-                certModalViewer.innerHTML = '<img src="" alt="Certificate Preview" id="certModalImg">';
+                certModalViewer.innerHTML = '<img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">';
                 const newImg = document.getElementById('certModalImg');
                 if (newImg && src) newImg.src = src;
             }
@@ -3319,7 +3459,7 @@
         function closeCertModal() {
             certModal.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => { certModalViewer.innerHTML = '<img src="" alt="Certificate Preview" id="certModalImg">'; }, 300);
+            setTimeout(() => { certModalViewer.innerHTML = '<img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">'; }, 300);
         }
 
         function navigateCert(direction) {
