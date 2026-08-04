@@ -1,0 +1,16 @@
+{
+  "name": "Githaiga Lewis Wanjohi — Digital Marketing Specialist",
+  "short_name": "Lewis.",
+  "description": "Portfolio of Githaiga Lewis Wanjohi, Digital Marketing Specialist and Sign Language Interpreter based in Nairobi, Kenya.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1a2a6c",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
