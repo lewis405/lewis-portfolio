@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://lewis405.github.io/lewis-portfolio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-profile.jpg</image:loc>
+      <image:title>Githaiga Lewis Wanjohi</image:title>
+      <image:caption>Githaiga Lewis Wanjohi, Digital Marketing Specialist skilled in IT, media, marketing and sign language interpretation, Nairobi, Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-kise-graduation.jpg</image:loc>
+      <image:title>Githaiga Lewis Wanjohi KISE graduation</image:title>
+      <image:caption>Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation ceremony</image:caption>
+    </image:image>
+  </url>
+</urlset>
