@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1305,6 +1306,60 @@
 
         /* Images never overflow their container on small screens */
         img, video { max-width: 100%; height: auto; }
+
+        /* =====================================================================
+           MOBILE SCROLL FIX (2026-08-28)
+           The page would not scroll on phones because the viewport scroll
+           container was being locked by three things at once:
+             1. `overflow-x: hidden` on BOTH <html> and <body>, which creates a
+                second scroll container on Android Chrome / iOS Safari,
+             2. `touch-action: pan-y` + `overscroll-behavior-y: none` applied to
+                <html> and <body>, which cancels the browser's own vertical
+                touch scrolling on some Android builds,
+             3. `body { overflow: hidden }` left behind by the certificate modal
+                if it was ever opened.
+           This block restores a single, native, vertically scrollable document.
+           Nothing else about the design is changed.
+           ===================================================================== */
+        html {
+            height: auto;
+            overflow-y: auto;
+            overflow-x: clip;              /* clip, not hidden: no new scroller */
+            touch-action: auto;
+            overscroll-behavior-y: auto;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            position: static;
+            height: auto;
+            min-height: 100%;
+            overflow-y: visible;
+            overflow-x: clip;
+            touch-action: auto;
+            overscroll-behavior-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* Old browsers that do not support `clip` still need horizontal safety */
+        @supports not (overflow: clip) {
+            html { overflow-x: visible; }
+            body { overflow-x: hidden; }
+        }
+        /* Only genuine tap targets opt out of double-tap zoom delay */
+        a, button, .btn, .filter-btn, .faq-question, .chat-toggle,
+        .back-to-top, .menu-btn, .testimonial-dot, .chat-send {
+            touch-action: manipulation;
+        }
+        /* The scroll lock is scoped to the open modal only */
+        body.modal-open {
+            overflow: hidden;
+            touch-action: none;
+        }
+        @media (max-width: 900px) {
+            /* dvh keeps the hero from growing taller than the visible area when
+               the mobile browser toolbars collapse */
+            .hero { min-height: calc(100dvh - 80px); }
+            html, body { overflow-x: clip; }
+        }
     </style>
 
     <!-- JSON-LD STRUCTURED DATA FOR SEO -->
@@ -3661,12 +3716,12 @@
 
             certModalInfo.innerHTML = '<h3>' + title + '</h3><p>' + issuer + '</p>';
             certModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
         }
 
         function closeCertModal() {
             certModal.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('modal-open');
             setTimeout(() => { certModalViewer.innerHTML = '<img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">'; }, 300);
         }
 
@@ -4019,6 +4074,34 @@
                 }
             });
         }
+
+        /* =====================================================================
+           MOBILE SCROLL FIX - runtime safety net (2026-08-28)
+           Guarantees the document can always be scrolled: the loader overlay is
+           always dismissed, and any leftover scroll lock is released whenever no
+           modal is actually open (including on back/forward cache restores).
+           ===================================================================== */
+        (function () {
+            function releaseScrollLock() {
+                var modal = document.querySelector('.cert-modal.active');
+                if (!modal) {
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.documentElement.style.overflow = '';
+                    document.body.style.position = '';
+                }
+                var l = document.getElementById('loader');
+                if (l) l.classList.add('hidden');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                setTimeout(releaseScrollLock, 2500);
+            });
+            window.addEventListener('load', function () { setTimeout(releaseScrollLock, 800); });
+            window.addEventListener('pageshow', releaseScrollLock);
+            window.addEventListener('orientationchange', function () { setTimeout(releaseScrollLock, 200); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') releaseScrollLock(); });
+            setTimeout(releaseScrollLock, 5000);
+        })();
     </script>
 </body>
 </html>
