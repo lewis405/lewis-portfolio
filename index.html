@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@g_lewi_">
     <meta name="twitter:creator" content="@g_lewi_">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="bingbot" content="index, follow">
     <meta name="theme-color" content="#1a2a6c">
     <meta name="msapplication-TileColor" content="#1a2a6c">
@@ -1877,6 +1877,138 @@
     }
     </script>
 
+
+<style>
+/* =====================================================================
+   IMAGE / VIDEO PERFORMANCE + MOBILE "NO OVERLAP" GALLERY
+   ===================================================================== */
+
+/* Media never overflows and never causes layout shift while decoding */
+img, video { max-width: 100%; }
+img { background-color: rgba(255,255,255,0.03); }
+
+/* Off-screen image cards are not painted until they are near the viewport */
+.certificate-card, .certificate-image-wrapper, .project-item, .blog-card,
+.training-card-premium {
+    content-visibility: auto;
+    contain-intrinsic-size: 380px;
+}
+
+/* Cheaper compositing for image hovers on touch devices */
+@media (hover: none) {
+    .certificate-image, .project-item img, .about-photo-main, .about-photo-accent {
+        transition: none !important;
+    }
+    .about-photo-main:hover, .about-photo-accent:hover,
+    .project-item:hover img, .certificate-card:hover .certificate-image {
+        transform: none !important;
+    }
+}
+
+/* MOBILE: stop the two About photos from sitting on top of each other */
+@media (max-width: 768px) {
+    .about-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        align-items: start;
+        justify-items: center;
+        min-height: 0;
+        max-width: 100%;
+        padding: 6px 0 30px;
+    }
+    .about-photo-main,
+    .about-photo-accent {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        top: auto; right: auto;
+        transform: none;
+        margin: 0;
+    }
+    .about-photo-main img, .about-photo-accent img { height: 100%; }
+    .about-photo-badge {
+        position: static;
+        grid-column: 1 / -1;
+        justify-self: center;
+        transform: none;
+        animation: none;
+        margin-top: 4px;
+        left: auto; bottom: auto;
+    }
+    .about-gallery-ring, .about-photo-dots { display: none !important; }
+}
+@media (max-width: 430px) {
+    .about-gallery { grid-template-columns: 1fr; max-width: 320px; }
+}
+</style>
+
+<meta name="thumbnail" content="https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-profile.jpg">
+<meta name="googlebot-image" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "@id": "https://lewis405.github.io/lewis-portfolio/#image-profile",
+      "url": "https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-profile.jpg",
+      "contentUrl": "https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-profile.jpg",
+      "name": "Githaiga Lewis Wanjohi photo",
+      "caption": "Githaiga Lewis Wanjohi, Digital Marketing Specialist and Kenyan Sign Language interpreter, Nairobi, Kenya",
+      "description": "Official portrait of Githaiga Lewis Wanjohi (Lewis Wanjohi), Digital Marketing Specialist based in Nairobi, Kenya.",
+      "representativeOfPage": true,
+      "width": 1000,
+      "height": 1250,
+      "creator": { "@id": "https://lewis405.github.io/lewis-portfolio/#person" },
+      "copyrightNotice": "\u00a9 Githaiga Lewis Wanjohi",
+      "creditText": "Githaiga Lewis Wanjohi",
+      "license": "https://lewis405.github.io/lewis-portfolio/",
+      "acquireLicensePage": "https://lewis405.github.io/lewis-portfolio/#contact",
+      "about": { "@id": "https://lewis405.github.io/lewis-portfolio/#person" },
+      "mainEntityOfPage": { "@id": "https://lewis405.github.io/lewis-portfolio/#webpage" }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://lewis405.github.io/lewis-portfolio/#image-kiti-graduation",
+      "url": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
+      "contentUrl": "https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg",
+      "name": "Lewis Wanjohi KITI graduation photo",
+      "caption": "Githaiga Lewis Wanjohi at his KITI graduation for AI and Blockchain, Nairobi, Kenya",
+      "creditText": "Githaiga Lewis Wanjohi",
+      "license": "https://lewis405.github.io/lewis-portfolio/",
+      "acquireLicensePage": "https://lewis405.github.io/lewis-portfolio/#contact",
+      "about": { "@id": "https://lewis405.github.io/lewis-portfolio/#person" }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://lewis405.github.io/lewis-portfolio/#image-kise-graduation",
+      "url": "https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-kise-graduation.jpg",
+      "contentUrl": "https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-kise-graduation.jpg",
+      "name": "Lewis Wanjohi KISE graduation photo",
+      "caption": "Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation",
+      "creditText": "Githaiga Lewis Wanjohi",
+      "license": "https://lewis405.github.io/lewis-portfolio/",
+      "acquireLicensePage": "https://lewis405.github.io/lewis-portfolio/#contact",
+      "about": { "@id": "https://lewis405.github.io/lewis-portfolio/#person" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://lewis405.github.io/lewis-portfolio/#video-graduation",
+      "name": "Githaiga Lewis Wanjohi KITI Graduation Day Highlights",
+      "description": "Highlights from the KITI graduation ceremony of Githaiga Lewis Wanjohi in Nairobi, Kenya.",
+      "thumbnailUrl": ["https://lewis405.github.io/lewis-portfolio/lewi%20gradution%20photo.jpeg"],
+      "uploadDate": "2026-01-01",
+      "contentUrl": "https://lewis405.github.io/lewis-portfolio/kiti%20gradution%20video%20.mp4",
+      "embedUrl": "https://lewis405.github.io/lewis-portfolio/#training",
+      "about": { "@id": "https://lewis405.github.io/lewis-portfolio/#person" }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -2036,10 +2168,10 @@
                         <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="about-photo-main">
-                        <img decoding="async" src="lewi gradution photo.jpeg " alt="Githaiga Lewis Wanjohi,kiti gradutation for ai and blockchain in university of Nairobi, Kenya" width="1000" height="1250" loading="lazy">
+                        <img decoding="async" src="lewi%20gradution%20photo.jpeg" alt="Githaiga Lewis Wanjohi,kiti gradutation for ai and blockchain in university of Nairobi, Kenya" width="1000" height="1250" loading="lazy" fetchpriority="low">
                     </div>
                     <div class="about-photo-accent">
-                        <img decoding="async" src="lewis-wanjohi-kise-graduation.jpg" alt="Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation" loading="lazy">
+                        <img decoding="async" src="lewis-wanjohi-kise-graduation.jpg" alt="Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation" loading="lazy" fetchpriority="low">
                     </div>
                     <div class="about-photo-badge">🎓 KITI Graduate/kise</div>
              </div>
@@ -2466,7 +2598,7 @@
 
                 <div class="certificate-card animate" data-cert="0" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="digital%20maketing%20(2).png" alt="Digital Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Digital Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="digital%20maketing%20(2).png" alt="Digital Marketing Certified - HubSpot" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Digital Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Digital Marketing Certified</h3>
@@ -2479,7 +2611,7 @@
 
                 <div class="certificate-card animate" data-cert="1" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="social%20media.png" alt="Social Media Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Social Media<br>Certificate</div>'">
+                        <img decoding="async" src="social%20media.png" alt="Social Media Marketing Certified - HubSpot" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Social Media<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Social Media Marketing Certified</h3>
@@ -2492,7 +2624,7 @@
 
                 <div class="certificate-card animate" data-cert="2" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="inbound.png" alt="Inbound Marketing Certified - HubSpot" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Inbound Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="inbound.png" alt="Inbound Marketing Certified - HubSpot" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Inbound Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Inbound Certified</h3>
@@ -2505,7 +2637,7 @@
 
                 <div class="certificate-card animate" data-cert="3" data-type="image" style="border: 2px solid var(--accent);">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="digital maketing adobe .png" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
+                        <img decoding="async" src="digital%20maketing%20adobe.jpeg" alt="Digital Marketing - Adobe & Coursera" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Adobe Digital Marketing<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Digital Marketing (Adobe)</h3>
@@ -2518,7 +2650,7 @@
 
                 <div class="certificate-card animate" data-cert="4" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="promont.jpeg" alt="Prompt Engineering for ChatGPT - Vanderbilt" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Prompt Engineering<br>Certificate</div>'">
+                        <img decoding="async" src="promont.jpeg" alt="Prompt Engineering for ChatGPT - Vanderbilt" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Prompt Engineering<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Prompt Engineering for ChatGPT</h3>
@@ -2531,7 +2663,7 @@
 
                 <div class="certificate-card animate" data-cert="5" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="web%20development.jpg" alt="Web Programming Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Web Programming<br>Certificate</div>'">
+                        <img decoding="async" src="web%20development.jpg" alt="Web Programming Certificate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Web Programming<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Web Programming</h3>
@@ -2544,7 +2676,7 @@
 
                 <div class="certificate-card animate" data-cert="6" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="graphics%20design%20cert.jpg" alt="Graphic Design Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Graphic Design<br>Certificate</div>'">
+                        <img decoding="async" src="graphics%20design%20cert.jpg" alt="Graphic Design Certificate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Graphic Design<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Graphic Design</h3>
@@ -2557,7 +2689,7 @@
 
                 <div class="certificate-card animate" data-cert="7" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="Foundation%20in%20AI%20&%20Machine%20Learning.jpeg" alt="AI & ML Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Foundation<br>Certificate</div>'">
+                        <img decoding="async" src="Foundation%20in%20AI%20&%20Machine%20Learning.jpeg" alt="AI & ML Foundation" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Foundation<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Foundation in AI & Machine Learning</h3>
@@ -2570,7 +2702,7 @@
 
                 <div class="certificate-card animate" data-cert="8" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="al%20and%20ml%20inter.jpeg" alt="AI & ML Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Intermediate<br>Certificate</div>'">
+                        <img decoding="async" src="al%20and%20ml%20inter.jpeg" alt="AI & ML Intermediate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>AI & ML Intermediate<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Intermediate AI & Machine Learning</h3>
@@ -2584,7 +2716,7 @@
 <!-- Certificate 19: Advanced AI -->
                 <div class="certificate-card animate" data-cert="18" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="ai%20advance.png" alt="Advanced AI Certificate - KITI" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class='fas fa-image' style='font-size:2rem;margin-bottom:10px;display:block;'></i>Advanced AI<br>Certificate</div>'">
+                        <img decoding="async" src="ai%20advance.png" alt="Advanced AI Certificate - KITI" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class='fas fa-image' style='font-size:2rem;margin-bottom:10px;display:block;'></i>Advanced AI<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Advanced Artificial Intelligence</h3>
@@ -2597,7 +2729,7 @@
 
                 <div class="certificate-card animate" data-cert="9" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="foundtion%20blockchain.png" alt="Blockchain Foundation" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Foundation<br>Certificate</div>'">
+                        <img decoding="async" src="foundtion%20blockchain.png" alt="Blockchain Foundation" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Foundation<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Foundation in Blockchain</h3>
@@ -2610,7 +2742,7 @@
 
                 <div class="certificate-card animate" data-cert="10" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="Intermediate%20Blockchain.png" alt="Blockchain Intermediate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Intermediate<br>Certificate</div>'">
+                        <img decoding="async" src="Intermediate%20Blockchain.png" alt="Blockchain Intermediate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Intermediate<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Intermediate Blockchain</h3>
@@ -2623,7 +2755,7 @@
 
                 <div class="certificate-card animate" data-cert="11" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="Advanced%20Blockchain.png" alt="Blockchain Advanced" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Advanced<br>Certificate</div>'">
+                        <img decoding="async" src="Advanced%20Blockchain.png" alt="Blockchain Advanced" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Blockchain Advanced<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Advanced Blockchain</h3>
@@ -2636,7 +2768,7 @@
 
                 <div class="certificate-card animate" data-cert="12" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="computer%20packages.jpg" alt="Computer Packages Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Computer Packages<br>Certificate</div>'">
+                        <img decoding="async" src="computer%20packages.jpg" alt="Computer Packages Certificate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Computer Packages<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Certificate in Computer Packages</h3>
@@ -2649,7 +2781,7 @@
 
                 <div class="certificate-card animate" data-cert="13" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="kcse.jpg" alt="KCSE Certificate 2024" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCSE<br>Certificate</div>'">
+                        <img decoding="async" src="kcse.jpg" alt="KCSE Certificate 2024" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCSE<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>KCSE Certificate 2024</h3>
@@ -2662,7 +2794,7 @@
 
                 <div class="certificate-card animate" data-cert="14" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="kcpe%20cert.jpg" alt="KCPE Certificate" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCPE<br>Certificate</div>'">
+                        <img decoding="async" src="kcpe%20cert.jpg" alt="KCPE Certificate" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>KCPE<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>KCPE Certificate</h3>
@@ -2675,7 +2807,7 @@
 
                 <div class="certificate-card animate" data-cert="15" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="IMG_20250430_161044_273.jpg" alt="Additional Certifications" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Additional<br>Certificates</div>'">
+                        <img decoding="async" src="IMG_20250430_161044_273.jpg" alt="Additional Certifications" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Additional<br>Certificates</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Additional Certifications</h3>
@@ -2688,7 +2820,7 @@
 
                 <div class="certificate-card animate" data-cert="16" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="itech.png" alt="GeoML Datathon Certificate - iTech Zetech University" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>GeoML Datathon<br>Certificate</div>'">
+                        <img decoding="async" src="itech.png" alt="GeoML Datathon Certificate - iTech Zetech University" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>GeoML Datathon<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>GeoML Datathon Certificate</h3>
@@ -2703,7 +2835,7 @@
 
                 <div class="certificate-card animate" data-cert="17" data-type="image">
                     <div class="certificate-image-wrapper">
-                        <img decoding="async" src="africa%20check%20image%20.jpg" alt="Information Integrity, Media & AI Literacy - Africa Check" class="certificate-image" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Information Integrity<br>Certificate</div>'">
+                        <img decoding="async" src="africa%20check%20image%20.jpg" alt="Information Integrity, Media & AI Literacy - Africa Check" class="certificate-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:var(--accent);font-size:0.9rem;text-align:center;padding:20px;><i class=\'fas fa-image\' style=\'font-size:2rem;margin-bottom:10px;display:block;\'></i>Information Integrity<br>Certificate</div>'">
                     </div>
                     <div class="certificate-content">
                         <h3>Information Integrity, Media & AI Literacy</h3>
@@ -2727,7 +2859,7 @@
             <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times" aria-hidden="true"></i></button>
             <button class="cert-modal-nav cert-modal-prev" id="certModalPrev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
             <div id="certModalViewer">
-                <img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">
+                <img decoding="async" loading="lazy" fetchpriority="low" src="" alt="Certificate Preview" id="certModalImg">
             </div>
             <button class="cert-modal-nav cert-modal-next" id="certModalNext"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             <div class="cert-modal-info" id="certModalInfo"></div>
@@ -2743,7 +2875,7 @@
                 <!-- GeoML AI Datathon - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img decoding="async" src="WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 22%;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="WhatsApp%20Image%202026-07-19%20at%208.06.43%20PM.jpg" alt="GeoML AI Datathon – Overnight AI Model Development Sprint" class="training-premium-image" style="object-position: center 22%;" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-graduation-cap" aria-hidden="true"></i> Training & Innovation Event
@@ -2792,7 +2924,7 @@
                 <!-- Africa Check & Dimlis Africa Bootcamp - Restored Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img decoding="async" src="africa check imgn.jpeg" alt="Africa Check & Dimlis Africa Bootcamp" class="training-premium-image" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="africa check imgn.jpeg" alt="Africa Check & Dimlis Africa Bootcamp" class="training-premium-image" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-shield-alt" aria-hidden="true"></i> Media Literacy
@@ -2848,7 +2980,7 @@
                 <!-- KISE Graduation - second image on the site, first milestone card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img decoding="async" src="lewis-wanjohi-kise-graduation.jpg" alt="Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation ceremony in Nairobi, Kenya" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #12122a, #2a1030); padding: 8px;" loading="lazy" width="1200" height="1600">
+                        <img decoding="async" src="lewis-wanjohi-kise-graduation.jpg" alt="Githaiga Lewis Wanjohi at his Kenya Institute of Special Education (KISE) graduation ceremony in Nairobi, Kenya" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #12122a, #2a1030); padding: 8px;" loading="lazy" fetchpriority="low" width="1200" height="1600">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Milestone
@@ -2885,7 +3017,7 @@
                 <!-- KITI Graduation - Premium Card -->
                 <div class="training-card-premium animate">
                     <div class="training-card-premium-visual">
-                        <img decoding="async" src="lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #1a0a2e, #4a0e2e); padding: 8px;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
+                        <img decoding="async" src="lewi%20gradution%20photo.jpeg" alt="Lewis Wanjohi KITI Graduation" class="training-premium-image" style="object-fit: contain; object-position: center center; background: linear-gradient(135deg, #1a0a2e, #4a0e2e); padding: 8px;" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=500&fit=crop&q=80'">
                         <div class="training-premium-overlay"></div>
                         <div class="training-premium-category">
                             <i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Milestone
@@ -2926,7 +3058,7 @@
                 <!-- Graduation Video -->
                 <div class="training-card-premium animate" style="max-width: 700px; margin: 0 auto;">
                     <div style="position: relative; width: 100%; border-radius: 20px; overflow: hidden; background: #1a1a1a;">
-                        <video controls poster="lewi%20gradution%20photo.jpeg" style="width: 100%; display: block; border-radius: 20px;">
+                        <video controls playsinline preload="metadata" width="1280" height="720" poster="lewi%20gradution%20photo.jpeg" style="width: 100%; height: auto; aspect-ratio: 16 / 9; display: block; border-radius: 20px; background:#111;" itemprop="video">
                             <source src="kiti%20gradution%20video%20.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -2960,7 +3092,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="dba6728fb0b44e1ba5d70a8e88d8be87.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560008581-09826d1de69e?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="dba6728fb0b44e1ba5d70a8e88d8be87.jpg" alt="Strawberry Ice Cream Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560008581-09826d1de69e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Strawberry Ice Cream</h3>
@@ -2970,7 +3102,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="d69b437622b84439a61f061d02b41353.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="d69b437622b84439a61f061d02b41353.jpg" alt="Ice Cream Campaign Variant 2" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="d69b437622b84439a61f061d02b41353.jpg" alt="Ice Cream Campaign Variant 2" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Ice Cream Campaign V2</h3>
@@ -2980,7 +3112,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="261051ba9a564b05b5e2b3bf0b58ed4d.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Ice Cream Campaign Variant 3" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="261051ba9a564b05b5e2b3bf0b58ed4d.jpg" alt="Ice Cream Campaign Variant 3" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Ice Cream Campaign V3</h3>
@@ -2990,7 +3122,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="95ce76c7aa0a40f5a1e2d94c01c12e61.jpg" alt="School Admission Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>School Admission Drive</h3>
@@ -3000,7 +3132,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="126722573e5046e898c9082b7e8304ea.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="126722573e5046e898c9082b7e8304ea.jpg" alt="Tour Marketing Poster" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Tour & Travel Campaign</h3>
@@ -3010,7 +3142,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="e613636aa7dd428295581b8299dc82ff.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Youth Event Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="e613636aa7dd428295581b8299dc82ff.jpg" alt="Church Youth Event Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Youth Event Promotion</h3>
@@ -3020,7 +3152,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="ea3da17f8fc14640906e0e2df9b719de.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Teen Service Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="ea3da17f8fc14640906e0e2df9b719de.jpg" alt="Teen Service Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Teen Service Campaign</h3>
@@ -3030,7 +3162,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="c9d007635aa4460fba8ea8a0de9b14ec.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="JBL Product Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="c9d007635aa4460fba8ea8a0de9b14ec.jpg" alt="JBL Product Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>JBL Headphones Ad</h3>
@@ -3040,7 +3172,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="49f09191b72b401cbf2436b2fcc19bf1.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="49f09191b72b401cbf2436b2fcc19bf1.jpg" alt="Construction Brand Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Building with Trust</h3>
@@ -3050,7 +3182,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="bd6257ed96074e4abbccdb1979618be2.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="bd6257ed96074e4abbccdb1979618be2.jpg" alt="Health Company Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Health Week Campaign</h3>
@@ -3060,7 +3192,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="IMG-20250902-WA0019.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="IMG-20250902-WA0019.jpg" alt="R Logo Brand Identity" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="IMG-20250902-WA0019.jpg" alt="R Logo Brand Identity" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>R Logo Brand Identity</h3>
@@ -3070,7 +3202,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="4c5d3529bb3845f2865e6c3b0707eaa2.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Restaurant Menu Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="4c5d3529bb3845f2865e6c3b0707eaa2.jpg" alt="Restaurant Menu Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Menu Display Design</h3>
@@ -3080,7 +3212,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="75af69fea3d6423faa82b2ac6feb1c40.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="75af69fea3d6423faa82b2ac6feb1c40.jpg" alt="Beauty Brand Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Beauty Brand Campaign</h3>
@@ -3090,7 +3222,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="b404f440ed124bee98476360a61caff4.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="b404f440ed124bee98476360a61caff4.jpg" alt="Truck Services Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>ETruk Logistics Campaign</h3>
@@ -3100,7 +3232,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="f8218551a1f848d98db5c57572ab8003.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="f8218551a1f848d98db5c57572ab8003.jpg" alt="Food Marketing Poster" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="f8218551a1f848d98db5c57572ab8003.jpg" alt="Food Marketing Poster" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Healthy Food Campaign</h3>
@@ -3110,7 +3242,7 @@
 
                 <div class="project-item animate" data-category="branding">
                     <a href="IMG-20250824-WA0006.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="IMG-20250824-WA0006.jpg" alt="Restaurant Brand Campaign" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="IMG-20250824-WA0006.jpg" alt="Restaurant Brand Campaign" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>NaanStop Restaurant Branding</h3>
@@ -3120,7 +3252,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="8de33c3a9c3a4b1893c0b2dd1cd36958.jpg" alt="Recruitment Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Talent Acquisition Campaign</h3>
@@ -3130,7 +3262,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="0cf77831853040b0b5586341ee2d37db.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="0cf77831853040b0b5586341ee2d37db.jpg" alt="Institute Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="0cf77831853040b0b5586341ee2d37db.jpg" alt="Institute Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Institute Awareness Campaign</h3>
@@ -3140,7 +3272,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="1650a52ba8b04f1695c5181022d2da59.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="1650a52ba8b04f1695c5181022d2da59.jpg" alt="Beverage Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="1650a52ba8b04f1695c5181022d2da59.jpg" alt="Beverage Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Smoothie Launch Campaign</h3>
@@ -3150,7 +3282,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="2b5b47ef04b748539929f1f63527dbab.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="2b5b47ef04b748539929f1f63527dbab.jpg" alt="Business Promotion" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="2b5b47ef04b748539929f1f63527dbab.jpg" alt="Business Promotion" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Business Growth Campaign</h3>
@@ -3160,7 +3292,7 @@
 
                 <div class="project-item animate" data-category="print">
                     <a href="9808f986b4be468086c89da1f73f923c.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="9808f986b4be468086c89da1f73f923c.jpg" alt="Job Recruitment Marketing" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="9808f986b4be468086c89da1f73f923c.jpg" alt="Job Recruitment Marketing" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Recruitment Drive Campaign</h3>
@@ -3170,7 +3302,7 @@
 
                 <div class="project-item animate" data-category="web">
                     <a href="WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" target="_blank" rel="noopener noreferrer">
-                        <img decoding="async" src="WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="School Website Design" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop'">
+                        <img decoding="async" src="WhatsApp%20Image%202025-09-27%20at%2018.33.51_af91a97f.jpg" alt="School Website Design" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop'">
                     </a>
                     <div class="project-overlay">
                         <h3>Foundation Montessori Website</h3>
@@ -3189,7 +3321,7 @@
             <p style="text-align:center; color:#aaa; margin-bottom:50px;">Tips, trends, and strategies from the frontlines of digital marketing</p>
             <div class="blog-grid">
                 <div class="blog-card animate">
-                    <img decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Social Media Strategy" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Social Media Strategy" class="blog-image" loading="lazy" fetchpriority="low">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 15, 2026</span>
@@ -3201,7 +3333,7 @@
                     </div>
                 </div>
                 <div class="blog-card animate delay-1">
-                    <img decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop" alt="SEO Tips" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop" alt="SEO Tips" class="blog-image" loading="lazy" fetchpriority="low">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 10, 2026</span>
@@ -3213,7 +3345,7 @@
                     </div>
                 </div>
                 <div class="blog-card animate delay-2">
-                    <img decoding="async" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI in Marketing" class="blog-image" loading="lazy">
+                    <img decoding="async" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI in Marketing" class="blog-image" loading="lazy" fetchpriority="low">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span><i class="fas fa-calendar" aria-hidden="true"></i> Jun 5, 2026</span>
@@ -3709,7 +3841,7 @@
             if (certType === 'pdf' || (src && src.toLowerCase().endsWith('.pdf'))) {
                 certModalViewer.innerHTML = '<div class="pdf-fallback"><i class="fas fa-file-pdf" style="font-size: 4rem; margin-bottom: 20px; display: block;" aria-hidden="true"></i><h3 style="color: var(--accent); margin-bottom: 15px;">' + title + '</h3><p style="margin-bottom: 20px;">' + issuer + '</p><a href="' + src + '" target="_blank" rel="noopener noreferrer" class="btn" style="margin-right: 10px;"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Open PDF</a><a href="' + src + '" download class="btn btn-outline"><i class="fas fa-download" aria-hidden="true"></i> Download</a></div>';
             } else {
-                certModalViewer.innerHTML = '<img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">';
+                certModalViewer.innerHTML = '<img decoding="async" loading="lazy" fetchpriority="low" src="" alt="Certificate Preview" id="certModalImg">';
                 const newImg = document.getElementById('certModalImg');
                 if (newImg && src) newImg.src = src;
             }
@@ -3722,7 +3854,7 @@
         function closeCertModal() {
             certModal.classList.remove('active');
             document.body.classList.remove('modal-open');
-            setTimeout(() => { certModalViewer.innerHTML = '<img decoding="async" loading="lazy" src="" alt="Certificate Preview" id="certModalImg">'; }, 300);
+            setTimeout(() => { certModalViewer.innerHTML = '<img decoding="async" loading="lazy" fetchpriority="low" src="" alt="Certificate Preview" id="certModalImg">'; }, 300);
         }
 
         function navigateCert(direction) {
