@@ -1,8 +1,0 @@
-# robots.txt for https://lewis405.github.io/lewis-portfolio/
-# All legitimate search engines are welcome to crawl the whole site,
-# including CSS, JavaScript and images needed to render the page.
-
-User-agent: *
-Allow: /
-
-Sitemap: https://lewis405.github.io/lewis-portfolio/sitemap.xml
