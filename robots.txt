@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lewis405.github.io/lewis-portfolio/sitemap.xml

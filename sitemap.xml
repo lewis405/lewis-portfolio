@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://lewis405.github.io/lewis-portfolio/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lewis405.github.io/lewis-portfolio/githaiga-lewis-wanjohi-profile.png</image:loc>
+      <image:title>Githaiga Lewis Wanjohi, Digital Marketing Specialist, Nairobi, Kenya</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lewis405.github.io/lewis-portfolio/lewis-wanjohi-kiti-graduation-university-of-nairobi.jpeg</image:loc>
+      <image:title>Lewis Wanjohi KITI graduation, University of Nairobi</image:title>
+    </image:image>
+  </url>
+</urlset>
